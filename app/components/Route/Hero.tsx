@@ -4,7 +4,8 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-import HeroImage from "../../../public/assests/formalphoto.png";
+// import HeroImage from "../../../public/assests/formalphoto.png";
+import HeroImage from "../../../public/assests/AdminImage.jpg";
 import SpokenEnglishImage from "../../../public/assests/spoken_english.jpg";
 import IeltsImage from "../../../public/assests/Ielts.jpg";
 import GrammarCourseImage from "../../../public/assests/Grammar-Course.jpg";
@@ -16,12 +17,13 @@ const Hero: React.FC = () => {
       <div className="w-full flex flex-col lg:flex-row items-center pt-20 px-4 lg:px-20 overflow-hidden">
         {/* Animation Circle with Hero Image */} 
         <div className="relative flex items-center justify-center mx-7 my-5 mt-6 pt-10 px-6 py-8">
-          <div className="rounded-full hero_animation bg-gradient-to-r dark:from-blue-400 dark:to-purple-100 from-blue-600 to-purple-600 
+          <div className="rounded-full hero_animation bg-gradient-to-r dark:from-blue-500 dark:to-purple-100 from-blue-300 to-purple-400 
           opacity-60 h-[20vh] w-[30vh] lg:h-[500px] lg:w-[500px] xl:h-[500px] xl:w-[500px] shadow-lg overflow-hidden object-contain"></div>
           <Image
             src={HeroImage}
             alt="Hero Image"
-            className="absolute rounded-full object-contain w-[80%] lg:max-w-[80%] xl:max-w-[70%] h-auto"
+            // className="absolute rounded-full object-contain w-[80%] lg:max-w-[80%] xl:max-w-[70%] h-auto"
+            className="absolute w-[90%] lg:max-w-[80%] xl:max-w-[80%] aspect-square rounded-full overflow-hidden"
             priority
             width={500}
             height={500}

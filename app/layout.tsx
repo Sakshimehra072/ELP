@@ -1,9 +1,11 @@
+'use client'
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { Josefin_Sans } from "next/font/google";
 import { ThemeProvider } from './utils/theme-provider';
-import Loader from "./components/Loader/Loader";
+import { Providers } from "./Provider";
+import {Toaster} from 'react-hot-toast'
 
 
 const poppins = Poppins({
@@ -27,22 +29,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.variable} ${josefin.variable} antialiased !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-black duration-300`}
-      > 
+      >
+        <Providers>
         <ThemeProvider attribute="class" defaultTheme= "system" enableSystem>
-          <Custom>{children}</Custom>
+        {children}
+        <Toaster position='top-center' reverseOrder={false}/>
         </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
-}
-
-const Custom : React.FC<{children : React.ReactNode}> = ({children}) => {
-  const {isLoading} = useLoadUserQuery({});
-  return (
-    <>
-    {
-      isLoading ? <Loader/> : <> {children} </>
-    }
-    </>
-  )
 }
