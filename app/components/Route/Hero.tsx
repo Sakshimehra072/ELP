@@ -4,8 +4,8 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-// import HeroImage from "../../../public/assests/formalphoto.png";
-import HeroImage from "../../../public/assests/AdminImage.jpg";
+import HeroImage from "../../../public/assests/AdminImage-removebg.png";
+// import HeroImage from "../../../public/assests/AdminImage.jpg";
 import SpokenEnglishImage from "../../../public/assests/spoken_english.jpg";
 import IeltsImage from "../../../public/assests/Ielts.jpg";
 import GrammarCourseImage from "../../../public/assests/Grammar-Course.jpg";
@@ -22,11 +22,12 @@ const Hero: React.FC = () => {
           <Image
             src={HeroImage}
             alt="Hero Image"
-            // className="absolute rounded-full object-contain w-[80%] lg:max-w-[80%] xl:max-w-[70%] h-auto"
-            className="absolute w-[90%] lg:max-w-[80%] xl:max-w-[80%] aspect-square rounded-full overflow-hidden"
-            priority
-            width={500}
-            height={500}
+            // // className="absolute rounded-full object-contain w-[80%] lg:max-w-[80%] xl:max-w-[70%] h-auto"
+            // className="absolute w-[90%] lg:max-w-[80%] xl:max-w-[80%] aspect-square rounded-full overflow-hidden"
+            className="absolute w-[90%] lg:max-w-[80%] xl:max-w-[100%] aspect-square rounded-full h-auto overflow-hidden"
+            // priority
+            // width={500}
+            // height={500}
           />
         </div>
 
