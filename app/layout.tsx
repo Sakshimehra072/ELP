@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { Josefin_Sans } from "next/font/google";
 import { ThemeProvider } from './utils/theme-provider';
+import Loader from "./components/Loader/Loader";
 
 
 const poppins = Poppins({
@@ -26,11 +27,22 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.variable} ${josefin.variable} antialiased !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-black duration-300`}
-      >
+      > 
         <ThemeProvider attribute="class" defaultTheme= "system" enableSystem>
-        {children}
+          <Custom>{children}</Custom>
         </ThemeProvider>
       </body>
     </html>
   );
+}
+
+const Custom : React.FC<{children : React.ReactNode}> = ({children}) => {
+  const {isLoading} = useLoadUserQuery({});
+  return (
+    <>
+    {
+      isLoading ? <Loader/> : <> {children} </>
+    }
+    </>
+  )
 }
