@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import React, { FC, useState, } from 'react';
+import React, { FC, useEffect, useState, } from 'react';
 import NavItems from "../utils/NavItems";
 import { ThemeSwitcher } from "../utils/ThemeSwitcher";
 import { HiOutlineMenuAlt3, HiOutlineUserCircle } from "react-icons/hi";
@@ -10,8 +10,8 @@ import SignUp from "../components/Auth/SignUp";
 import Verification from "../components/Auth/Verification"
 import { useSelector } from "react-redux";
 import Image from "next/image";
-// import avatar from "../../public/assests/avatar.jpg"
-import avatar from "../../public/assests/formalphoto.png"
+import avatar from "../../public/assests/avatar.jpg"
+// import avatar from "../../public/assests/formalphoto.png"
 type Props = {
     open: boolean;
     setOpen: (open: boolean) => void;
@@ -22,7 +22,11 @@ type Props = {
 
 const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
     const [active, setActive] = useState(false);
-    const [openSidebar, setOpenSidebar] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(
+        typeof window !== "undefined" 
+        ? localStorage.getItem('sidebarOpen') === "true"
+        : false
+    );
     const { user } = useSelector((state: any) => state.auth);
 
     if (typeof window !== "undefined") {
@@ -40,6 +44,12 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
             setOpenSidebar(false);
           }
     };
+
+    useEffect(()=> {
+        if(typeof window !== 'undefined'){
+            localStorage.setItem("sidebarOpen", JSON.stringify(openSidebar));
+        }
+    },[openSidebar])
 
     return (
         <div className="w-full fixed">
