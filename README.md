@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+
+
+Header 
+in handleClose -> setOpen(false) ---- {}
+
+
+client -> pages -> api -> auth -> [...nextauth].ts
+in here, login with google auth code is written 
+
+npm i next-auth
+
+Logout logic :
+1. client -> app -> component -> Profile -> Profile.tsx 
+2. client -> redux -> feature -> auth -> authApi 
+3. client -> app -> component ->Header (in const Header and in useEffect)

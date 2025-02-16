@@ -5,11 +5,13 @@ import * as Yup from "yup";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { styles } from '../../../app/styles/style';
+import { styles } from '../../styles/style';
 import { useLoginMutation } from '@/redux/features/auth/authApi';
 import toast from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
 
 // import {useNavigation} from "react-router-dom";
+
 
 type Props = {
     setRoute: (route: string) => void;
@@ -31,26 +33,22 @@ const Login: FC<Props> = ({ setRoute, setOpen }) => {
         onSubmit: async ({ email, password }) => {
             await login({email,password})
             // console.log(email, password);
-        }
+        },
     });
 
     useEffect(() => {
-
         if(isSuccess){
             toast.success("Login Successfully");
             setOpen(false);
+            // refetch();
         }
         if(error){
             if("data" in error){
                 const errorData = error as any;
-                toast.error(errorData.data.message)
+                toast.error(errorData.data.message);
             }
-        }
-    
-    }, [isSuccess, error])
-    
-
-
+        }        
+    }, [isSuccess,error]); 
 
     const { errors, touched, values, handleChange, handleSubmit } = formik;
 
@@ -123,8 +121,12 @@ const Login: FC<Props> = ({ setRoute, setOpen }) => {
                     or join with
                 </h5>
                 <div className="flex items-center justify-center my-3">
-                    <FcGoogle size={30} className="cursor-pointer mr-2" />
-                    <FaFacebook size={30} className="cursor-pointer ml-2" />
+                    <FcGoogle size={30} className="cursor-pointer mr-2" 
+                    onClick={() => signIn("google")}
+                    />
+                    <FaFacebook size={30} className="cursor-pointer ml-2"
+                    onClick={() => signIn("facebook")}
+                    />
                 </div>
                 <h5 className="text-center dark:text-white text-black pt-4 font-Poppins text-[14px]">
                     Not have any account?{" "}

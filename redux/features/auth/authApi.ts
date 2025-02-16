@@ -1,13 +1,11 @@
 import {apiSlice} from "../api/apiSlice"; 
-import  { userLoggedIn, userRegistration } from "./authSlice";
+import  { userLoggedIn, userLoggedOut, userRegistration } from "./authSlice";
 
 type RegistrationResponse = {
     message: string;
     activationToken: string;     
 }
-
 type RegistrationData = {}
-
 
 export const authApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -41,6 +39,9 @@ export const authApi = apiSlice.injectEndpoints({
                 },                
             }),
         }), 
+
+        // Login Authentication (manually)
+
         login: builder.mutation({
             query:({email,password}) => ({
                 url:"login",
@@ -51,13 +52,12 @@ export const authApi = apiSlice.injectEndpoints({
                 },
                 Credentials: "include" as const,
             }),
-
             async onQueryStarted(arg, {queryFulfilled, dispatch}){
                 try{
                     const result = await queryFulfilled;
                     dispatch(
                         userLoggedIn({
-                            accessToken: result.data.activationToken, 
+                            accessToken: result.data.acessToken, 
                             user: result.data.user,                           
                         })
                     ); 
@@ -65,10 +65,60 @@ export const authApi = apiSlice.injectEndpoints({
                     console.log(error);
                 }
             }
+        }),
 
+        // Social Authentication (login with google)
 
-        })
+        socialAuth: builder.mutation({
+            query:({email,name,avatar}) => ({
+                url:"social-auth",
+                method:"POST",
+                body:{
+                    email,
+                   name,
+                   avatar,
+                },
+                Credentials: "include" as const,
+            }),
+            async onQueryStarted(arg, {queryFulfilled, dispatch}){
+                try{
+                    const result = await queryFulfilled;
+                    dispatch(
+                        userLoggedIn({
+                            accessToken: result.data.acessToken, 
+                            user: result.data.user,                           
+                        })
+                    ); 
+                } catch (error: any) {                    
+                    console.log(error);
+                }
+            },
+        }),
+
+// Logout authentication
+
+        logOut: builder.query({
+            query:() => ({
+                url:"logout",
+                method:"GET",
+                Credentials: "include" as const,
+            }),
+            async onQueryStarted(arg, {queryFulfilled, dispatch}){
+                try{
+                    dispatch(
+                        userLoggedOut()
+                    ); 
+                } catch (error: any) {                    
+                    console.log(error);
+                }
+            },
+        }),
     }),
 }); 
                                                                                                                                                                                                                          
-export const {useRegisterMutation, useActivationMutation, useLoginMutation} = authApi;
+export const {useRegisterMutation, 
+    useActivationMutation, 
+    useLoginMutation, 
+    useSocialAuthMutation, 
+    useLogOutQuery
+} = authApi;
