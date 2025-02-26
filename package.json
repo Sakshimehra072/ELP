@@ -12,7 +12,11 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.4",
+<<<<<<< HEAD
     "@mui/material": "^6.4.4",
+=======
+    "@mui/material": "^6.4.3",
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
     "formik": "^2.4.6",
@@ -26,8 +30,14 @@
     "react-icons": "^5.4.0",
     "react-pro-sidebar": "^0.7.1",
     "react-redux": "^9.2.0",
+<<<<<<< HEAD
     "socket.io-client": "^4.8.1",
     "timeago.js": "^4.0.2",
+=======
+    "react-toastify": "^11.0.3",
+    "repl": "^0.1.3",
+    "toaster": "^0.1.2",
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
     "yup": "^1.6.1"
   },
   "devDependencies": {

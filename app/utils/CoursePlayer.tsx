@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -6,6 +10,7 @@ type Props = {
   title: string;
 };
 
+<<<<<<< HEAD
 const CoursePlayer: FC<Props> = ({ videoUrl}) => {
   const [videoData, setVideoData] = useState({
     otp: "",
@@ -13,6 +18,16 @@ const CoursePlayer: FC<Props> = ({ videoUrl}) => {
   });
 
   useEffect(() => {
+=======
+const CoursePlayer: FC<Props> = ({ videoUrl, title }) => {
+  const [videoData, setVideoData] = useState({
+    otp: "",
+    playbackInfo: "",
+  }); 
+
+  useEffect(() => {
+    
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
     axios
       .post("http://localhost:8000/api/v1/getVdoCipherOTP", {
         videoId: videoUrl,
@@ -45,4 +60,8 @@ const CoursePlayer: FC<Props> = ({ videoUrl}) => {
   );
 };
 
+<<<<<<< HEAD
 export default CoursePlayer;  
+=======
+export default CoursePlayer;
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef

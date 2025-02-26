@@ -11,6 +11,7 @@ import Verification from "../components/auth/Verification"
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import avatar from "../../public/assests/avatar.jpg"
+<<<<<<< HEAD
 import { useSession } from "next-auth/react";
 import {
     useLogOutQuery, 
@@ -19,6 +20,9 @@ import {
 import toast from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 
+=======
+// import avatar from "../../public/assests/formalphoto.png"
+>>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 type Props = {
     open: boolean;
     setOpen: (open: boolean) => void;
@@ -29,7 +33,11 @@ type Props = {
 
 const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
     const [active, setActive] = useState(false);
-    const [openSidebar, setOpenSidebar] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(
+        typeof window !== "undefined" 
+        ? localStorage.getItem('sidebarOpen') === "true"
+        : false
+    );
     const { user } = useSelector((state: any) => state.auth);
     const {
         refetch,
@@ -73,6 +81,12 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
             setOpenSidebar(false);
         }
     };
+
+    useEffect(()=> {
+        if(typeof window !== 'undefined'){
+            localStorage.setItem("sidebarOpen", JSON.stringify(openSidebar));
+        }
+    },[openSidebar])
 
     return (
         <div className="w-full fixed">
