@@ -72,7 +72,6 @@ const AdminSidebar = () => {
         "& .pro-sidebar-inner": {
           background: `${
             theme === "dark" ? "#111C43 !important" : "#fff !important"
-            
           }`,
         },
         "& .pro-icon-wrapper": {
@@ -92,9 +91,7 @@ const AdminSidebar = () => {
           color: `${theme !== "dark" && "#000"}`,
         },
       }}
-      className={`${
-        theme === "dark" ? "bg-[#111C43]" : "bg-white"
-      } text-${theme === "dark" ? "[#ffffffc1]" : "black"}`}
+      className="!bg-white dark:bg-[#111C43]"
     >
       <ProSidebar
         collapsed={isCollapsed}
@@ -122,7 +119,7 @@ const AdminSidebar = () => {
                 ml="15px"
               >
                 <Link href="/">
-                  <h3 className="text-[25px] font-Poopins uppercase dark:text-white text-black">
+                  <h3 className="text-[25px] font-Poppins uppercase dark:text-white text-black">
                     LMS
                   </h3>
                 </Link>
@@ -147,9 +144,9 @@ const AdminSidebar = () => {
                     cursor: "pointer",
                     borderRadius: "50%",
                     border: "3px solid #5b6fe6",
-                    // width: "100px",
-                    // height: "100px",
-                    // objectFit: "cover",
+                    width: "100px",
+                    height: "100px",
+                    objectFit: "cover",
                   }}
                 />
               </Box>
@@ -182,9 +179,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 25px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Data"}
             </Typography>
@@ -205,9 +200,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Content"}
             </Typography>
@@ -228,9 +221,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Customization"}
             </Typography>
@@ -258,9 +249,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Controllers"}
             </Typography>
@@ -274,9 +263,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Analytics"}
             </Typography>
@@ -304,9 +291,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h6"
               sx={{ m: "15px 0 5px 20px" }}
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
+              className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Extras"}
             </Typography>

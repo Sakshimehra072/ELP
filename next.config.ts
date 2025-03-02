@@ -1,22 +1,8 @@
-import { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    domains: ['edmy-react.hibootstrap.com', 'img.freepik.com'], // Add all external domains used for images
+    domains: ["res.cloudinary.com", "randomuser.me"],
   },
 };
 
-export default nextConfig;
-
-
-
-
-
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
+module.exports = nextConfig;

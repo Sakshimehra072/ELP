@@ -1,8 +1,8 @@
 'use client'
-import { configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "./features/api/apiSlice";
-import authSlice from "./features/auth/authSlice";
-import {} from "./features/api/apiSlice";
+import { configureStore } from "@reduxjs/toolkit"
+import { apiSlice } from "./features/api/apiSlice"
+import authSlice from "./features/auth/authSlice"
+// import {} from "./features/api/apiSlice";
 
 
 export const store = configureStore({
@@ -11,14 +11,20 @@ export const store = configureStore({
         auth: authSlice
     },
     devTools: false,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
+    middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 
 // Call the refresh token function on every page load
 const initializeApp = async () => {
-    await store.dispatch(apiSlice.endpoints.refreshToken.initiate({}, { forceRefetch: true }))
-    await store.dispatch(apiSlice.endpoints.loadUser.initiate({}, { forceRefetch: true }))
-}
+    // await store.dispatch(
+    //     apiSlice.endpoints.refreshToken.initiate({}, {forceRefetch: true })
+    // );
+
+    await store.dispatch(
+        apiSlice.endpoints.loadUser.initiate({}, { forceRefetch : true })
+    );
+};
  
-initializeApp();
+initializeApp(); 

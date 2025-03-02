@@ -1,4 +1,3 @@
-
 import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -7,14 +6,13 @@ type Props = {
   title: string;
 };
 
-const CoursePlayer: FC<Props> = ({ videoUrl, title }) => {
+const CoursePlayer: FC<Props> = ({ videoUrl}) => {
   const [videoData, setVideoData] = useState({
     otp: "",
     playbackInfo: "",
-  }); 
+  });
 
   useEffect(() => {
-    
     axios
       .post("http://localhost:8000/api/v1/getVdoCipherOTP", {
         videoId: videoUrl,
@@ -47,4 +45,4 @@ const CoursePlayer: FC<Props> = ({ videoUrl, title }) => {
   );
 };
 
-export default CoursePlayer;
+export default CoursePlayer;  

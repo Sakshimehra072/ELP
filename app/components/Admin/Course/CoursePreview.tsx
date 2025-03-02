@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import CoursePlayer from "../../../utils/CoursePlayer"
-import { styles } from '@/app/styles/style';
-import Ratings from '@/app/utils/Ratings';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+import { styles } from "@/app/styles/style";
+import CoursePlayer from "@/app/utils/CoursePlayer";
+import Ratings from "@/app/utils/Ratings";
+import React, { FC } from "react";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 type Props = {
   active: number;
@@ -10,42 +10,38 @@ type Props = {
   courseData: any;
   handleCourseCreate: any;
   isEdit?: boolean;
-}
+};
 
 const CoursePreview: FC<Props> = ({
-    courseData,
-    handleCourseCreate,
-    setActive,
-    active,
-    isEdit,
+  courseData,
+  handleCourseCreate,
+  setActive,
+  active,
+  isEdit,
 }) => {
-
   const discountPercentenge =
-  ((courseData?.estimatedPrice - courseData?.price) /
-    courseData?.estimatedPrice) *
-  100;
+    ((courseData?.estimatedPrice - courseData?.price) /
+      courseData?.estimatedPrice) *
+    100;
 
-const discountPercentengePrice = discountPercentenge.toFixed(0);
+  const discountPercentengePrice = discountPercentenge.toFixed(0);
 
-const prevButton = () => {
-  setActive(active - 1);
-};
+  const prevButton = () => {
+    setActive(active - 1);
+  };
 
-const createCourse = () => {
-  handleCourseCreate();
-};
-
-
+  const createCourse = () => {
+    handleCourseCreate();
+  };
 
   return (
     <div className="w-[80%] mt-24 py-5 m-auto mb-5">
-        <div className="w-full relative">
+      <div className="w-full relative">
         <CoursePlayer
           videoUrl={courseData?.demoUrl}
           title={courseData?.title}
         />
       </div>
-
       <div className="flex items-center">
         <h1 className="pt-5 text-[25px]">
           {courseData?.price === 0 ? "Free" : courseData?.price + "5"}$
@@ -81,15 +77,14 @@ const createCourse = () => {
           Apply
         </div>
       </div>
-
       <p className="pb-1">* Source code included</p>
-      <p className="pb-1">* Full life time access</p>
-      <p className="pb-1">* Certification of completion</p>
-      <p className="pb-1 800px:pb-1">*Premium Support</p>
+      <p className="pb-1">* Source code included</p>
+      <p className="pb-1">* Source code included</p>
+      <p className="pb-1 800px:pb-1">* Source code included</p>
 
-      <div  className="w-full">
+      <div className="w-full">
         <div className="w-full 800px:pr-5">
-        <h1 className="text-[25px] font-Poppins font-[600]">
+          <h1 className="text-[25px] font-Poppins font-[600]">
             {courseData?.name}
           </h1>
           <div className="flex items-center justify-between pt-3">
@@ -101,11 +96,9 @@ const createCourse = () => {
           </div>
           <br />
         </div>
-
         <h1 className="text-[25px] font-Poppins font-[600]">
           What you will learn from this course?
         </h1>
-
         {courseData?.benefits?.map((item: any, index: number) => (
           <div className="w-full flex 800px:items-center py-2" key={index}>
             <div className="w-[15px] mr-1">
@@ -114,10 +107,8 @@ const createCourse = () => {
             <p className="pl-2">{item.title}</p>
           </div>
         ))}
-
-         <br />
         <br />
-
+        <br />
         <h1 className="text-[25px] font-Poppins font-[600]">
           What are the prerequisites for starting this course?{" "}
         </h1>
@@ -131,9 +122,8 @@ const createCourse = () => {
         ))}
         <br />
         <br />
-
-         {/* course description */}
-         <div className="w-full">
+        {/* course description */}
+        <div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600[">
             Course Details
           </h1>
@@ -141,11 +131,9 @@ const createCourse = () => {
             {courseData?.description}
           </p>
         </div>
-
         <br />
         <br />
       </div>
-
       <div className="w-full flex items-center justify-between">
         <div
           className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
@@ -160,9 +148,8 @@ const createCourse = () => {
           {isEdit ? "Update" : "Create"}
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default CoursePreview
+export default CoursePreview;

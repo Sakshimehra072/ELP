@@ -1,9 +1,9 @@
 // "use client";
-import React, { useRef,useEffect, useState, FC } from 'react';
+import React, { useRef, useEffect, useState, FC } from 'react';
 import { useActivationMutation } from '@/redux/features/auth/authApi';
 import { toast } from 'react-hot-toast';
 import { VscWorkspaceTrusted } from "react-icons/vsc";
-import { styles } from "../../../app/styles/style";
+import { styles } from "../../styles/style";
 import { useSelector } from 'react-redux';
 
 
@@ -19,19 +19,19 @@ type VerifyNumber = {
 }
 
 const Verification: FC<Props> = ({ setRoute }) => {
-  const { token } = useSelector((state: any) => state.auth); 
-  const [activation, {isSuccess, error}] = useActivationMutation() 
+  const { token } = useSelector((state: any) => state.auth);
+  const [activation, { isSuccess, error }] = useActivationMutation()
   const [invalidError, setInvalidError] = useState<boolean>(false);
 
   useEffect(() => {
-    if(isSuccess) {
+    if (isSuccess) {
       toast.success("Account activated successfully")
       setRoute("Login")
     };
     if (error) {
       if ("data" in error) {
         const errorData = error as any;
-        toast.error(errorData.data.message);        
+        toast.error(errorData.data.message);
         setInvalidError(true)
       } else {
         console.log("An error occured:", error)
@@ -40,7 +40,7 @@ const Verification: FC<Props> = ({ setRoute }) => {
   }, [isSuccess, error, setRoute])
 
   const inputRefs = [
-    useRef<HTMLInputElement>(null), 
+    useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
@@ -96,16 +96,15 @@ const Verification: FC<Props> = ({ setRoute }) => {
             key={key}
             ref={inputRefs[index]}
 
-            className={`w-[65px] h-[65px] bg-transparent border-[3px] ${
-              invalidError ? "shake border-red-500" : "dark:border-white border-[#1c1e1f]"
-            } rounded-[10px] flex items-center text-black dark:text-white text-center justify-center text-[18px] font-Poppins outline-none`}
-            
+            className={`w-[65px] h-[65px] bg-transparent border-[3px] ${invalidError ? "shake border-red-500" : "dark:border-white border-[#1c1e1f]"
+              } rounded-[10px] flex items-center text-black dark:text-white text-center justify-center text-[18px] font-Poppins outline-none`}
 
-          //   className={`w-[65px] h-[65px] bg-transparent border-[3px] dark:border-[#566369] border-[#6a7070] rounded=[10px] flex items-center text-black dark:text-white text-center justify-center text-[18px] font-Poppins outline-none'
-          //   invalidError
-          //   ? "shake border-red-500"
-          //   : "dark:border-white border-[#1c1e1f]"
-          // }`}
+
+            //   className={`w-[65px] h-[65px] bg-transparent border-[3px] dark:border-[#566369] border-[#6a7070] rounded=[10px] flex items-center text-black dark:text-white text-center justify-center text-[18px] font-Poppins outline-none'
+            //   invalidError
+            //   ? "shake border-red-500"
+            //   : "dark:border-white border-[#1c1e1f]"
+            // }`}
             placeholder=''
             maxLength={1}
             value={verifyNumber[key as keyof VerifyNumber]}
