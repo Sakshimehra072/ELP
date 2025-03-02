@@ -5,17 +5,10 @@ import CourseInformation from "./CourseInformation"
 import CourseData from "./CourseData"
 import CourseContent from "./CourseContent"
 import CoursePreview from "./CoursePreview"
-<<<<<<< HEAD
 import { useCreateCourseMutation } from "@/redux/features/courses/coursesApi";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
 import CourseOptions from "./CourseOptions";
-=======
-import CourseOptions from "./CourseOptions"
-import { useCreateCourseMutation } from "@/redux/features/courses/coursesApi";
-import toast from "react-hot-toast";
-import { redirect } from "next/navigation";
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 
 type Props = {}
 
@@ -26,7 +19,7 @@ const CreateCourse = (props: Props) => {
       if (isSuccess) {
         toast.success("Course success successfully");
   
-        redirect("/get-all-courses");
+        redirect("/admin/courses");
       }
       if (error) {
         if ("data" in error) {

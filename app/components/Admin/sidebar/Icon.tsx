@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
@@ -36,8 +32,4 @@ export {
     ManageHistoryIcon,
     SettingsIcon,
     ExitToAppIcon,
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef

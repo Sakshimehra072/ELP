@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 import { apiSlice } from "../api/apiSlice";
 
 export const courseApi = apiSlice.injectEndpoints({
@@ -28,7 +24,7 @@ export const courseApi = apiSlice.injectEndpoints({
     }),
     deleteCourse: builder.mutation({
       query: (id) => ({
-        url: "delete-course",
+        url: `delete-course/${id}`,
         method: "DELETE",
         body: { id },
         credentials: "include" as const,
@@ -123,11 +119,7 @@ export const {
   useGetCourseDetailsQuery,
   useGetCourseContentQuery,
   useAddNewQuestionMutation,
-<<<<<<< HEAD
   useAddAnswerInQuestionMutation,
-=======
-  useAddAnwerInQuestionMutation,
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
   useAddReviewInCourseMutation,
   useAddReplyInReviewMutation,
 } = courseApi;

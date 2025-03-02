@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 "use client";
 import { FC, JSX, useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
@@ -76,10 +72,6 @@ const AdminSidebar = () => {
         "& .pro-sidebar-inner": {
           background: `${
             theme === "dark" ? "#111C43 !important" : "#fff !important"
-<<<<<<< HEAD
-=======
-            
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
           }`,
         },
         "& .pro-icon-wrapper": {
@@ -99,13 +91,7 @@ const AdminSidebar = () => {
           color: `${theme !== "dark" && "#000"}`,
         },
       }}
-<<<<<<< HEAD
       className="!bg-white dark:bg-[#111C43]"
-=======
-      className={`${
-        theme === "dark" ? "bg-[#111C43]" : "bg-white"
-      } text-${theme === "dark" ? "[#ffffffc1]" : "black"}`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
     >
       <ProSidebar
         collapsed={isCollapsed}
@@ -133,11 +119,7 @@ const AdminSidebar = () => {
                 ml="15px"
               >
                 <Link href="/">
-<<<<<<< HEAD
                   <h3 className="text-[25px] font-Poppins uppercase dark:text-white text-black">
-=======
-                  <h3 className="text-[25px] font-Poopins uppercase dark:text-white text-black">
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
                     LMS
                   </h3>
                 </Link>
@@ -162,15 +144,9 @@ const AdminSidebar = () => {
                     cursor: "pointer",
                     borderRadius: "50%",
                     border: "3px solid #5b6fe6",
-<<<<<<< HEAD
                     width: "100px",
                     height: "100px",
                     objectFit: "cover",
-=======
-                    // width: "100px",
-                    // height: "100px",
-                    // objectFit: "cover",
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
                   }}
                 />
               </Box>
@@ -203,13 +179,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 25px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Data"}
             </Typography>
@@ -230,13 +200,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Content"}
             </Typography>
@@ -257,13 +221,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Customization"}
             </Typography>
@@ -291,13 +249,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Controllers"}
             </Typography>
@@ -311,13 +263,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Analytics"}
             </Typography>
@@ -345,13 +291,7 @@ const AdminSidebar = () => {
             <Typography
               variant="h6"
               sx={{ m: "15px 0 5px 20px" }}
-<<<<<<< HEAD
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
-=======
-              className={`!text-[18px] !font-[400] ${
-                theme === "dark" ? "text-[#ffffffc1]" : "text-black"
-              } capitalize`}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
             >
               {!isCollapsed && "Extras"}
             </Typography>
@@ -378,8 +318,4 @@ const AdminSidebar = () => {
   );
 };
 
-<<<<<<< HEAD
 export default AdminSidebar;
-=======
-export default AdminSidebar;
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef

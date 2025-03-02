@@ -1,24 +1,15 @@
 "use client"
 
-import Heading from "../utils/Heading"
-<<<<<<< HEAD
-import AdminSidebar from "../components/Admin/sidebar/AdminSidebar";
-import DashboardHero from "../components/Admin/sidebar/DashboardHero";
-
-
-
-=======
-import AdminSidebar from "../components/Admin/sidebar/AdminSidebar"
-// import AdminProtected from "../hooks/adminProtected"
 import DashboardHero from "../components/Admin/DashboardHero"
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
+import AdminSidebar from "../components/Admin/sidebar/AdminSidebar"
+import Heading from "../utils/Heading"
+
 
 type Props = {}
 
 const page = (props: Props) => {
   return (
     <div>
-<<<<<<< HEAD
         <Heading
         title="LMS - Admin"
         description="LMS is a platform for students to learn and get help from teachers"
@@ -29,10 +20,9 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
-            <DashboardHero />
+            <DashboardHero/>
           </div>
         </div>
-=======
     {/* <AdminProtected> */}
     <Heading
     title= "Elearning-Admin"
@@ -48,7 +38,6 @@ const page = (props: Props) => {
         </div>
     </div>
     {/* </AdminProtected> */}
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
     </div>
   )
 }

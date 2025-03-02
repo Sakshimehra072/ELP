@@ -21,14 +21,6 @@ input::-webkit-inner-spin-button
   margin: 0; 
 }
 
-<<<<<<< HEAD
-=======
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 ::-webkit-scrollbar-track {
   background: #1771c6;
 }
@@ -48,10 +40,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 body {
   color: var(--foreground);
   background: var(--background);

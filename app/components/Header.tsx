@@ -11,7 +11,6 @@ import Verification from "../components/auth/Verification"
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import avatar from "../../public/assests/avatar.jpg"
-<<<<<<< HEAD
 import { useSession } from "next-auth/react";
 import {
     useLogOutQuery, 
@@ -20,9 +19,6 @@ import {
 import toast from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 
-=======
-// import avatar from "../../public/assests/formalphoto.png"
->>>>>>> bc4c904da31581c701dce1b672f7afd58c3668ef
 type Props = {
     open: boolean;
     setOpen: (open: boolean) => void;
