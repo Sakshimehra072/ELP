@@ -54,3 +54,10 @@ Logout logic :
 1. client -> app -> component -> Profile -> Profile.tsx 
 2. client -> redux -> feature -> auth -> authApi 
 3. client -> app -> component ->Header (in const Header and in useEffect)
+
+
+4 bg- color ----> layout (line 33 dark-to-slate-900)
+
+comment out all header code
+
+ELP > routes > user.routes ----> update-user-password [updateUserPassword instesd of updatePassword]
