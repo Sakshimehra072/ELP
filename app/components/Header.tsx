@@ -29,7 +29,11 @@ type Props = {
 
 const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
     const [active, setActive] = useState(false);
-    const [openSidebar, setOpenSidebar] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(
+        typeof window !== "undefined" 
+        ? localStorage.getItem('sidebarOpen') === "true"
+        : false
+    );
     const { user } = useSelector((state: any) => state.auth);
     const { data: userData, refetch, isFetching } = useLoadUserQuery(undefined, { refetchOnMountOrArgChange: true });
 
@@ -69,6 +73,12 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
             setOpenSidebar(false);
         }
     };
+
+    useEffect(()=> {
+        if(typeof window !== 'undefined'){
+            localStorage.setItem("sidebarOpen", JSON.stringify(openSidebar));
+        }
+    },[openSidebar])
 
     return (
         <div className="w-full fixed z-50"> {/* Ensured z-index for better stacking */}

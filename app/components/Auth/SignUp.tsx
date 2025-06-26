@@ -47,6 +47,8 @@ const Signup: FC<Props> = ({ setRoute }) => {
         validationSchema: schema,
         onSubmit: async ({ name, email, password }) => {
             // setRoute("Verification")
+            console.log("Submitting:", { name, email, password }); // ✅ DEBUG LINE
+
             const data = {
                 name, email, password
             };
@@ -71,7 +73,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
                     </label>
                     <input
                         type="text"
-                        name=""
+                        name="name"
                         value={values.name}
                         onChange={handleChange}
                         id="name"
