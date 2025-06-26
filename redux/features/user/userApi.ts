@@ -14,31 +14,31 @@ export const userApi = apiSlice.injectEndpoints({
             query: ({ name }) => ({
                 url: "update-user-info", 
                 method: "PUT",
-                body: { name }, 
+                body: { name },  
                 credentials: "include" as const
             })
         }),
         updatePassword: builder.mutation({
             query: ({ oldPassword, newPassword }) => ({
-                url: "update-user-password"
-                , method: "PUT"
-                , body: { oldPassword, newPassword }
-                , credentials: "include" as const
+                url: "update-user-password", 
+                method: "PUT",
+                body: { oldPassword, newPassword },
+                 credentials: "include" as const
             })
         }),
-        getAllUsers: builder.query({
+        getAllUsers: builder.query( {
             query: () => ({
-                url: "get-all-users"
-                , method: "GET"
-                , credentials: "include" as const
+                url: "get-all-users",
+                method: "GET",
+                credentials: "include" as const
             })
         }),
         updateUserRole: builder.mutation({
             query: ({ email, role }) => ({
-                url: "update-user-role"
-                , method: "PUT",
-                body: { email, role }
-                , credentials: "include" as const
+                url: "update-user-role",
+                method: "PUT",
+                body: { email, role },
+                credentials: "include" as const
             })
         }),
         deleteUser: builder.mutation({

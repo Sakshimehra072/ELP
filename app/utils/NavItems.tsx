@@ -34,7 +34,7 @@ type Props = {
 const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
     return (
         <>
-            <div className="hidden 800px:flex">
+            <div className="hidden 800px:flex z-0 top-0 left-0 flex-wrap ">
                 {
                     navItemsData && navItemsData.map((i, index) => (
                         <Link href={`${i.url}`} key={index} passHref>
