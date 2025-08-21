@@ -5,10 +5,6 @@ import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
 import AllCourses  from "../../components/Admin/Course/AllCourses"
 
-
-
-
-
 type Props = {}
 
 const page = (props: Props) => {

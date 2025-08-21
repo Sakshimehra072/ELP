@@ -239,7 +239,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
                   <select
                     name=""
                     id=""
-                    className={`${styles.input}`}
+                    className={`${styles.input} bg-white dark:bg-gray-800` }
                     onChange={(e) => setRole(e.target.value)}
                   >
                     <option value="admin">Admin</option>

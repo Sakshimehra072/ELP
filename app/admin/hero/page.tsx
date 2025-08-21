@@ -3,12 +3,8 @@
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
 import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
-import AllUsers  from "../../components/Admin/Course/AllUsers"
+import EditHero  from "../../components/Admin/Customization/EditHero"
 import AdminProtected from "@/app/hooks/adminProtected"
-
-
-
-
 
 type Props = {}
 
@@ -27,7 +23,7 @@ const page = (props: Props) => {
           </div>
           <div className="w-[85%]">
             <DashboardHero />
-            <AllUsers isTeam={true}/>
+            <EditHero/>
           </div>
         </div>
         </AdminProtected>

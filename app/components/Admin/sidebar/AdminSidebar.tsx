@@ -190,13 +190,13 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Invoices"
               to="/admin/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
@@ -225,13 +225,13 @@ const AdminSidebar = () => {
             >
               {!isCollapsed && "Customization"}
             </Typography>
-            <Item
+            {/* <Item
               title="Hero"
               to="/admin/hero"
               icon={<WebIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="FAQ"
               to="/admin/faq"
@@ -239,13 +239,13 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Categories"
               to="/admin/categories"
               icon={<WysiwygIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
@@ -260,48 +260,48 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Typography
+            {/* <Typography
               variant="h5"
               sx={{ m: "15px 0 5px 20px" }}
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Analytics"}
-            </Typography>
-            <Item
+            </Typography> */}
+            {/* <Item
               title="Courses Analytics"
               to="/admin/courses-analytics"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Order Analytics"
               to="/admin/order-analytics"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="User Analytics"
               to="/admin/user-analytics"
               icon={<ManageHistoryIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-            <Typography
+            /> */}
+            {/* <Typography
               variant="h6"
               sx={{ m: "15px 0 5px 20px" }}
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Extras"}
-            </Typography>
-            <Item
+            </Typography> */}
+            {/* <Item
               title="Settings"
               to="/admin/settings"
               icon={<SettingsIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <div onClick={logoutHandler}>
               <Item
                 title="Logout"

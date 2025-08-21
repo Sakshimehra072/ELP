@@ -54,7 +54,8 @@ const EditCourse: FC<Props> = ({ id }) => {
         tags: editCourseData.tags,
         level: editCourseData.level,
         demoUrl: editCourseData.demoUrl,
-        thumbnail: editCourseData?.thumbnail?.url,
+        // thumbnail: editCourseData?.thumbnail?.url,
+        thumbnail: editCourseData?.thumbnail, // ✅ keep object, not just url
       });
       setBenefits(editCourseData.benefits);
       setPrerequisites(editCourseData.prerequisites);
@@ -93,6 +94,7 @@ const EditCourse: FC<Props> = ({ id }) => {
   ]);
   const [courseData, setCourseData] = useState({});
 
+  console.log(courseData)
   const handleSubmit = async () => {
     //format benefits array
     const formattedBenefits = benefits.map((benefit) => ({
@@ -125,7 +127,11 @@ const EditCourse: FC<Props> = ({ id }) => {
       price: courseInfo.price,
       estimatedPrice: courseInfo.estimatedPrice,
       tags: courseInfo.tags,
-      thumbnail: courseInfo.thumbnail,
+      // ✅ fix thumbnail handling
+      thumbnail: typeof courseInfo.thumbnail === "string"
+      ? { url: courseInfo.thumbnail } // fallback if it's only base64
+      : courseInfo.thumbnail,
+      // thumbnail: courseInfo.thumbnail,
       level: courseInfo.level,
       demoUrl: courseInfo.demoUrl,
       categories: courseInfo.categories,
