@@ -10,6 +10,11 @@ import SpokenEnglishImage from "../../../public/assests/Spoken-English.jpg";
 import EnglishCourseImage from "../../../public/assests/English_course.jpg";
 import IeltsImage from "../../../public/assests/Ielts.jpg";
 import { Mail, Instagram, Phone, Youtube } from "lucide-react";
+// import { useGetHeroDataQuery } from "@/redux/features/layout/layoutApi";
+
+
+// const Hero: FC<Props> = (props) => {
+//   const { data, refetch } = useGetHeroDataQuery("Banner",{});
 
 const Hero: React.FC = () => {
   return (
@@ -23,7 +28,10 @@ const Hero: React.FC = () => {
     xl:h-[500px] xl:w-[500px] shadow-lg overflow-hidden">
             <Image
               src={HeroImage}
+              // src={data?.layout?.banner?.image?.url}
               alt="Hero Image"
+              // width={500}
+              // height={500}
               className="absolute inset-0 w-full h-full max-w-full max-h-full object-cover rounded-full"
               priority
               width={500}
@@ -38,7 +46,7 @@ const Hero: React.FC = () => {
           <p className="mt-4 px-4 lg:px-0 dark:text-gray-300 text-gray-700 text-sm lg:text-base xl:text-lg">
             We have 40k+ online courses & 500K+ registered students. Find your
             desired courses today.
-          </p>
+          </p>  
           <br />
           <br />
           <div className="mt-6 w-full lg:w-[80%] relative z-10">
@@ -215,6 +223,6 @@ const Hero: React.FC = () => {
       </div>
     </div>
   );
-};
+}; 
 
 export default Hero;
