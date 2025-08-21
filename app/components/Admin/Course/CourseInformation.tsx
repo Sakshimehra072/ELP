@@ -1,5 +1,5 @@
 import { styles } from '@/app/styles/style';
-import React, {FC, useState} from 'react'
+import React, { FC, useState } from 'react'
 
 type Props = {
   courseInfo: any;
@@ -8,14 +8,14 @@ type Props = {
   setActive: (active: number) => void;
 };
 
-const CourseInformation: FC<Props> =  ({
+const CourseInformation: FC<Props> = ({
   courseInfo,
   setCourseInfo,
   active,
   setActive,
-}) =>{
+}) => {
 
-  const [dragging, setDragging] = useState (false);
+  const [dragging, setDragging] = useState(false);
   const [categories, setCategories] = useState([]);
 
   const handleFileChange = (e: any) => {
@@ -43,7 +43,7 @@ const CourseInformation: FC<Props> =  ({
   };
 
   const handleDrop = (e: any) => {
-    e.preventDefault();
+    e.preventDefault(); 
     setDragging(false);
 
     const file = e.dataTransfer.files?.[0];
@@ -52,7 +52,7 @@ const CourseInformation: FC<Props> =  ({
       const reader = new FileReader();
 
       reader.onload = () => {
-        setCourseInfo({ ...courseInfo, thumbnail: reader.result });
+        setCourseInfo({ ...courseInfo,thumbnail : reader.result });
       };
       reader.readAsDataURL(file);
     }
@@ -67,11 +67,11 @@ const CourseInformation: FC<Props> =  ({
   return (
     <div className="w-[80%] m-auto mt-24" >
       <form onSubmit={handleSubmit}>
-      <div>
-      <label htmlFor="" className={`${styles.label}`}>
-          Course Name
-      </label>
-      <input
+        <div>
+          <label htmlFor="" className={`${styles.label}`}>
+            Course Name
+          </label>
+          <input
             type="name"
             name=""
             required
@@ -83,9 +83,9 @@ const CourseInformation: FC<Props> =  ({
             placeholder="MERN stack LMS platform with next 13"
             className={`${styles.input}`}
           />
-      </div>
-      <br/>
-      <div className="mb-5">
+        </div>
+        <br />
+        <div className="mb-5">
           <label htmlFor="" className={`${styles.label}`}>
             Course Description
           </label>
@@ -141,27 +141,27 @@ const CourseInformation: FC<Props> =  ({
               className={`${styles.input}`}
             />
           </div>
-          </div>
+        </div>
 
-          <br />
-          <div>
-            <label htmlFor="" className={`${styles.label}`}>
-              Course Tags
-            </label>
-            <input
-              type="text"
-              name=""
-              required
-              value={courseInfo.tags}
-              onChange={(e: any) => {
-                setCourseInfo({ ...courseInfo, tags: e.target.value });
-              }}
-              id="tags"
-              placeholder="MERN, Next 13, Socket io, Tailwind css, LMS"
-              className={`${styles.input}`}
-            />
-          </div>
-          <br />
+        <br />
+        <div>
+          <label htmlFor="" className={`${styles.label}`}>
+            Course Tags
+          </label>
+          <input
+            type="text"
+            name=""
+            required
+            value={courseInfo.tags}
+            onChange={(e: any) => {
+              setCourseInfo({ ...courseInfo, tags: e.target.value });
+            }}
+            id="tags"
+            placeholder="MERN, Next 13, Socket io, Tailwind css, LMS"
+            className={`${styles.input}`}
+          />
+        </div>
+        <br />
         <div className="w-full flex justify-between">
           <div className="w-[48%]">
             <label htmlFor="" className={`${styles.label}`}>
@@ -213,16 +213,15 @@ const CourseInformation: FC<Props> =  ({
           />
           <label
             htmlFor="file"
-            className={`w-full min-h-[10vh] dark:border-white border-[#00000026] p-3 border flex items-center justify-center ${
-              dragging ? "bg-blue-500" : "bg-transparent"
-            }`}
+            className={`w-full min-h-[10vh] dark:border-white border-[#00000026] p-3 border flex items-center justify-center ${dragging ? "bg-blue-500" : "bg-transparent"
+              }`}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
           >
             {
               courseInfo.thumbnail ? (
-                <img src={courseInfo.thumbnail} alt=""
+                <img src={courseInfo.thumbnail} alt="image not available"
                   className="max-h-full w-full object-cover"
                 />
               ) : (
@@ -230,11 +229,11 @@ const CourseInformation: FC<Props> =  ({
                   Drag and drop your thumbnail here or click to browse
                 </span>
               )
-            } 
+            }
           </label>
-          </div>
+        </div>
 
-          <br />
+        <br />
         <div className="w-full flex items-center justify-end">
           <input
             type="submit"

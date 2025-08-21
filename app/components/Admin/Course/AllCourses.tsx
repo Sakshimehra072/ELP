@@ -8,7 +8,8 @@ import { FiEdit2 } from "react-icons/fi";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useDeleteCourseMutation, useGetAllCoursesQuery } from "@/redux/features/courses/coursesApi";
-import Loader from "../../loader/Loader";
+// import Loader from "../../loader/Loader";
+import Loader from "../../Loader/Loader";
 import { styles } from "@/app/styles/style";
 import {format} from "timeago.js"
 
@@ -91,8 +92,8 @@ const AllCourses: FC<Props> = (props) => {
           title: item.name,
           purchased: item.purchased,
           ratings: item.ratings,
-          // created_at: format(item.createdAt),
-          created_at: format(item.createdAt), // Format properly
+          created_at: format(item.createdAt),
+          // created_at: format(item.createdAt), // Format properly
 
         });
       });
@@ -101,7 +102,7 @@ const AllCourses: FC<Props> = (props) => {
   useEffect(() => {
     if (isSuccess) {
       refetch();
-      toast.success("Course role deleted successfully");
+      toast.success("Course deleted successfully");
       setOpen(false);
     }
     if (errorDelete) {

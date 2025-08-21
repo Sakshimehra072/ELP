@@ -94,6 +94,11 @@ const CreateCourse = (props: Props) => {
             estimatedPrice: courseInfo.estimatedPrice,
             tags: courseInfo.tags,
             thumbnail: courseInfo.thumbnail,
+
+    //         thumbnail: typeof courseInfo.thumbnail === "string"
+    // ? { url: courseInfo.thumbnail } // fallback if it's only base64
+    // : courseInfo.thumbnail,
+
             level: courseInfo.level,
             demoUrl: courseInfo.demoUrl,
             categories: courseInfo.categories,

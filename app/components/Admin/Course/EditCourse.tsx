@@ -9,7 +9,8 @@ import CoursePreview from "./CoursePreview";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { useEditCourseMutation, useGetAllCoursesQuery } from "@/redux/features/courses/coursesApi";
-import Loader from "../../loader/Loader";
+// import Loader from "../../loader/Loader";
+import Loader from "../../Loader/Loader";
 
 type Props = {
   id: string;
@@ -54,6 +55,7 @@ const EditCourse: FC<Props> = ({ id }) => {
         tags: editCourseData.tags,
         level: editCourseData.level,
         demoUrl: editCourseData.demoUrl,
+        // thumbnail: editCourseData?.thumbnail,
         thumbnail: editCourseData?.thumbnail?.url,
       });
       setBenefits(editCourseData.benefits);
@@ -126,6 +128,9 @@ const EditCourse: FC<Props> = ({ id }) => {
       estimatedPrice: courseInfo.estimatedPrice,
       tags: courseInfo.tags,
       thumbnail: courseInfo.thumbnail,
+    //   thumbnail: typeof courseInfo.thumbnail === "string"
+    // ? { url: courseInfo.thumbnail } // fallback if it's only base64
+    // : courseInfo.thumbnail,
       level: courseInfo.level,
       demoUrl: courseInfo.demoUrl,
       categories: courseInfo.categories,
