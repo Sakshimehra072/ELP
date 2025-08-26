@@ -1,7 +1,7 @@
 "use client"
 
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
-import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
+// import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
 // import AllUsers  from "../../components/Admin/Course/AllUsers"
 import AllUsers from  "../../components/Admin/Users/AllUsers"
@@ -25,7 +25,7 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
-            <DashboardHero />
+            {/* <DashboardHero /> */}
             <AllUsers/>
           </div>
         </div>

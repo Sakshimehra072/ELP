@@ -385,7 +385,7 @@ const CourseContent: FC<Props> = ({
                   <br/>
 
                   {/* add new content */}
-                {index === courseContentData.length - 1 && (
+                {/* {index === courseContentData.length - 1 && (
                   <div>
                     <p
                       className="flex items-center text-[18px] dark:text-white text-black cursor-pointer"
@@ -394,7 +394,7 @@ const CourseContent: FC<Props> = ({
                       <AiOutlinePlusCircle className="mr-2" /> Add New Content
                     </p>
                   </div>
-                )}
+                )} */}
               </div>
               </>
             )
