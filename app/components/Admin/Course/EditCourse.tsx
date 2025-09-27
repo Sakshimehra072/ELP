@@ -9,7 +9,6 @@ import CoursePreview from "./CoursePreview";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { useEditCourseMutation, useGetAllCoursesQuery } from "@/redux/features/courses/coursesApi";
-// import Loader from "../../loader/Loader";
 import Loader from "../../Loader/Loader";
 
 type Props = {

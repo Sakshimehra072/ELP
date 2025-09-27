@@ -7,6 +7,8 @@ type Props = {};
 
 const page = ({ params }: any) => {
   const id = params?.id;
+  <h1>Edit Course: {params.id}</h1>
+  console.log(id);
 
   return (
     <div>

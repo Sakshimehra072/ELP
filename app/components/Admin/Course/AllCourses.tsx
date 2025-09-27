@@ -94,7 +94,6 @@ const AllCourses: FC<Props> = (props) => {
           ratings: item.ratings,
           created_at: format(item.createdAt),
           // created_at: format(item.createdAt), // Format properly
-
         });
       });
   }
