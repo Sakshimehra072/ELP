@@ -44,10 +44,10 @@ const CoursePreview: FC<Props> = ({
       </div>
       <div className="flex items-center">
         <h1 className="pt-5 text-[25px]">
-          {courseData?.price === 0 ? "Free" : courseData?.price + "5"}$
+          {courseData?.price === 0 ? "Free" : courseData?.price + "5"}Rs
         </h1>
         <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80">
-          {courseData?.estimatedPrice}$
+          {courseData?.estimatedPrice}Rs
         </h5>
 
         <h4 className="pl-5 pt-4 text-[22px]">
@@ -59,7 +59,7 @@ const CoursePreview: FC<Props> = ({
         <div
           className={`${styles.button} !w-[180px] my-3 font-Poppins !bg-[crimson] cursor-not-allower`}
         >
-          Buy Now {courseData?.price}$
+          Buy Now {courseData?.price}Rs
         </div>
       </div>
 
@@ -136,7 +136,7 @@ const CoursePreview: FC<Props> = ({
       </div>
       <div className="w-full flex items-center justify-between">
         <div
-          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
+          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#1a1b1a] text-center text-[#fff] rounded mt-8 cursor-pointer"
           onClick={() => prevButton()}
         >
           Prev

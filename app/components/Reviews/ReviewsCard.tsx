@@ -1,49 +1,77 @@
+"use client";
 import Ratings from "@/app/utils/Ratings";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
-  item: any;
+  item: {
+    avatar: string;
+    name: string;
+    profession: string;
+    comment: string;
+    rating?: number;
+  };
 };
 
-const ReviewsCard = (props: Props) => {
+const ReviewsCard: React.FC<Props> = ({ item }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  const words = (item.comment || "").trim().split(/\s+/);
+  const isLong = words.length > 100;
+  const visibleText = showMore
+    ? item.comment
+    : words.slice(0, 100).join(" ") + (isLong ? "..." : "");
+
   return (
-    <div className="w-full h-max pb-4 dark:bg-slate-500 dark:bg-opacity-20 backdrop-blur border dark:border-[#ffffff1d] border-[#0000015] dark:shadow-[bg-slate-700] rounded-lg p-3 shadow-sm dark:shadow-inner">
-      <div className="flex w-full">
+    <div className="w-full h-full flex flex-col justify-between bg-white dark:bg-slate-500 dark:bg-opacity-20 backdrop-blur border border-[#00000015] dark:border-[#ffffff1d] rounded-xl p-5 shadow-lg">
+      {/* Top Section */}
+      <div className="flex items-center w-full">
         <Image
-          src={props.item.avatar}
-          width={50}
-          height={50}
-          className="w-[50px] h-[50px] rounded-full object-cover"
-          alt=""
+          src={item.avatar}
+          width={60}
+          height={60}
+          className="w-[60px] h-[60px] rounded-full object-cover"
+          alt={item.name ? `${item.name}'s avatar` : "review avatar"}
         />
-        <div className="800px:flex justify-between w-full hidden">
-          <div className="pl-4">
-            <h5 className="text-[20px] text-black dark:text-white">
-              {props.item.name}
+
+        {/* Desktop */}
+        <div className="hidden w-full justify-between 800px:flex pl-4">
+          <div>
+            <h5 className="text-[18px] font-semibold text-black dark:text-white">
+              {item.name}
             </h5>
-            <h6 className="text-[16px] text-[#000] dark:text-[#ffffffab]">
-              {props.item.profession}
+            <h6 className="text-[14px] text-[#000] dark:text-[#ffffffab]">
+              {item.profession}
             </h6>
           </div>
-          <Ratings rating={5} />
+          <Ratings rating={item.rating || 5} />
         </div>
-        {/* for mobile */}
-        <div className="800px:hidden justify-between w-full flex flex-col">
-          <div className="pl-4">
-            <h5 className="text-[20px] text-black dark:text-white">
-              {props.item.name}
-            </h5>
-            <h6 className="text-[16px] text-[#000] dark:text-[#ffffffab]">
-              {props.item.profession}
-            </h6>
-            <Ratings rating={5} />
-          </div>
+
+        {/* Mobile */}
+        <div className="flex w-full flex-col 800px:hidden pl-4">
+          <h5 className="text-[18px] font-semibold text-black dark:text-white">
+            {item.name}
+          </h5>
+          <h6 className="text-[14px] text-[#000] dark:text-[#ffffffab]">
+            {item.profession}
+          </h6>
+          <Ratings rating={item.rating || 5} />
         </div>
       </div>
-      <p className="pt-2 px-2 font-Poppins text-black dark:text-white">
-        {props.item.comment}
+
+      {/* Comment */}
+      <p className="pt-4 font-Poppins text-[15px] leading-relaxed text-black dark:text-white flex-1">
+        {visibleText}
       </p>
+
+      {isLong && (
+        <button
+          onClick={() => setShowMore(!showMore)}
+          className="text-blue-600 dark:text-blue-400 text-sm font-medium mt-3 hover:underline transition"
+        >
+          {showMore ? "See less" : "See more"}
+        </button>
+      )}
     </div>
   );
 };

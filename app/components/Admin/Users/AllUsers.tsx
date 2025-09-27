@@ -147,7 +147,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
 
   const handleSubmit = async () => {
     await updateUserRole({ email,role });
-    console.log("halo");
+    // console.log("halo");
   };
 
   const handleDelete = async () => {

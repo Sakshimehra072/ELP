@@ -121,7 +121,7 @@ const EditCourse: FC<Props> = ({ id }) => {
     );
 
     // prepare our data object
-    const data = {
+    const data = {  
       name: courseInfo.name,
       description: courseInfo.description,
       price: courseInfo.price,
@@ -146,7 +146,7 @@ const EditCourse: FC<Props> = ({ id }) => {
     const data = courseData;
 
     if (!isLoading) {
-      console.log(data);
+      // console.log(data);
       await editCourse({ id: editCourseData?._id, data });
     }
   };

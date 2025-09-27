@@ -10,15 +10,15 @@ export const navItemsData = [
     },
     {
         name: "Courses",
-        url: "/courses",
+        url: "allCourses",
     },
     {
         name: "About",
         url: "/about",
     },
     {
-        name: "Policy",
-        url: "/policy",
+        name: "Achivements",
+        url: "/achivements",
     },
     {
         name: "FAQ",
