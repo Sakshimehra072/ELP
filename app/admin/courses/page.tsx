@@ -9,6 +9,7 @@ import AdminProtected from "@/app/hooks/adminProtected"
 
 
 
+
 type Props = {}
 
 const page = (props: Props) => {
@@ -25,7 +26,7 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
-            <DashboardHero />
+            {/* <DashboardHero /> */}
             <AllCourses/>
           </div>
         </div>

@@ -1,11 +1,13 @@
 "use client"
 
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
-import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
-// import AllUsers  from "../../components/Admin/Course/AllUsers"
-import AllUsers from "../../components/Admin/Users/AllUsers"
 import AdminProtected from "@/app/hooks/adminProtected"
+import AllUsers from "@/app/components/Admin/Users/AllUsers"
+
+
+
+
 
 type Props = {}
 
@@ -23,7 +25,7 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
-            <DashboardHero />
+            {/* <DashboardHero /> */}
             <AllUsers isTeam={true}/>
           </div>
         </div>

@@ -4,11 +4,13 @@ import React, { FC, useEffect, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
 
-type Props = {}
+type Props = {
+    open?: boolean;
+    setOpen?: any;
+}
 
 const DashboardHeader : FC<Props> = () => {
     const [open, setOpen] = useState(false)
-    
   return (
     <div className="w-full flex items-center justify-end p-6 fixed top-5 right-0">
     <ThemeSwitcher />
