@@ -59,7 +59,7 @@ const CourseDetails = ({
   };
 
   return (
-    <div>
+    <div className="pt-[100px]">
       <div className="w-[90%] 800px:w-[90%] m-auto py-5">
         <div className="w-full flex flex-col-reverce 800px:flex-row">
           <div className="w-full 800px:w-[65%] 800px:pr-[50px]">
