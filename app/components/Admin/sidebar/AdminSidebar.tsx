@@ -224,22 +224,22 @@ const AdminSidebar = () => {
               className="!text-[18px] text-black dark:text-[#ffffffc1] capitalize !font-[400]"
             >
               {!isCollapsed && "Customization"}
-            </Typography> */}
-            {/* <Item
+            </Typography>
+            <Item
               title="Hero"
               to="/admin/hero"
               icon={<WebIcon />}
               selected={selected}
               setSelected={setSelected}
-            /> */}
-            {/* <Item
+            />
+            <Item
               title="FAQ"
               to="/admin/faq"
               icon={<QuizIcon />}
               selected={selected}
               setSelected={setSelected}
-            /> */}
-            {/* <Item
+            />
+            <Item
               title="Categories"
               to="/admin/categories"
               icon={<WysiwygIcon />}

@@ -151,125 +151,123 @@
 //     await deleteUser(id);
 //   };
 
-//   return (
-//     <div className="mt-[120px]">
-//       {isLoading ? (
-//         <Loader />
-//       ) : (
-//         <Box m="20px">
-//           <div className="w-full flex justify-end">
-//             <div
-//               className={`${styles.button} !w-[200px] dark:bg-[#57c7a3] !h-[35px] dark:border dark:border-[#ffffff6c]`}
-//               onClick={() => setActive(!active)}
-//             >
-//               Add New Member
-//             </div>
-//           </div>
-//           <Box
-//             m="40px 0 0 0"
-//             height="80vh"
-//             sx={{
-//               "& .MuiDataGrid-root": {
-//                 border: "none",
-//                 outline: "none",
-//               },
-//               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//               },
-//               "& .MuiDataGrid-sortIcon": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//               },
-//               "& .MuiDataGrid-row": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//                 borderBottom:
-//                   theme === "dark"
-//                     ? "1px solid #ffffff30!important"
-//                     : "1px solid #ccc!important",
-//               },
-//               "& .MuiTablePagination-root": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//               },
-//               "& .MuiDataGrid-cell": {
-//                 borderBottom: "none",
-//               },
-//               "& .name-column-cell": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//               },
-//               "& .MuiDataGrid-columnHeaders": {
-//                 //   color: theme === "dark" ? "#fff" : "#000",
-//                 borderBottom: "none",
-//                 backgroundColor: theme === "dark" ? "#3e4396" : "#a4a9fc",
-//                 //   backgroundColor: "#a4a9fc",
-//               },
-//               "& .MuiDataGrid-virtualScroller": {
-//                 backgroundColor: theme === "dark" ? "#1f2a40" : "#f2f0f0",
-//               },
-//               "& .MuiDataGrid-footerContainer": {
-//                 color: theme === "dark" ? "#fff" : "#000",
-//                 borderTop: "none",
-//                 backgroundColor: theme === "dark" ? "#3e4396" : "#a4a9fc",
-//               },
-//               "& .MuiCheckbox-root": {
-//                 color:
-//                   theme === "dark" ? `#b7ebde !important` : `#000 !important`,
-//               },
-//               "& .MuiDataGrid-toolbarContainer .MuiButton-next": {
-//                 color: `#fff !important`,
-//               },
-//             }}
-//           >
-//             <DataGrid checkboxSelection rows={rows} columns={columns} />
-//           </Box>
-//           {active && (
-//             <Modal
-//               open={active}
-//               onClose={() => setOpen(!open)}
-//               aria-labeleby="modal-modal-title"
-//               aria-describedy="modal-modal-description"
-//             >
-//               <Box className="absolute top-[50%] left-[50%] -translatex-1/2 -translate-y-1/2 w-[450px] bg-white  dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
-//                 <h1 className={`${styles.title}`}>Add new member</h1>
-//                 <div className="mt-4">
-//                   <input
-//                     type="email"
-//                     value={email}
-//                     onChange={(e) => setEmail(e.target.value)}
-//                     placeholder="Enter email"
-//                     className={`${styles.input}`}
-//                   />
-//                   <select
-//                     name=""
-//                     id=""
-//                     className={`${styles.input}bg-white dark:bg-gray-800`}
-//                     onChange={(e) => setRole(e.target.value)}
-//                   >
-//                     <option value="admin">Admin
-//                     </option>
-//                     <option value="user"
-//                     >User</option>
-//                   </select>
-//                   <br />
-//                   <div
-//                     className={`${styles.button} my-6 !h-[30px]`}
-//                     onClick={() => handleSubmit()}
-//                   >
-//                     Submit
-//                   </div>
-//                 </div>
-//               </Box>
-//             </Modal>
-//           )}
-//           {open && (
-//             <Modal
-//               open={open}
-//               onClose={() => setActive(!active)}
-//               aria-labeleby="modal-modal-title"
-//               aria-describedy="modal-modal-description"
-//             >
-//               <Box className="absolute top-[50%] left-[50%] -translatex-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
-//                 <h1 className={`${styles.title}`}>
-//                   Are you sure you want to delete this user?
-//                 </h1>
+  return (
+    <div className="mt-[120px]">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Box m="20px">
+          <div className="w-full flex justify-end">
+            <div
+              className={`${styles.button} !w-[200px] dark:bg-[#57c7a3] !h-[35px] dark:border dark:border-[#ffffff6c]`}
+              onClick={() => setActive(!active)}
+            >
+              Add New Member
+            </div>
+          </div>
+          <Box
+            m="40px 0 0 0"
+            height="80vh"
+            sx={{
+              "& .MuiDataGrid-root": {
+                border: "none",
+                outline: "none",
+              },
+              "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
+                color: theme === "dark" ? "#fff" : "#000",
+              },
+              "& .MuiDataGrid-sortIcon": {
+                color: theme === "dark" ? "#fff" : "#000",
+              },
+              "& .MuiDataGrid-row": {
+                color: theme === "dark" ? "#fff" : "#000",
+                borderBottom:
+                  theme === "dark"
+                    ? "1px solid #ffffff30!important"
+                    : "1px solid #ccc!important",
+              },
+              "& .MuiTablePagination-root": {
+                color: theme === "dark" ? "#fff" : "#000",
+              },
+              "& .MuiDataGrid-cell": {
+                borderBottom: "none",
+              },
+              "& .name-column-cell": {
+                color: theme === "dark" ? "#fff" : "#000",
+              },
+              "& .MuiDataGrid-columnHeaders": {
+                //   color: theme === "dark" ? "#fff" : "#000",
+                borderBottom: "none",
+                backgroundColor: theme === "dark" ? "#3e4396" : "#a4a9fc",
+                //   backgroundColor: "#a4a9fc",
+              },
+              "& .MuiDataGrid-virtualScroller": {
+                backgroundColor: theme === "dark" ? "#1f2a40" : "#f2f0f0",
+              },
+              "& .MuiDataGrid-footerContainer": {
+                color: theme === "dark" ? "#fff" : "#000",
+                borderTop: "none",
+                backgroundColor: theme === "dark" ? "#3e4396" : "#a4a9fc",
+              },
+              "& .MuiCheckbox-root": {
+                color:
+                  theme === "dark" ? `#b7ebde !important` : `#000 !important`,
+              },
+              "& .MuiDataGrid-toolbarContainer .MuiButton-next": {
+                color: `#fff !important`,
+              },
+            }}
+          >
+            <DataGrid checkboxSelection rows={rows} columns={columns} />
+          </Box>
+          {active && (
+            <Modal
+              open={active}
+              onClose={() => setOpen(!open)}
+              aria-labeleby="modal-modal-title"
+              aria-describedy="modal-modal-description"
+            >
+              <Box className="absolute top-[50%] left-[50%] -translatex-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
+                <h1 className={`${styles.title}`}>Add new member</h1>
+                <div className="mt-4">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter email"
+                    className={`${styles.input}`}
+                  />
+                  <select
+                    name=""
+                    id=""
+                    className={`${styles.input}`}
+                    onChange={(e) => setRole(e.target.value)}
+                  >
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                  </select>
+                  <br />
+                  <div
+                    className={`${styles.button} my-6 !h-[30px]`}
+                    onClick={() => handleSubmit()}
+                  >
+                    Submit
+                  </div>
+                </div>
+              </Box>
+            </Modal>
+          )}
+          {open && (
+            <Modal
+              open={open}
+              onClose={() => setActive(!active)}
+              aria-labeleby="modal-modal-title"
+              aria-describedy="modal-modal-description"
+            >
+              <Box className="absolute top-[50%] left-[50%] -translatex-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
+                <h1 className={`${styles.title}`}>
+                  Are you sure you want to delete this user?
+                </h1>
 
 //                 <div className="flex w-full items-center justify-between mb-6 mt-4">
 //                   <div

@@ -3,8 +3,7 @@
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
 // import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
-// import AllUsers  from "../../components/Admin/Course/AllUsers"
-import AllUsers from  "../../components/Admin/Users/AllUsers"
+import AllUsers  from "../../components/Admin/Course/AllUsers"
 
 
 
@@ -15,6 +14,7 @@ type Props = {}
 const page = (props: Props) => {
   return (
     <div>
+      <AdminProtected>
         <Heading
         title="LMS - Admin"
         description="LMS is a platform for students to learn and get help from teachers"
@@ -29,6 +29,7 @@ const page = (props: Props) => {
             <AllUsers isTeam={false} />
           </div>
         </div>
+        </AdminProtected>
     </div>
   )
 }
