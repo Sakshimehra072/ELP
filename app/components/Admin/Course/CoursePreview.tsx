@@ -47,7 +47,7 @@ const CoursePreview: FC<Props> = ({
           {courseData?.price === 0 ? "Free" : courseData?.price + "5"}Rs
         </h1>
         <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80">
-          {courseData?.estimatedPrice}Rs.
+          {courseData?.estimatedPrice}Rs
         </h5>
 
         <h4 className="pl-5 pt-4 text-[22px]">
