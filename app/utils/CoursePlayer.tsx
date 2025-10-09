@@ -6,7 +6,7 @@ type Props = {
   title: string;
 };
 
-const CoursePlayer: FC<Props> = ({ videoUrl}) => {
+const CoursePlayer: FC<Props> = ({ videoUrl }) => {
   const [videoData, setVideoData] = useState({
     otp: "",
     playbackInfo: "",
@@ -14,7 +14,8 @@ const CoursePlayer: FC<Props> = ({ videoUrl}) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/v1/getVdoCipherOTP", {
+      // .post("https://localhost:8000/api/v1/getVdoCipherOTP", {
+      .post("https://liveenglishwithsushil-xy9u.onrender.com/api/v1/getVdoCipherOTP", {
         videoId: videoUrl,
       })
       .then((res) => {

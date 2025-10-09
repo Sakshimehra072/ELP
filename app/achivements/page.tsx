@@ -1,17 +1,22 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Image from "next/image";
 import Header from "../components/Header";
 import AchievementImg from "../../public/assests/Achivements.jpg";
 
-type Props = {
-    open: boolean;
-    setOpen: (open: boolean) => void;
-    activeItem: number;
-    route: string;
-    setRoute: (route: string) => void;
-};
+// type Props = {
+//     open: boolean;
+//     setOpen: (open: boolean) => void;
+//     activeItem: number;
+//     route: string;
+//     setRoute: (route: string) => void;
+// };
 
-const Page: React.FC<Props> = ({ open, setOpen, activeItem, setRoute, route }) => {
+const Page: React.FC = () => {
+    const [open, setOpen] = useState(false);
+    const [route, setRoute] = useState("Home");
+    const activeItem = 3;
+
     return (
         <div className="w-full font-sans bg-gray-500 dark:bg-gray-900">
             {/* ✅ Fixed Header */}

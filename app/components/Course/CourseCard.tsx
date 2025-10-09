@@ -64,8 +64,25 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 
+type CourseItem = {
+  _id: string;
+  name: string;
+  price: number;
+  estimatedPrice?: number;
+  thumbnail: {
+    url: string;
+  };
+  courseData?: Array<{
+    _id: string;
+    title: string;
+    videoLength: number;
+    videoSection: string;
+  }>;
+};
+
+
 type Props = {
-  item: any;
+  item: CourseItem;
   isProfile?: boolean;
 };
 

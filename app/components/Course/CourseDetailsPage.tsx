@@ -1,7 +1,7 @@
-
 "use client";
 import { useGetCourseDetailsQuery } from "@/redux/features/courses/coursesApi";
-import React, { useEffect, useState } from "react";
+// import React, { useEffect } from "react";
+import React, { useState } from "react";
 // import Loader from "../Loader";
 import Loader from "../Loader/Loader";
 import Heading from "@/app/utils/Heading";
@@ -64,13 +64,8 @@ const CourseDetailsPage = ({ id }: Props) => {
             activeItem={1}
             setRoute={setRoute}
             route={route}
-          />
-         
-         
-          
-           <CourseDetails 
-           data = {data.course}
-           />
+          />        
+           <CourseDetails data={data.course} setRoute={setRoute} setOpen={setOpen} />
           <Footer />
         </div>
       )}

@@ -9,7 +9,6 @@ import { styles } from '../../styles/style';
 import { useLoginMutation } from '@/redux/features/auth/authApi';
 import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
-
 // import {useNavigation} from "react-router-dom";
 
 
@@ -36,19 +35,38 @@ const Login: FC<Props> = ({ setRoute, setOpen }) => {
         },
     });
 
-    useEffect(() => {
-        if(isSuccess){
-            toast.success("Login Successfully");
-            setOpen(false);
-            // refetch();
+    // useEffect(() => {
+    //     if(isSuccess){
+    //         toast.success("Login Successfully");
+    //         setOpen(false);
+    //         // refetch();
+    //     }
+    //     if(error){
+    //         if("data" in error){
+    //             const errorData = error as any;
+    //             toast.error(errorData.data.message);
+    //         }
+    //     }        
+    // }, [isSuccess,error]); 
+
+
+useEffect(() => {
+    if (isSuccess) {
+        toast.success("Login Successfully");
+        setOpen(false);
+    }
+
+    if (error) {
+        // Define a simple type for the error
+        type ErrorData = { data: { message: string } };
+        const err = error as ErrorData;
+        if (err.data && err.data.message) {
+            toast.error(err.data.message);
         }
-        if(error){
-            if("data" in error){
-                const errorData = error as any;
-                toast.error(errorData.data.message);
-            }
-        }        
-    }, [isSuccess,error]); 
+    }
+}, [isSuccess, error, setOpen]);
+
+
 
     const { errors, touched, values, handleChange, handleSubmit } = formik;
 

@@ -4,9 +4,10 @@ import { Modal, Box } from '@mui/material';
 type Props = {
     open: boolean;
     setOpen: (open: boolean) => void;
-    activeItem: any;
-    component: React.FC<{ setOpen: (open: boolean) => void; setRoute?: (route: string) => void }>;
-    setRoute?: (route: string) => void;
+    activeItem: number;
+    // activeItem: any;
+    component: React.FC<{ setOpen: (open: boolean) => void; setRoute: (route: string) => void }>;
+    setRoute: (route: string) => void;
 };
 
 const CustomModal: FC<Props> = ({ open, setOpen, setRoute, component: Component }) => {

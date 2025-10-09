@@ -1,18 +1,10 @@
 "use client"
-
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
-import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
 import AllCourses  from "../../components/Admin/Course/AllCourses"
 import AdminProtected from "@/app/hooks/adminProtected"
 
-
-
-
-
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <div>
       <AdminProtected>
@@ -26,7 +18,6 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
-            {/* <DashboardHero /> */}
             <AllCourses/>
           </div>
         </div>

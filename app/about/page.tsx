@@ -15,15 +15,18 @@ import EnglishCourseImage from "../../public/assests/English_course.jpg";
 import IeltsImage from "../../public/assests/Ielts.jpg";
 import Header from "../components/Header";
 
-type Props = {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  activeItem: number;
-  route: string;
-  setRoute: (route: string) => void;
-};
+// type Props = {
+//   open: boolean;
+//   setOpen: (open: boolean) => void;
+//   activeItem: number;
+//   route: string;
+//   setRoute: (route: string) => void;
+// };
 
-const Page: React.FC<Props> = ({ open, setOpen, activeItem, setRoute, route }) => {
+const Page: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [route, setRoute] = useState("Login");
+  const activeItem = 2;
   const courses = [
     {
       img: AccentClassesImage,
@@ -35,6 +38,42 @@ const Page: React.FC<Props> = ({ open, setOpen, activeItem, setRoute, route }) =
       title: "Spoken English",
       desc: "This course is designed to help you not only learn new words but also use them naturally in everyday conversations. You’ll practice real-life speaking situations, improve your pronunciation, and develop the confidence to express yourself clearly.",
     },
+
+// {
+//   img: SpokenEnglishImage,
+//   title: "Spoken English",
+//   desc: `Are you ready to speak English fluently, confidently, and naturally in everyday conversations, professional settings, and public speaking situations?
+
+// Our *Spoken English Mastery Course* is designed for learners of all levels who want to improve their English communication skills. Whether you're a student, a working professional, or simply someone looking to enhance your language abilities, this course offers a structured yet flexible approach to help you speak English with clarity, confidence, and impact.
+
+// ### *What You’ll Learn:*
+
+// * Master everyday vocabulary and conversational phrases
+// * Improve pronunciation, fluency, and sentence structure
+// * Build confidence through real-life speaking practice
+// * Learn to think in English, not translate
+// * Handle interviews, meetings, and social conversations with ease
+// * Overcome hesitation and fear of speaking in public
+
+// ### *Course Features:*
+
+// * 💬 *Live interactive sessions* with expert guidance
+// * 📚 *Practical speaking activities* and real-world scenarios
+// * 🎧 *Listening & comprehension* exercises
+// * 📝 *Personalized feedback* to track your progress
+// * 📱 *Accessible on mobile and desktop*
+// * 🕒 *Flexible, self-paced learning* with lifetime access
+
+// ### *Who This Course Is For:*
+
+// * Beginners who want to start speaking confidently
+// * Intermediate learners looking to refine their fluency
+// * Professionals preparing for interviews, presentations, or global communication
+// * Anyone eager to develop fluent spoken English for daily or academic use
+
+// *Join thousands of learners who have transformed their English skills. Speak fluently, express yourself clearly, and open doors to new opportunities.*`,
+// },
+
     {
       img: IeltsImage,
       title: "IELTS",
@@ -101,10 +140,10 @@ const Page: React.FC<Props> = ({ open, setOpen, activeItem, setRoute, route }) =
           Discover practical skills, flexible learning, and expert guidance — all
           in one platform to help you reach your goals with confidence.
         </p>
-      </section>  
+      </section>
 
       {/* 👨‍🏫 Trainer Section */}
-      <div id="mentor"  className="w-full mt-20 mb-16 scroll-mt-24">
+      <div id="mentor" className="w-full mt-20 mb-16 scroll-mt-24">
         <div className="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 p-12 text-center shadow-xl">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Know your Mentor <br /> Sushil Kumar
@@ -174,226 +213,155 @@ const Page: React.FC<Props> = ({ open, setOpen, activeItem, setRoute, route }) =
 
 
       {/* ✅ Why Choose Us */}
-<section className="py-16 px-6 lg:px-20 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
-  <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-    Why Choose Us?
-  </h2>
+      <section className="py-16 px-6 lg:px-20 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          Why Choose Us?
+        </h2>
 
-  <div className="relative w-full overflow-hidden">
-    {/* Duplicated track for seamless loop */}
-    <div className="flex gap-6 animate-scroll">
-      {[
-        { title: "Easy to Learn", desc: "Courses explained in simple language." },
-        { title: "Affordable", desc: "Quality learning without high costs." },
-        { title: "Flexible", desc: "Learn anytime, anywhere at your pace." },
-        { title: "Beginner Friendly", desc: "Start from basics with easy-to-follow lessons." },
-        { title: "Step-by-Step", desc: "Clear path from beginner to advanced level." },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="min-w-[260px] p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500"
-        >
-          <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">
-            {item.title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
-        </div>
-      ))}
-
-      {/* Duplicate again for smooth infinite scroll */}
-      {[
-        { title: "Easy to Learn", desc: "Courses explained in simple language." },
-        { title: "Affordable", desc: "Quality learning without high costs." },
-        { title: "Flexible", desc: "Learn anytime, anywhere at your pace." },
-        { title: "Beginner Friendly", desc: "Start from basics with easy-to-follow lessons." },
-        { title: "Step-by-Step", desc: "Clear path from beginner to advanced level." },
-      ].map((item, i) => (
-        <div
-          key={`dup-${i}`}
-          className="min-w-[260px] p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500"
-        >
-          <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">
-            {item.title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-      {/* 📚 Courses */}
-{/* <section
-  id="courses"
-  className="py-20 px-6 lg:px-20 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 relative"
->
-  <h2 className="text-4xl font-bold text-center mb-14 text-gray-900 dark:text-white">
-    Explore Our Popular Courses
-  </h2>
-
-  <div className="relative">
-    <button
-      onClick={() => {
-        const container = document.getElementById("courses-row");
-        if (container) container.scrollLeft -= 320; // scroll left
-      }}
-      className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md z-10 hover:bg-gray-700"
-    >
-      &lt;
-    </button>
-
-    <button
-      onClick={() => {
-        const container = document.getElementById("courses-row");
-        if (container) container.scrollLeft += 320; // scroll right
-      }}
-      className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md z-10 hover:bg-gray-700"
-    >
-      &gt;
-    </button>
-    <div
-      id="courses-row"
-      className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4"
-      style={{ scrollbarWidth: "thin" }} // Firefox
-    >
-      {courses.map((course, i) => {
-        const words = course.desc.trim().split(/\s+/);
-        const isLong = words.length > 20;
-        const isExpanded = expanded[i];
-        return (
-          <div
-            key={i}
-            className="min-w-[300px] max-w-[300px] bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-md hover:shadow-2xl rounded-2xl p-6 flex flex-col items-center transition-all hover:scale-105"
-          >
-            <Image
-              src={course.img}
-              alt={course.title}
-              className="rounded-xl object-cover mb-4"
-              width={280}
-              height={180}
-            />
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-              {course.title}
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 text-center">
-              {isLong && !isExpanded ? truncateText(course.desc, 20) : course.desc}
-            </p>
-            {isLong && (
-              <button
-                onClick={() => toggleExpand(i)}
-                className="text-gray-700 dark:text-gray-300 mt-2 underline underline-offset-4 text-sm hover:opacity-80"
+        <div className="relative w-full overflow-hidden">
+          {/* Duplicated track for seamless loop */}
+          <div className="flex gap-6 animate-scroll">
+            {[
+              { title: "Easy to Learn", desc: "Courses explained in simple language." },
+              { title: "Affordable", desc: "Quality learning without high costs." },
+              { title: "Flexible", desc: "Learn anytime, anywhere at your pace." },
+              { title: "Beginner Friendly", desc: "Start from basics with easy-to-follow lessons." },
+              { title: "Step-by-Step", desc: "Clear path from beginner to advanced level." },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="min-w-[260px] p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500"
               >
-                {isExpanded ? "Show Less" : "Show More"}
-              </button>
-            )}
+                <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
+              </div>
+            ))}
+
+            {/* Duplicate again for smooth infinite scroll */}
+            {[
+              { title: "Easy to Learn", desc: "Courses explained in simple language." },
+              { title: "Affordable", desc: "Quality learning without high costs." },
+              { title: "Flexible", desc: "Learn anytime, anywhere at your pace." },
+              { title: "Beginner Friendly", desc: "Start from basics with easy-to-follow lessons." },
+              { title: "Step-by-Step", desc: "Clear path from beginner to advanced level." },
+            ].map((item, i) => (
+              <div
+                key={`dup-${i}`}
+                className="min-w-[260px] p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
+              </div>
+            ))}
           </div>
-        );
-      })}
-    </div>
-  </div>
-</section> */}
-
-
-<section
-  id="courses"
-  className="py-20 px-6 lg:px-20 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 relative"
->
-  <h2 className="text-4xl font-bold text-center mb-14 text-gray-900 dark:text-white">
-    Explore Our Popular Courses
-  </h2>
-
-  {/* ⬅️ Left Button (now extreme left of section) */}
-  <button
-    onClick={() => {
-      const container = document.getElementById("courses-row");
-      if (container) container.scrollLeft -= 320; // scroll left
-    }}
-    className="absolute left-4 top-1/2 -translate-y-1/2 bg-blue-200 dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-md z-20 hover:bg-blue-200 dark:hover:bg-gray-700"
-  >
-    &lt;
-  </button>
-
-  {/* ➡️ Right Button (now extreme right of section) */}
-  <button
-    onClick={() => {
-      const container = document.getElementById("courses-row");
-      if (container) container.scrollLeft += 320; // scroll right
-    }}
-    className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-200 dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-md z-20 hover:bg-blue-400 dark:hover:bg-gray-700"
-
-  >
-    &gt;
-  </button>
-
-  {/* Horizontal scrollable row with visible scrollbar */}
-  <div
-    id="courses-row"
-    className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4"
-    style={{ scrollbarWidth: "thin" }} // Firefox
-  >
-    {courses.map((course, i) => {
-      const words = course.desc.trim().split(/\s+/);
-      const isLong = words.length > 20;
-      const isExpanded = expanded[i];
-      return (
-        <div
-          key={i}
-          className="min-w-[300px] max-w-[300px] bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-md hover:shadow-2xl rounded-2xl p-6 flex flex-col items-center transition-all hover:scale-105"
-        >
-          <Image
-            src={course.img}
-            alt={course.title}
-            className="rounded-xl object-cover mb-4"
-            width={280}
-            height={180}
-          />
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-            {course.title}
-          </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 text-center">
-            {isLong && !isExpanded ? truncateText(course.desc, 20) : course.desc}
-          </p>
-          {isLong && (
-            <button
-              onClick={() => toggleExpand(i)}
-              className="text-gray-700 dark:text-gray-300 mt-2 underline underline-offset-4 text-sm hover:opacity-80"
-            >
-              {isExpanded ? "Show Less" : "Show More"}
-            </button>
-          )}
         </div>
-      );
-    })}
-  </div>
-</section>
+      </section>
+
+
+
+      <section
+        id="courses"
+        className="py-20 px-6 lg:px-20 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 relative"
+      >
+        <h2 className="text-4xl font-bold text-center mb-14 text-gray-900 dark:text-white">
+          Explore Our Popular Courses
+        </h2>
+
+        {/* ⬅️ Left Button (now extreme left of section) */}
+        <button
+          onClick={() => {
+            const container = document.getElementById("courses-row");
+            if (container) container.scrollLeft -= 320; // scroll left
+          }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-blue-200 dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-md z-20 hover:bg-blue-200 dark:hover:bg-gray-700"
+        >
+          &lt;
+        </button>
+
+        {/* ➡️ Right Button (now extreme right of section) */}
+        <button
+          onClick={() => {
+            const container = document.getElementById("courses-row");
+            if (container) container.scrollLeft += 320; // scroll right
+          }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-200 dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-md z-20 hover:bg-blue-400 dark:hover:bg-gray-700"
+
+        >
+          &gt;
+        </button>
+
+        {/* Horizontal scrollable row with visible scrollbar */}
+        <div
+          id="courses-row"
+          className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-4"
+          style={{ scrollbarWidth: "thin" }} // Firefox
+        >
+          {courses.map((course, i) => {
+            const words = course.desc.trim().split(/\s+/);
+            const isLong = words.length > 20;
+            const isExpanded = expanded[i];
+            return (
+              <div
+                key={i}
+                className="min-w-[300px] max-w-[300px] bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-md hover:shadow-2xl rounded-2xl p-6 flex flex-col items-center transition-all hover:scale-105"
+              >
+                <Image
+                  src={course.img}
+                  alt={course.title}
+                  className="rounded-xl object-cover mb-4"
+                  width={280}
+                  height={180}
+                />
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                  {course.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 text-center">
+                  {isLong && !isExpanded ? truncateText(course.desc, 20) : course.desc}
+                </p>
+                {isLong && (
+                  <button
+                    onClick={() => toggleExpand(i)}
+                    className="text-gray-700 dark:text-gray-300 mt-2 underline underline-offset-4 text-sm hover:opacity-80"
+                  >
+                    {isExpanded ? "Show Less" : "Show More"}
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
 
 
 
       {/* 🚀 Call to Action */}
-     <section className="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 p-12 text-center shadow-xl relative overflow-hidden">
-  <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-    Ready to Start Learning? 🚀
-  </h2>
-  <p className="max-w-3xl mx-auto mb-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-    Take your English skills to the next level with our expert-designed courses. 
-    Learn at your own pace, gain confidence in communication, and open doors to new opportunities.
-  </p>
-  <p className="max-w-3xl mx-auto mb-8 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
-    Join thousands of learners worldwide who have improved their speaking, writing, and professional skills. 
-    Our interactive lessons, real-life practice, and dedicated mentorship will guide you every step of the way.
-  </p>
+      <section className="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-slate-800 dark:to-slate-900 p-12 text-center shadow-xl relative overflow-hidden">
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+          Ready to Start Learning? 🚀
+        </h2>
+        <p className="max-w-3xl mx-auto mb-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Take your English skills to the next level with our expert-designed courses.
+          Learn at your own pace, gain confidence in communication, and open doors to new opportunities.
+        </p>
+        <p className="max-w-3xl mx-auto mb-8 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
+          Join thousands of learners worldwide who have improved their speaking, writing, and professional skills.
+          Our interactive lessons, real-life practice, and dedicated mentorship will guide you every step of the way.
+        </p>
 
-  <div className="overflow-hidden w-full flex justify-center mt-6">
-  <h3 className="text-5xl lg:text-7xl font-extrabold bg-gradient-to-br from-purple-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg transform -translate-x-full animate-slide-in">
-    Enroll Now
-  </h3>
-</div>
+        <div className="overflow-hidden w-full flex justify-center mt-6">
+          <h3 className="text-5xl lg:text-7xl font-extrabold bg-gradient-to-br from-purple-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg transform -translate-x-full animate-slide-in">
+            Enroll Now
+          </h3>
+        </div>
 
-  {/* Optional decorative elements */}
-  <div className="absolute top-0 left-0 w-32 h-32 bg-purple-200 dark:bg-purple-700 rounded-full opacity-30 -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"></div>
-  <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-200 dark:bg-blue-700 rounded-full opacity-30 translate-x-1/2 translate-y-1/2 animate-pulse-slow"></div>
+        {/* Optional decorative elements */}
+        <div className="absolute top-0 left-0 w-32 h-32 bg-purple-200 dark:bg-purple-700 rounded-full opacity-30 -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-200 dark:bg-blue-700 rounded-full opacity-30 translate-x-1/2 translate-y-1/2 animate-pulse-slow"></div>
       </section>
     </div>
   );

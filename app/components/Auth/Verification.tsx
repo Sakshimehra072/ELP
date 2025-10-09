@@ -18,8 +18,21 @@ type VerifyNumber = {
   "3": string;
 }
 
+type AuthState = {
+  token: string | null;
+  // add other fields if needed
+};
+
+type ActivationError = {
+  data: {
+    message: string;
+  };
+};
+
+
 const Verification: FC<Props> = ({ setRoute }) => {
-  const { token } = useSelector((state: any) => state.auth);
+  // const { token } = useSelector((state: any) => state.auth);
+  const { token } = useSelector((state: { auth: AuthState }) => state.auth);
   const [activation, { isSuccess, error }] = useActivationMutation()
   const [invalidError, setInvalidError] = useState<boolean>(false);
 
@@ -28,15 +41,22 @@ const Verification: FC<Props> = ({ setRoute }) => {
       toast.success("Account activated successfully")
       setRoute("Login")
     };
-    if (error) {
-      if ("data" in error) {
-        const errorData = error as any;
-        toast.error(errorData.data.message);
-        setInvalidError(true)
-      } else {
-        console.log("An error occured:", error)
-      }
-    }
+    // if (error) {
+    //   if ("data" in error) {
+    //     const errorData = error as ActivationError;
+    //     toast.error(errorData.data.message);
+    //     setInvalidError(true)
+    //   } else {
+    //     console.log("An error occured:", error)
+    //   }
+    // }
+      if (error && "data" in error) {
+    const err = error as ActivationError;
+    toast.error(err.data.message);
+    setInvalidError(true);
+  } else if (error) {
+    console.log("An error occurred:", error);
+  }
   }, [isSuccess, error, setRoute])
 
   const inputRefs = [

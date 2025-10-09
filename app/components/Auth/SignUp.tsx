@@ -26,20 +26,46 @@ const Signup: FC<Props> = ({ setRoute }) => {
     const [show, setShow] = useState(false);
     const [register, { data, error, isSuccess }] = useRegisterMutation();
 
-    useEffect(() => {
-        if (isSuccess) {
-            const message = data?.message || "Registration Sucessfull";
-            toast.success(message);
-            setRoute("Verification");
-        }
-        if (error) {
-            if ("data" in error) {
-                const errorData = error as any;
-                toast.error(errorData.data.message);
-            }
-        }
-    }, [isSuccess, error]);
+//     useEffect(() => {
+//         if (isSuccess) {
+//             const message = data?.message || "Registration Sucessfull";
+//             toast.success(message);
+//             setRoute("Verification");
+//         }
+//         // if (error) {
+//         //     if ("data" in error) {
+//         //         const errorData = error as any;
+//         //         toast.error(errorData.data.message);
+//         //     }
+//         // }
 
+//         type ErrorResponse = {
+//     data: {
+//         message: string;
+//     };
+// };
+
+// if (error && "data" in error) {
+//     const err = error as ErrorResponse;
+//     toast.error(err.data.message);
+// }
+//     }, [isSuccess, error]);
+
+
+useEffect(() => {
+    type ErrorResponse = { data: { message: string } };
+
+    if (isSuccess) {
+        const message = data?.message || "Registration Sucessfull";
+        toast.success(message);
+        setRoute("Verification");
+    }
+
+    if (error && "data" in error) {
+        const err = error as ErrorResponse;
+        toast.error(err.data.message);
+    }
+}, [isSuccess, data?.message, error, setRoute]);
 
 
     const formik = useFormik({
@@ -47,7 +73,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
         validationSchema: schema,
         onSubmit: async ({ name, email, password }) => {
             // setRoute("Verification")
-            // console.log("Submitting:", { name, email, password }); // ✅ DEBUG LINE
+            // console.log("Submitting:", { name, email, password }); // DEBUG LINE
 
             const data = {
                 name, email, password

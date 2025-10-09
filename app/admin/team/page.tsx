@@ -1,17 +1,12 @@
 "use client"
-
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
 import Heading from "@/app/utils/Heading"
 import AdminProtected from "@/app/hooks/adminProtected"
 import AllUsers from "@/app/components/Admin/Users/AllUsers"
+// import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
 
 
-
-
-
-type Props = {}
-
-const page = (props: Props) => {
+const Page = () => {
   return (
     <div>
       <AdminProtected>
@@ -21,7 +16,7 @@ const page = (props: Props) => {
         keywords="Programming, MERN, Redux, Machine Learning"
         />
          <div className="flex h-screen">
-          <div className="1500px:w-[16%] w-1/5x">
+          <div className="1500px:w-[16%] w-1/5">
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
@@ -34,4 +29,4 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page

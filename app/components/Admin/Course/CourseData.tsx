@@ -20,13 +20,13 @@ const CourseData: FC<Props> = ({
   active,
   setActive,
 }) => {
-  const handleBenefitChange = (index: number, value: any) => {
+  const handleBenefitChange = (index: number, value: string) => {
     const updatedBenefits = [...benefits];
     updatedBenefits[index] = { ...updatedBenefits[index], title: value }; // Buat salinan objek dan ubah propertinya
     setBenefits(updatedBenefits);
   };
 
-  const handlePrerequisiteChange = (index: number, value: any) => {
+  const handlePrerequisiteChange = (index: number, value: string) => {
     const updatedPrerequisites = [...prerequisites];
     updatedPrerequisites[index] = {
       ...updatedPrerequisites[index],
@@ -64,7 +64,9 @@ const CourseData: FC<Props> = ({
           What are the benefits for starting this course
         </label>
         <br />
-        {benefits.map((benefit: any, index: number) => (
+        {/* {benefits.map((benefit: any, index: number) => ( */}
+        {benefits.map((benefit: { title: string }, index: number) => (
+
           <input
             type="text"
             key={index}
@@ -87,7 +89,7 @@ const CourseData: FC<Props> = ({
           What are the prerequisites for starting this course
         </label>
         <br />
-        {prerequisites.map((prerequisite: any, index: number) => (
+        {prerequisites.map((prerequisite: {title: string}, index: number) => (
           <input
             type="text"
             key={index}

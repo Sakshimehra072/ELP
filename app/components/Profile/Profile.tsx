@@ -9,13 +9,24 @@ import ChangePassword from "./ChangePassword";
 // import CourseCard from "../Course/CourseCard";
 // import { redirect } from "next/navigation";
 
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role?: "admin" | "user";
+  avatar?: { url: string };
+  courses?: { _id: string }[];
+}
+
 type Props = {
-  user: any;
+  user: User;
 };
+
 
 const Profile: FC<Props> = ({ user }) => {
   const [scroll, setScroll] = useState(false);
-  const [avatar, setAvatar] = useState(null);
+  // const [avatar, setAvatar] = useState(null);
+  const [avatar] = useState(null);
   const [active, setActive] = useState(1);
   const [logout, setLogout] = useState(false);
 //   const [courses, setCourses] = useState([]);
@@ -92,7 +103,6 @@ const Profile: FC<Props> = ({ user }) => {
 };
 
 export default Profile;
-
 
 
 // "use client";

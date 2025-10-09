@@ -1,11 +1,12 @@
+"use client"
 import EditHero from "@/app/components/Admin/Customization/EditHero";
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar";
 import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero";
 import Heading from "@/app/utils/Heading";
+import React, { useState } from "react";
 
-type Props = {};
-
-const Page = (props: Props) => {
+const Page = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <Heading
@@ -18,7 +19,7 @@ const Page = (props: Props) => {
           <AdminSidebar />
         </div>
         <div className="w-[85%]">
-          <DashboardHero />
+          <DashboardHero open={open} setOpen={setOpen} />
           <EditHero />
         </div>
       </div>
@@ -27,5 +28,3 @@ const Page = (props: Props) => {
 };
 
 export default Page;
-
-

@@ -1,9 +1,23 @@
 import { styles } from '@/app/styles/style';
 import React, { FC, useState } from 'react'
+import Image from "next/image";
+
+
+type CourseInfo = {
+  name: string;
+  description: string;
+  price: number | string;
+  estimatedPrice?: number | string;
+  tags: string;
+  level: string;
+  demoUrl: string;
+  thumbnail?: string | ArrayBuffer | null;
+};
+
 
 type Props = {
-  courseInfo: any;
-  setCourseInfo: (courseInfo: any) => void;
+  courseInfo: CourseInfo;
+  setCourseInfo: (courseInfo: CourseInfo) => void;
   active: number;
   setActive: (active: number) => void;
 };
@@ -16,14 +30,14 @@ const CourseInformation: FC<Props> = ({
 }) => {
 
   const [dragging, setDragging] = useState(false);
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
 
-  const handleFileChange = (e: any) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
 
-      reader.onload = (e: any) => {
+      reader.onload = () => {
         if (reader.readyState === 2) {
           setCourseInfo({ ...courseInfo, thumbnail: reader.result });
         }
@@ -32,17 +46,17 @@ const CourseInformation: FC<Props> = ({
     }
   };
 
-  const handleDragOver = (e: any) => {
+  const handleDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     setDragging(true);
   };
 
-  const handleDragLeave = (e: any) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     setDragging(false);
   };
 
-  const handleDrop = (e: any) => {
+  const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault(); 
     setDragging(false);
 
@@ -58,7 +72,7 @@ const CourseInformation: FC<Props> = ({
     }
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setActive(active + 1);
   };
@@ -76,9 +90,12 @@ const CourseInformation: FC<Props> = ({
             name=""
             required
             value={courseInfo.name}
-            onChange={(e: any) => {
-              setCourseInfo({ ...courseInfo, name: e.target.value });
-            }}
+            // onChange={(e: any) => {
+            //   setCourseInfo({ ...courseInfo, name: e.target.value });
+            // }}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setCourseInfo({ ...courseInfo, name: e.target.value })
+}
             id="name"
             placeholder="MERN stack LMS platform with next 13"
             className={`${styles.input}`}
@@ -97,9 +114,13 @@ const CourseInformation: FC<Props> = ({
             placeholder="Write something amazing..."
             className={`${styles.input} !h-min !py-2`}
             value={courseInfo.description}
-            onChange={(e: any) =>
-              setCourseInfo({ ...courseInfo, description: e.target.value })
-            }
+            // onChange={(e: any) =>
+            //   setCourseInfo({ ...courseInfo, description: e.target.value })
+            // }
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setCourseInfo({ ...courseInfo, description: e.target.value })
+              }
+
           ></textarea>
         </div>
         <br />
@@ -113,7 +134,7 @@ const CourseInformation: FC<Props> = ({
               name=""
               required
               value={courseInfo.price}
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCourseInfo({ ...courseInfo, price: e.target.value });
               }}
               id="price"
@@ -130,7 +151,7 @@ const CourseInformation: FC<Props> = ({
               name=""
               required
               value={courseInfo.estimatedPrice}
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCourseInfo({
                   ...courseInfo,
                   estimatedPrice: e.target.value,
@@ -153,7 +174,7 @@ const CourseInformation: FC<Props> = ({
             name=""
             required
             value={courseInfo.tags}
-            onChange={(e: any) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setCourseInfo({ ...courseInfo, tags: e.target.value });
             }}
             id="tags"
@@ -172,7 +193,7 @@ const CourseInformation: FC<Props> = ({
               name=""
               required
               value={courseInfo.level}
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCourseInfo({ ...courseInfo, level: e.target.value });
               }}
               id="level"
@@ -189,7 +210,7 @@ const CourseInformation: FC<Props> = ({
               name=""
               required
               value={courseInfo.demoUrl}
-              onChange={(e: any) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCourseInfo({
                   ...courseInfo,
                   demoUrl: e.target.value,
@@ -219,17 +240,37 @@ const CourseInformation: FC<Props> = ({
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
           >
-            {
+            {/* {
               courseInfo.thumbnail ? (
-                <img src={courseInfo.thumbnail} alt="image not available"
-                  className="max-h-full w-full object-cover"
+                <Image
+                src={courseInfo.thumbnail} 
+                alt="image not available"
+                width={500}
+                height={300}
+                className="max-h-full w-full object-cover"
                 />
               ) : (
                 <span className="text-black dark:text-white">
                   Drag and drop your thumbnail here or click to browse
                 </span>
               )
-            }
+            } */}
+
+            {courseInfo.thumbnail ? (
+  typeof courseInfo.thumbnail === "string" ? (
+    <Image
+      src={courseInfo.thumbnail}
+      alt="Course Thumbnail"
+      width={500}
+      height={300}
+      className="max-h-full w-full object-cover"
+    />
+  ) : null
+) : (
+  <span className="text-black dark:text-white">
+    Drag and drop your thumbnail here or click to browse
+  </span>
+)}
           </label>
         </div>
 
