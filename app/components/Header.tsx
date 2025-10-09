@@ -5,9 +5,12 @@ import NavItems from "../utils/NavItems";
 import { ThemeSwitcher } from "../utils/ThemeSwitcher";
 import { HiOutlineMenuAlt3, HiOutlineUserCircle } from "react-icons/hi";
 import CustomModal from "../utils/CustomModal";
-import Login from "../components/auth/Login";
-import SignUp from "../components/auth/SignUp";
-import Verification from "../components/auth/Verification";
+// import Login from "../components/auth/Login";
+import Login from "./auth/Login"
+// import SignUp from "../components/auth/SignUp";
+import SignUp from "./auth/SignUp"
+// import Verification from "../components/auth/Verification";
+import Verification from "./auth/Verification";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import avatar from "../../public/assests/avatar.jpg";
@@ -19,6 +22,8 @@ import {
 import toast from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import { RootState } from "@/redux/store";
+
+
 
 type Props = {
     open: boolean;

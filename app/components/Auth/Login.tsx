@@ -12,6 +12,7 @@ import { signIn } from 'next-auth/react';
 // import {useNavigation} from "react-router-dom";
 
 
+
 type Props = {
     setRoute: (route: string) => void;
     setOpen: (open: boolean) => void;
