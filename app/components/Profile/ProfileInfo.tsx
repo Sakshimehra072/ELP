@@ -7,9 +7,21 @@ import { useEditProfileMutation, useUpdateAvatarMutation } from "@/redux/feature
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice"
 import toast from "react-hot-toast"
 
+interface Avatar {
+  url: string;
+}
+
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  avatar?: Avatar;
+}
+
+
 type Props = {
     avatar: string | null;
-    user: any
+    user: User;
 }
 
 const ProfileInfo: FC<Props> = ({ avatar, user }) => {
@@ -19,19 +31,24 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
     const [loadUser, setLoaduser] = useState(false)
     const { } = useLoadUserQuery(undefined, { skip: loadUser ? false : true })
 
-    const imageHandler = async (e: any) => {
+    const imageHandler = async (_e: React.ChangeEvent<HTMLInputElement>) => {
         // console.log("image");
+        const file = _e.target.files?.[0];
+        if (!file) return;
+
         const fileReader = new FileReader();
 
         fileReader.onload = () => {
             if (fileReader.readyState === 2) {
-                const avatar = fileReader.result;
-                updateAvatar( 
-                    avatar,
-                );
+                const result = fileReader.result;
+                if (typeof result === 'string') {
+                    updateAvatar( 
+                        result,
+                    );
+                }
             }
         };
-        fileReader.readAsDataURL(e.target.files[0]);
+        fileReader.readAsDataURL(file);
     };
 
 
@@ -47,7 +64,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
         }
     }, [isSuccess, error, success, updateError]);
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (name !== "") {
             await editProfile({
@@ -63,9 +80,9 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
                 className="w-full flex justify-center">
                 <div className="relative"> 
                     <Image
-                        src={user.avatar || avatar ? user.avatar.url || avatar : avatarIcon}
+                        src={(user.avatar?.url ?? avatar) ?? avatarIcon}
                         alt=""
-                        width={20}
+                        width={20} 
                         height={20}
                         className="w-[120px] h-[120px] object-cover cursor-pointer border-[3px] border-[#37a39a] rounded-full"
                     />
@@ -75,7 +92,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
                         id="avatar"
                         className="hidden"
                         onChange={imageHandler}
-                        accept="image/png, image/jpg, image/jgep, image/webp"
+                        accept="image/png, image/jpg, image/jpeg, image/webp"
                     />
                     <label htmlFor="avatar">
                         <div
@@ -124,5 +141,4 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
         </>
     )
 }
-
 export default ProfileInfo

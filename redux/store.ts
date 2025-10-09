@@ -15,6 +15,9 @@ export const store = configureStore({
       getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
+// Infer RootState & AppDispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 // Call the load user token function on every page load
 const initializeApp = async () => {
@@ -28,3 +31,6 @@ const initializeApp = async () => {
 };
  
 initializeApp(); 
+
+
+

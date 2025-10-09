@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
     bg-gradient-to-r dark:from-blue-500 dark:to-purple-100 from-blue-300 to-purple-400 
     opacity-60 h-[25vw] w-[25vw] sm:h-[30vh] sm:w-[30vh] md:h-[40vh] md:w-[40vh] lg:h-[500px] lg:w-[500px] 
     xl:h-[500px] xl:w-[500px] shadow-lg overflow-hidden">
-            <Image
+            <Image 
               src={HeroImage}
               // src={data?.layout?.banner?.image?.url}
               alt="Hero Image"

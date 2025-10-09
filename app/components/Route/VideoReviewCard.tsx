@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Star, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
+
 type Props = {
   videoSrc: string;
   name: string;
@@ -11,7 +12,7 @@ type Props = {
 const VideoReviewCard: React.FC<Props> = ({ videoSrc, name, rating }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const src = videoSrc.startsWith("/") ? videoSrc : `/${videoSrc}`;
 

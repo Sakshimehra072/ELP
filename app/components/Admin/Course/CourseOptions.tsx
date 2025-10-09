@@ -3,10 +3,11 @@ import { IoMdCheckmark } from 'react-icons/io'
 
 type Props = {
     active: number;
-    setActive: (active: number) => void
+    // setActive: (active: number) => void
 }
 
-const CourseOptions: FC<Props> = ({ active, setActive }) => {
+// const CourseOptions: FC<Props> = ({ active, setActive }) => {
+const CourseOptions: FC<Props> = ({ active}) => {
     const options = [
         "Course Information",
         "Course Options",
@@ -15,7 +16,7 @@ const CourseOptions: FC<Props> = ({ active, setActive }) => {
     ]
     return (
         <div>
-            {options.map((option: any, index: number) => (
+            {options.map((option: string, index: number) => (
                 <div key={index} className={`w-full flex py-5`}>
                     <div
                         className={`w-[35px] h-[35px] rounded-full flex items-center justify-center ${active + 1 > index ? "bg-blue-500" : "bg-[#384766]"

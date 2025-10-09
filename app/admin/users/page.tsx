@@ -1,18 +1,14 @@
 "use client"
-
+import React from "react";
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar"
 // import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero"
+// import DashboardHeader from "@/app/components/Admin/sidebar/DashboardHero"
 import Heading from "@/app/utils/Heading"
 import AdminProtected from "@/app/hooks/adminProtected"
 import AllUsers from "@/app/components/Admin/Users/AllUsers"
 
-
-
-
-
-type Props = {}
-
-const page = (props: Props) => {
+const Page = () => {
+  // const [open, setOpen] = useState(false);
   return (
     <div>
       <AdminProtected>
@@ -26,6 +22,7 @@ const page = (props: Props) => {
             <AdminSidebar />
           </div>
           <div className="w-[85%]">
+            {/* <DashboardHeader open={open} setOpen={setOpen} /> */}
             {/* <DashboardHero /> */}
             <AllUsers isTeam={false} />
           </div>
@@ -34,5 +31,4 @@ const page = (props: Props) => {
     </div>
   )
 }
-
-export default page
+export default Page

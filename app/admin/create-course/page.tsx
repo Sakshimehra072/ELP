@@ -1,15 +1,9 @@
-
 "use client"
-
 import CreateCourse from "@/app/components/Admin/Course/CreateCourse";
-import DashboardHero from "@/app/components/Admin/DashboardHero";
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar";
 import Heading from "@/app/utils/Heading";
-import React from "react";
 
-type Props = {};
-
-const page = (props: Props) => {
+const Page = () => {
   return (
     <div>
       <Heading
@@ -22,7 +16,7 @@ const page = (props: Props) => {
           <AdminSidebar />
         </div>
         <div className="w-[85%]">
-          <DashboardHero />
+          {/* <DashboardHero open={open} setOpen={setOpen} /> */}
           <CreateCourse />
         </div>
       </div>
@@ -30,4 +24,4 @@ const page = (props: Props) => {
   );
 };
 
-export default page;
+export default Page;

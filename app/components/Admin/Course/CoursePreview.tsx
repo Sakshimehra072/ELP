@@ -1,14 +1,25 @@
-import { styles } from "@/app/styles/style";
+import { styles } from '@/app/styles/style';
 import CoursePlayer from "@/app/utils/CoursePlayer";
 import Ratings from "@/app/utils/Ratings";
 import React, { FC } from "react";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
+interface CourseData {
+  title?: string;
+  name?: string;
+  description?: string;
+  demoUrl?: string;
+  price?: number;
+  estimatedPrice?: number;
+  benefits?: { title: string }[];
+  prerequisites?: { title: string }[];
+}
+
 type Props = {
   active: number;
   setActive: (active: number) => void;
-  courseData: any;
-  handleCourseCreate: any;
+  courseData: Partial<CourseData>; 
+  handleCourseCreate:() => void; 
   isEdit?: boolean;
 };
 
@@ -19,10 +30,12 @@ const CoursePreview: FC<Props> = ({
   active,
   isEdit,
 }) => {
+  // CHANGE: Extracted price and estimatedPrice with nullish coalescing to ensure number types and fix undefined access in calculation
+  const price = courseData.price ?? 0;
+  const estimatedPrice = courseData.estimatedPrice ?? 0;
+
   const discountPercentenge =
-    ((courseData?.estimatedPrice - courseData?.price) /
-      courseData?.estimatedPrice) *
-    100;
+    ((estimatedPrice - price) / (estimatedPrice || 1)) * 100;
 
   const discountPercentengePrice = discountPercentenge.toFixed(0);
 
@@ -38,16 +51,16 @@ const CoursePreview: FC<Props> = ({
     <div className="w-[80%] mt-24 py-5 m-auto mb-5">
       <div className="w-full relative">
         <CoursePlayer
-          videoUrl={courseData?.demoUrl}
-          title={courseData?.title}
+          videoUrl={courseData?.demoUrl || ''}
+          title={courseData?.title || courseData?.name || ''}
         />
       </div>
       <div className="flex items-center">
         <h1 className="pt-5 text-[25px]">
-          {courseData?.price === 0 ? "Free" : courseData?.price + "5"}Rs
+          {price === 0 ? "Free" : price + " "}Rs
         </h1>
         <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80">
-          {courseData?.estimatedPrice}Rs
+          {estimatedPrice + " "}Rs
         </h5>
 
         <h4 className="pl-5 pt-4 text-[22px]">
@@ -59,7 +72,7 @@ const CoursePreview: FC<Props> = ({
         <div
           className={`${styles.button} !w-[180px] my-3 font-Poppins !bg-[crimson] cursor-not-allower`}
         >
-          Buy Now {courseData?.price}Rs
+          Buy Now {price}Rs
         </div>
       </div>
 
@@ -85,7 +98,7 @@ const CoursePreview: FC<Props> = ({
       <div className="w-full">
         <div className="w-full 800px:pr-5">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            {courseData?.name}
+            {courseData?.name || ''}
           </h1>
           <div className="flex items-center justify-between pt-3">
             <div className="flex items-center">
@@ -99,7 +112,8 @@ const CoursePreview: FC<Props> = ({
         <h1 className="text-[25px] font-Poppins font-[600]">
           What you will learn from this course?
         </h1>
-        {courseData?.benefits?.map((item: any, index: number) => (
+        
+        {courseData?.benefits?.map((item: { title: string }, index: number) => (
           <div className="w-full flex 800px:items-center py-2" key={index}>
             <div className="w-[15px] mr-1">
               <IoIosCheckmarkCircleOutline size={20} />
@@ -112,7 +126,7 @@ const CoursePreview: FC<Props> = ({
         <h1 className="text-[25px] font-Poppins font-[600]">
           What are the prerequisites for starting this course?{" "}
         </h1>
-        {courseData?.prerequisites?.map((item: any, index: number) => (
+        {courseData?.prerequisites?.map((item: { title: string }, index: number) => (
           <div className="w-full flex 800px:items-center py-2" key={index}>
             <div className="w-[15px] mr-1">
               <IoIosCheckmarkCircleOutline size={20} />
@@ -124,11 +138,9 @@ const CoursePreview: FC<Props> = ({
         <br />
         {/* course description */}
         <div className="w-full">
-          <h1 className="text-[25px] font-Poppins font-[600[">
-            Course Details
-          </h1>
+          <h1 className="text-[25px] font-Poppins font-[600]">Course Details</h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
-            {courseData?.description}
+            {courseData?.description || ''}
           </p>
         </div>
         <br />

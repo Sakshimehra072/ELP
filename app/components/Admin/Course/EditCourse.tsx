@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState, FC } from "react";
 import CourseInformation from "./CourseInformation";
 import CourseOptions from "./CourseOptions";
@@ -15,14 +16,78 @@ type Props = {
   id: string;
 };
 
+interface Course {
+  _id: string;
+  name: string;
+  description: string;
+  price: string;
+  categories: string;
+  estimatedPrice?: string;
+  tags: string;
+  level: string;
+  demoUrl: string;
+  thumbnail?: { url: string };
+  benefits: { title: string }[];
+  prerequisites: { title: string }[];
+  courseData: {
+    videoUrl: string;
+    title: string;
+    description: string;
+    videoSection: string;
+    videoLength: string;
+    links: { title: string; url: string }[];
+    suggestion: string;
+  }[];
+}
+
+// CHANGE: Added CourseInfo and ChildCourseInfo interfaces to match CreateCourse and handle type compatibility
+interface CourseInfo {
+  name: string;
+  description: string;
+  categories: string;
+  price: string;
+  estimatedPrice: string;
+  tags: string;
+  level: string;
+  demoUrl: string;
+  thumbnail: string;
+}
+
+interface ChildCourseInfo {
+  name: string;
+  description: string;
+  price: string | number;
+  estimatedPrice?: string | number;
+  tags: string;
+  level: string;
+  demoUrl: string;
+  thumbnail?: string | ArrayBuffer | null;
+}
+
+// CHANGE: Added Link and Content interfaces to type state and match CourseContent
+interface Link {
+  title: string;
+  url: string;
+}
+
+interface Content {
+  videoUrl: string;
+  title: string;
+  description: string;
+  videoSection: string;
+  videoLength?: number;
+  links: Link[];
+  suggestion?: string;
+}
+
 const EditCourse: FC<Props> = ({ id }) => {
   const [editCourse, { isSuccess, error }] = useEditCourseMutation();
-  const { isLoading, data, refetch } = useGetAllCoursesQuery(
+  const { isLoading, data } = useGetAllCoursesQuery(
     {},
     { refetchOnMountOrArgChange: true }
   );
 
-  const editCourseData = data && data.courses.find((i: any) => i._id === id);
+  const editCourseData = data && data.courses.find((i: Course) => i._id === id);
 
   // const [createCourse, { isLoading, isSuccess, error }] =
   //   useCreateCourseMutation();
@@ -33,15 +98,67 @@ const EditCourse: FC<Props> = ({ id }) => {
 
       redirect("/admin/courses");
     }
-    if (error) {
-      if ("data" in error) {
-        const errorMessage = error as any;
-        toast.error(errorMessage.data.message);
-      }
+    // if (error) {
+    //   if ("data" in error) {
+    //     const errorMessage = error as any;
+    //     toast.error(errorMessage.data.message);
+    //   }
+    // }
+     if (error && "data" in error) {
+      const errorMessage = error as { data: { message: string } };
+      toast.error(errorMessage.data.message);
     }
   }, [isLoading, isSuccess, error]);
 
   const [active, setActive] = useState(0);
+
+  // CHANGE: Explicitly typed state as CourseInfo to match parent expectations
+  const [courseInfo, setCourseInfo] = useState<CourseInfo>({
+    name: "",
+    description: "",
+    categories: "",
+    price: "",
+    estimatedPrice: "",
+    tags: "",
+    level: "",
+    demoUrl: "",
+    thumbnail: "",
+  });
+  const [benefits, setBenefits] = useState([{ title: "" }]);
+  const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
+  // CHANGE: Typed as Content[] to match CourseContent expectation
+  const [courseContentData, setCourseContentData] = useState<Content[]>([
+    {
+      videoUrl: "",
+      title: "",
+      description: "",
+      videoSection: "Untitled Section",
+      videoLength: undefined,
+      links: [
+        {
+          title: "",
+          url: "",
+        },
+      ],
+      suggestion: "",
+    },
+  ]);
+  const [courseData, setCourseData] = useState({});
+
+  // CHANGE: Added updateCourseInfo wrapper function to merge partial child updates while preserving categories
+  const updateCourseInfo = (updatedInfo: ChildCourseInfo) => {
+    setCourseInfo((prev: CourseInfo) => ({ 
+      ...prev, 
+      ...updatedInfo,
+      price: String(updatedInfo.price),
+      estimatedPrice: updatedInfo.estimatedPrice !== undefined ? String(updatedInfo.estimatedPrice) : prev.estimatedPrice,
+      thumbnail: updatedInfo.thumbnail !== undefined 
+        ? (typeof updatedInfo.thumbnail === 'string' 
+            ? updatedInfo.thumbnail 
+            : (updatedInfo.thumbnail as ArrayBuffer)?.toString() || prev.thumbnail)
+        : prev.thumbnail,
+    }));
+  };
 
   useEffect(() => {
     if (editCourseData) {
@@ -58,40 +175,16 @@ const EditCourse: FC<Props> = ({ id }) => {
       });
       setBenefits(editCourseData.benefits);
       setPrerequisites(editCourseData.prerequisites);
-      setCourseContentData(editCourseData.courseData);
+      // CHANGE: Transform API data to match Content[] (parse videoLength string to number, add optional suggestion if missing)
+      setCourseContentData(
+        editCourseData.courseData.map((item: Course['courseData'][0]) => ({
+          ...item,
+          videoLength: item.videoLength ? Number(item.videoLength) : undefined,
+          suggestion: item.suggestion || '',
+        }))
+      );
     }
   }, [editCourseData]);
-
-  const [courseInfo, setCourseInfo] = useState({
-    name: "",
-    description: "",
-    price: "",
-    categories: "",
-    estimatedPrice: "",
-    tags: "",
-    level: "",
-    demoUrl: "",
-    thumbnail: "",
-  });
-  const [benefits, setBenefits] = useState([{ title: "" }]);
-  const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
-  const [courseContentData, setCourseContentData] = useState([
-    {
-      videoUrl: "",
-      title: "",
-      description: "",
-      videoSection: "Untitled Section",
-      videoLength: "",
-      links: [
-        {
-          title: "",
-          url: "",
-        },
-      ],
-      suggestion: "",
-    },
-  ]);
-  const [courseData, setCourseData] = useState({});
 
   console.log(courseData)
   const handleSubmit = async () => {
@@ -109,7 +202,7 @@ const EditCourse: FC<Props> = ({ id }) => {
         videoUrl: courseContent.videoUrl,
         title: courseContent.title,
         description: courseContent.description,
-        videoLength: courseContent.videoLength,
+        videoLength: courseContent.videoLength !== undefined ? String(courseContent.videoLength) : undefined,
         videoSection: courseContent.videoSection,
         links: courseContent.links.map((link) => ({
           title: link.title,
@@ -138,7 +231,7 @@ const EditCourse: FC<Props> = ({ id }) => {
     setCourseData(data);
   };
 
-  const handleCourseCreate = async (e: any) => {
+  const handleCourseCreate = async () => {
     const data = courseData;
 
     if (!isLoading) {
@@ -157,7 +250,8 @@ const EditCourse: FC<Props> = ({ id }) => {
             {active === 0 && (
               <CourseInformation
                 courseInfo={courseInfo}
-                setCourseInfo={setCourseInfo}
+                // CHANGE: Use updateCourseInfo wrapper to pass compatible type to child (handles missing categories)
+                setCourseInfo={updateCourseInfo}
                 active={active}
                 setActive={setActive}
               />
@@ -192,7 +286,7 @@ const EditCourse: FC<Props> = ({ id }) => {
             )}
           </div>
           <div className="w-[20%] mt-[100px] h-screen fixed z-[-1] top-18 right-0">
-            <CourseOptions active={active} setActive={setActive} />
+            <CourseOptions active={active} />
           </div>
         </div>
       )}

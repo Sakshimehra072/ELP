@@ -7,12 +7,22 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import avatarDefault from "../../../public/assests/avatar.jpg";
 
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role?: "admin" | "user";
+  avatar?: {
+    url: string;
+  };
+}
+
 type Props = {
-  user: any;
+  user: User;
   active: number;
   avatar: string | null;
   setActive: (active: number) => void;
-  logoutHandler: any;
+  logoutHandler: () => void;   // instead of `any`
 };
 
 const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHandler }) => {
@@ -22,9 +32,8 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHand
     <div className="w-full">
       {/* Profile Section */}
       <div
-        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${
-          active === 1 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
-        }`}
+        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${active === 1 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
+          }`}
         onClick={() => setActive(1)}
         onMouseEnter={() => setHovered(1)}
         onMouseLeave={() => setHovered(null)}
@@ -42,9 +51,8 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHand
 
       {/* Change Password */}
       <div
-        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${
-          active === 2 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
-        }`}
+        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${active === 2 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
+          }`}
         onClick={() => setActive(2)}
         onMouseEnter={() => setHovered(2)}
         onMouseLeave={() => setHovered(null)}
@@ -56,9 +64,8 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHand
 
       {/* Enrolled Courses */}
       <div
-        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${
-          active === 3 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
-        }`}
+        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${active === 3 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
+          }`}
         onClick={() => setActive(3)}
         onMouseEnter={() => setHovered(3)}
         onMouseLeave={() => setHovered(null)}
@@ -68,13 +75,12 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHand
         {hovered === 3 && <span className="md:hidden pl-2 text-sm dark:text-white text-black">Enrolled Courses</span>}
       </div>
 
-      {/* Admin Dashboard */}
+      {/* Admin  */}
       {user.role === "admin" && (
         <Link
           href="/admin"
-          className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${
-            active === 6 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
-          }`}
+          className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${active === 6 ? "dark:bg-slate-900 bg-white" : "bg-transparent"
+            }`}
           onMouseEnter={() => setHovered(6)}
           onMouseLeave={() => setHovered(null)}
         >
@@ -86,10 +92,9 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logoutHand
       )}
 
       {/* Logout */}
-      <div 
-        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${
-          active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
-        }`}
+      <div
+        className={`w-full flex items-center px-3 py-4 cursor-pointer transition-all duration-300 ${active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
+          }`}
         onClick={logoutHandler}
         onMouseEnter={() => setHovered(4)}
         onMouseLeave={() => setHovered(null)}
@@ -183,7 +188,7 @@ export default SideBarProfile;
 //                 )
 //             }
 //             <div
-//                 className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
+//                 className={`w-fter px-3 py-4 cursor-pointer ${active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                     }`}
 //                 onClick={() => logoutHandler()}
 //             >
@@ -232,7 +237,7 @@ export default SideBarProfile;
 //     return (
 //         <div className='w-full dark:bg-slate-900 bg-grey-200'>
 //             <div
-//                 className={`w-full flex items-center px-3 py-4 cursor-pointer 
+//                 className={`w-full flex items-center px-3 py-4 cursor-pointer
 //                     ${active === 1 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                     }`}
 //                 onClick={() => setActive(1)}
@@ -252,7 +257,7 @@ export default SideBarProfile;
 //                 </h5>
 //             </div>
 //             <div
-//                 className={`w-full flex items-center px-3 py-4 cursor-pointer 
+//                 className={`w-full flex items-center px-3 py-4 cursor-pointer
 //                     ${active === 2 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                     }`}
 //                 onClick={() => setActive(2)}
@@ -263,7 +268,7 @@ export default SideBarProfile;
 //                 >Change Password</h5>
 //             </div>
 //             <div
-//                 className={`w-full flex items-center px-3 py-4 cursor-pointer 
+//                 className={`w-full flex items-center px-3 py-4 cursor-pointer
 //                     ${active === 3 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                     }`}
 //                 onClick={() => setActive(3)}
@@ -277,7 +282,7 @@ export default SideBarProfile;
 //                 user.role === "admin" &&
 //                 (
 //                     <Link
-//                         className={`w-full flex items-center px-3 py-4 cursor-pointer 
+//                         className={`w-full flex items-center px-3 py-4 cursor-pointer
 //                             ${active === 6 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                             }`}
 //                         href={"/admin"}
@@ -290,7 +295,7 @@ export default SideBarProfile;
 //                 )
 //             }
 //             <div
-//                 className={`w-full flex items-center px-3 py-4 cursor-pointer 
+//                 className={`w-full flex items-center px-3 py-4 cursor-pointer
 //                     ${active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
 //                     }`}
 //                     // onClick={() => setActive(4)}

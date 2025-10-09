@@ -8,17 +8,17 @@ import {
   ArrowForwardIosIcon,
   ArrowBackIosIcon,
   PeopleOutlinedIcon,
-  ReceiptOutlinedIcon,
-  BarChartOutlinedIcon,
-  MapOutlinedIcon,
+  // ReceiptOutlinedIcon,
+  // BarChartOutlinedIcon,
+  // MapOutlinedIcon,
   GroupIcon,
   OndemandVideoIcon,
   VideoCallIcon,
-  WebIcon,
-  QuizIcon,
-  WysiwygIcon,
-  ManageHistoryIcon,
-  SettingsIcon,
+  // WebIcon,
+  // QuizIcon,
+  // WysiwygIcon,
+  // ManageHistoryIcon,
+  // SettingsIcon,
   ExitToAppIcon,
 } from "./Icon";
 import avatarDefault from "../../../../public/assests/avatar.jpg";
@@ -26,15 +26,25 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
+
 
 interface itemProps {
   title: string;
   to: string;
   icon: JSX.Element;
   selected: string;
-  setSelected: any;
+  // setSelected: any;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
+interface User {
+  name: string;
+  role: string;
+  avatar?: {
+    url: string;
+  };
+}
 const Item: FC<itemProps> = ({ title, to, icon, selected, setSelected }) => {
   return (
     <MenuItem
@@ -48,31 +58,50 @@ const Item: FC<itemProps> = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
+interface AuthState {
+  user: User;
+}
+
 const AdminSidebar = () => {
-  const { user } = useSelector((state: any) => state.auth);
-  const [logout, setLogout] = useState(false);
+  const { user } = useSelector((state: { auth: AuthState }) => state.auth);
+  // const { user } = useSelector((state: any) => state.auth);
+
+  // const [logout, setLogout] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
+  const [selected, setSelected] = useState("");
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const pathname = usePathname(); // ✅ get current route
+
+  // const { theme, setTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
+
+
+
+  useEffect(() => {
+    if (!pathname) return; // ✅ safely exit if null
+    if (pathname.startsWith("/admin/users")) setSelected("Users");
+    else if (pathname.startsWith("/admin/create-course")) setSelected("Create Course");
+    else if (pathname.startsWith("/admin/courses")) setSelected("All Courses");
+    else if (pathname.startsWith("/admin/team")) setSelected("Admin Team");
+    else if (pathname === "/") setSelected("Home Page");
+    else if (pathname === "/admin") setSelected("Dashboard"); // ✅ only for exact /admin
+  }, [pathname]);
 
   if (!mounted) {
     return null;
   }
 
   const logoutHandler = () => {
-    setLogout(true);
-  };
-
+    // setLogout(true);
+  }
   return (
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${
-            theme === "dark" ? "#111C43 !important" : "#fff !important"
-          }`,
+          background: `${theme === "dark" ? "#111C43 !important" : "#fff !important"
+            }`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -254,7 +283,7 @@ const AdminSidebar = () => {
               {!isCollapsed && "Controllers"}
             </Typography>
             <Item
-              title= "Admin Team"
+              title="Admin Team"
               to="/admin/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}

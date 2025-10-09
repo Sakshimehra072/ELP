@@ -1,14 +1,15 @@
+"use client"
 import EditCourse from "@/app/components/Admin/Course/EditCourse";
 import AdminSidebar from "@/app/components/Admin/sidebar/AdminSidebar";
-import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero";
+// import DashboardHero from "@/app/components/Admin/sidebar/DashboardHero";
 import Heading from "@/app/utils/Heading";
+// import React, { useState } from "react";
+import { useParams } from "next/navigation";
 
-type Props = {};
-
-const page = ({ params }: any) => {
-  const id = params?.id;
-  <h1>Edit Course: {params.id}</h1>
-  console.log(id);
+const Page = () => {
+  const params = useParams();
+  const id = (params?.id ?? '') as string;
+  // const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -17,12 +18,12 @@ const page = ({ params }: any) => {
         description="LMS is a platform for students to learn and get help from teachers"
         keywords="Programming, MERN, Redux, Machine Learning"
       />
-      <div className="flex h-min-screen">
+      <div className="flex min-h-screen">
         <div className="1500px:w-[16%] w-1/5">
           <AdminSidebar />
         </div>
         <div className="w-[85%]">
-          <DashboardHero />
+          {/* <DashboardHero open={open} setOpen={setOpen} /> */}
           {/* <AllUsers isTeam={false} /> */}
           <EditCourse id={id} />
         </div>
@@ -31,4 +32,4 @@ const page = ({ params }: any) => {
   );
 };
 
-export default page;
+export default Page;

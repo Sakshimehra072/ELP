@@ -5,16 +5,18 @@ import {
     useUpdatePasswordMutation } from "@/redux/features/user/userApi"
 import React, { useEffect, useState } from "react"
 import toast from "react-hot-toast"
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
-type Props = {}
+// type Props = {}
+
   
-const ChangePassword = (props: Props) => {
+const ChangePassword = () => {
     const [oldPassword, setOldPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [updateUserPassword,{ isSuccess, error }] = useUpdatePasswordMutation()
 
-    const passwordChangeHandler = async (e: any) => {
+    const passwordChangeHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); 
         if (confirmPassword !== newPassword) {
             toast.error("Passwords do not match")
@@ -27,12 +29,19 @@ const ChangePassword = (props: Props) => {
         if (isSuccess) {
             toast.success("Password changed successfully")
         }
-        if (error) {
-            if ("data" in error) {
-                const errorData = error as any
-                toast.error(errorData.data.message)
-            }
-        }
+        if (error && "data" in error) {
+  const errorData = error as FetchBaseQueryError & { data?: { message?: string } };
+  if (errorData.data?.message) {
+    toast.error(errorData.data.message);
+  }
+}
+
+        // if (error) {
+        //     if ("data" in error) {
+        //         const errorData = error as any
+        //         toast.error(errorData.data.message)
+        //     }
+        // }
     }, [isSuccess, error])
 
     return (

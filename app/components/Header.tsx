@@ -13,11 +13,12 @@ import Image from "next/image";
 import avatar from "../../public/assests/avatar.jpg";
 import { useSession } from "next-auth/react";
 import {
-    useLogOutQuery, 
-    useSocialAuthMutation 
+    useLogOutQuery,
+    useSocialAuthMutation
 } from "@/redux/features/auth/authApi";
 import toast from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
+import { RootState } from "@/redux/store";
 
 type Props = {
     open: boolean;
@@ -27,21 +28,30 @@ type Props = {
     setRoute: (route: string) => void;
 };
 
+type User = {
+    _id: string;
+    name: string;
+    avatar?: { url: string };
+    role: string;
+    courses: { _id: string }[];
+};
+
 const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
     const [active, setActive] = useState(false);
     const [openSidebar, setOpenSidebar] = useState(
-        typeof window !== "undefined" 
-        ? localStorage.getItem('sidebarOpen') === "true"
-        : false
+        typeof window !== "undefined"
+            ? localStorage.getItem('sidebarOpen') === "true"
+            : false
     );
-    const { user } = useSelector((state: any) => state.auth);
-    const { data: userData, refetch, isFetching } = useLoadUserQuery(undefined, { refetchOnMountOrArgChange: true });
+    const authState = useSelector((state: RootState) => state.auth);
+    const user = authState.user as unknown as User | null;
+    const { refetch } = useLoadUserQuery(undefined, { refetchOnMountOrArgChange: true });
 
-    const { data } = useSession(); 
+    const { data } = useSession();
     // console.log(data);
     const [socialAuth, { isSuccess }] = useSocialAuthMutation();
-    const [logout, setLogout] = useState(false);
-    const {} = useLogOutQuery(undefined, { skip: !logout });
+    const [logout] = useState(false);
+    const { } = useLogOutQuery(undefined, { skip: !logout });
 
     // Optimized useEffect for user authentication
     useEffect(() => {
@@ -52,12 +62,12 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                 avatar: data?.user?.image
             }).then(() => {
                 refetch(); // Manually trigger data reload after login
-              });
-        } 
+            });
+        }
         if (isSuccess) {
             toast.success("Login Successfully");
         }
-    }, [data, user, socialAuth, isSuccess]); // Added dependencies for optimization
+    }, [data, user, socialAuth, isSuccess, refetch]); // Added dependencies for optimization
 
     // Improved Scroll Listener for Performance
     useEffect(() => {
@@ -68,24 +78,23 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleClose = (e: any) => {
-        if (e.target.id === "screen") {
+    const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+        if ((e.target as HTMLElement).id === "screen") {
             setOpenSidebar(false);
         }
     };
 
-    useEffect(()=> {
-        if(typeof window !== 'undefined'){
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
             localStorage.setItem("sidebarOpen", JSON.stringify(openSidebar));
         }
-    },[openSidebar])
+    }, [openSidebar])
 
     return (
         <div className="w-full fixed z-50"> {/* Ensured z-index for better stacking */}
             <div
-                className={`w-full border-a fixed h-[80px] z-[80] transition duration-300 ${
-                    active ? "dark:bg-opacity-50 dark:bg-gradient-to-b bg-gradient-to-b dark:from-gray-900 from-gray-200 dark:to-black to-white shadow-lg" : "shadow-md"
-                }`}
+                className={`w-full border-a fixed h-[80px] z-[80] transition duration-300 ${active ? "dark:bg-opacity-50 dark:bg-gradient-to-b bg-gradient-to-b dark:from-gray-900 from-gray-200 dark:to-black to-white shadow-lg" : "shadow-md"
+                    }`}
             >
                 <div className="w-[95%] 800px:w-[92%] m-auto py-2 h-full flex items-center justify-between px-4">
                     <Link href={"/"} className="text-[22px] font-bold text-black dark:text-white">
@@ -112,7 +121,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                         {user ? (
                             <Link href={"/profile"}>
                                 <Image
-                                    src={user.avatar ? user.avatar.url : avatar}
+                                    src={user.avatar?.url ?? avatar}
                                     width={30}
                                     height={30}
                                     alt="user profile photo"
@@ -212,12 +221,6 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
 };
 export default Header;
 
-
-
-
-
-
-
 // 'use client';
 // import Link from "next/link";
 // import React, { FC, useEffect, useState, } from 'react';
@@ -233,8 +236,8 @@ export default Header;
 // import avatar from "../../public/assests/avatar.jpg"
 // import { useSession } from "next-auth/react";
 // import {
-//     useLogOutQuery, 
-//     useSocialAuthMutation 
+//     useLogOutQuery,
+//     useSocialAuthMutation
 // } from "@/redux/features/auth/authApi";
 // import toast from "react-hot-toast";
 // import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
@@ -276,7 +279,7 @@ export default Header;
 //         if (isSuccess){
 //             toast.success("Login Successfully")
 //         }
-//     }, [data, user]);    
+//     }, [data, user]);
 
 //     if (typeof window !== "undefined") {
 //         window.addEventListener("scroll", () => {

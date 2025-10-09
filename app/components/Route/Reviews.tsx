@@ -1,264 +1,174 @@
-// {
-//    avatar: userimg1,
-//     name: "Shalini K.", 
-//     profession: "IELTS General Training (Band 8.0)", 
-//     comment: "The training was practical, focused, and very supportive. I loved how every session included real test strategies and mock tests. I scored 8.0 and got my Australian PR process started!", 
-//     rating: 4.5,
-//    },
-//    { avatar: userimg2, 
-//     name: "Neha J.", 
-//     profession: "IELTS Academic (Band 8.0)",
-//     comment: "Amazing experience! The classes were detailed and focused, and the study material was very close to the actual exam. The writing corrections and speaking mock tests made a big difference in my preparation.", 
-//     rating: 5,
-//    },
-//    {
-//     avatar: userimg2,
-//     name: "Anjali S", 
-//     profession: " IELTS Academic (Band 7.5)", 
-//     comment: "I had taken the IELTS test twice before without reaching my target score. This course gave me the structure and feedback I needed. The writing and speaking sessions were especially helpful. I finally got a 7.5 overall, and now I’m applying to universities in Canada!", 
-//     rating: 5, 
-//   },
-//   { 
-//     avatar: userimg3, 
-//     name: "Karanbir S.", 
-//     profession: "IELTS (Band 7.0)", 
-//     comment: "The personalized approach and regular mock tests kept me on track. I had taken coaching elsewhere before, but this course gave me the push I needed to finally achieve my target band.", 
-//     rating: 4, 
-//   },
-//   {
-//     avatar: userimg3, 
-//     name: "Rajiv M.", 
-//     profession: "Accent Training (Corporate Professional)", 
-//     comment: "As a team lead working with international clients, I often felt self-conscious about my pronunciation. After just a few weeks of accent coaching, I noticed a huge improvement. My confidence has grown, and my communication is much clearer now.", 
-//     rating: 4, 
-//   }, 
-//   {
-//     avatar: userimg1, 
-//     name: "Rajiv M.", 
-//     profession: "Accent Training (Corporate Professional)", 
-//     comment: "As a team lead working with international clients, I often felt self-conscious about my pronunciation. After just a few weeks of accent coaching, I noticed a huge improvement. My confidence has grown, and my communication is much clearer now.", 
-//     rating: 5, 
-//   }, 
-//   { avatar: userimg2, 
-//     name: "Vivek D.", 
-//     profession: "Accent & Communication Skills", 
-//     comment: "The accent training helped me not just sound better, but also think and speak more naturally in English. My colleagues even noticed the difference! Highly recommended for anyone in the corporate world.", 
-//     rating: 5, 
-//   },
-//   { 
-//     avatar: userimg3, 
-//     name: "Meenakshi R.", 
-//     profession: "IELTS Academic (Band 7)", 
-//     comment: "Before this course, I struggled especially with the writing section. The teacher explained everything clearly, gave individual feedback, and corrected my mistakes in a way I could actually learn from. I’m so happy I joined!", 
-//     rating: 4,
-//    },
-//     { 
-//       avatar: userimg1, 
-//       name: "Priya M.", 
-//       profession: "IELTS General Training (Band 7.5)", 
-//       comment: "I was really nervous about the IELTS speaking test, but the practice sessions and personal feedback gave me so much confidence. I ended up scoring higher than I expected. This course was exactly what I needed!", 
-//       rating: 5, 
-//     },
-//      { avatar: userimg2, 
-//       name: "Harshil P.", 
-//       profession: "Accent Training", 
-//       comment: "The course helped me identify subtle pronunciation errors I didn’t even know I was making. The trainer was very supportive, and the audio materials helped me practice every day. I now feel more fluent and professional when I speak.", 
-//       rating: 5,
-//      },
-//       { 
-//         avatar: userimg1, 
-//         name: "Neha J.", 
-//         profession: "IELTS Academic (Band 8.0)", 
-//         comment: "Amazing experience! The classes were detailed and focused, and the study material was very close to the actual exam. The writing corrections and speaking mock tests made a big difference in my preparation.", 
-//         rating: 5, 
-//       },
-//        {
-//          avatar: userimg2,
-//          name: "Rakesh K.", 
-//          profession: "Communication Skills & Accent Coaching", 
-//          comment: "This course improved not just my accent but also my overall communication style. I learned how to pause, emphasize key points, and sound more confident in meetings and presentations.",
-//         rating: 5,
-//        },
-//         {
-//          avatar: userimg2, 
-//          name: "Nikita A.", 
-//          profession: "Spoken English Course", 
-//          comment: "Before joining, I was hesitant to speak in English during office meetings. Now, I can speak fluently and handle conversations with clients easily. The sessions were fun, practical, and extremely helpful.", 
-//          rating: 5, 
-//         }, 
-//         {
-//            avatar: userimg3, 
-//            name: "Aishwarya V.", 
-//            profession: "Accent Training", 
-//            comment: "As someone working in customer support, sounding clear and neutral was very important. This course helped me reduce my regional accent and speak more clearly with international customers.", 
-//            rating: 5, 
-//           },
-//            { avatar: userimg1, 
-//             name: "Nikhil G.", 
-//             profession: "Online IELTS", 
-//             comment: "I joined the fast-track program just one month before my exam, and I was amazed at how much I improved. The strategies taught were spot-on, and the trainer was always available for doubts and practice.", 
-//             rating: 5, 
-//           }, 
-//           { avatar: userimg2, 
-//             name: "Kavita R.", 
-//             profession: "Accent Training", 
-//             comment: "I had already done a basic pronunciation course elsewhere, but this advanced training took it to the next level. The trainer focused on fine details like stress, intonation, and connected speech – it made a huge impact!", 
-//             rating: 5, 
-//           },
-//            {
-//              avatar: userimg3, 
-//              name: "Nancy A.", 
-//              profession: "IELTS Academic (Band 7.5)",
-//             comment: "Clear teaching, personalized attention, and honest feedback – that’s what I got from this course. I highly recommend it to anyone who’s serious about their IELTS score.", 
-//              rating: 5, 
-//             },
-
-
-
-
 "use client";
 import React, { useState } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import ReviewCard from "../../components/Reviews/ReviewsCard"; // adjust path if needed
 import VideoReviewCard from "../Route/VideoReviewCard"; // adjust path if needed
-import userimg1 from "../../../public/assests/user_disha.jpg";
+import userimg1 from "../../../public/assests/Archana.jpg";
 import userimg2 from "../../../public/assests/user_sakshi.jpg";
 import userimg3 from "../../../public/assests/user_bhakti.jpg";
+import userimg4 from "../../../public/assests/anu.jpg"
+import userimg5 from "../../../public/assests/karanbeer.jpg";
+import userimg6 from "../../../public/assests/mehakdeep.jpg";
+// import userimg7 from "../../../public/assests/simran.jpg";
+import userimg8 from "../../../public/assests/karanbeer.jpg";
+import userimg9 from "../../../public/assests/kajal.jpg"
+import userimg10 from "../../../public/assests/karanbeer.jpg";
+import userimg11 from "../../../public/assests/karanbeer.jpg";
+import userimg12 from "../../../public/assests/vishal.jpg";
+import userimg13 from "../../../public/assests/karanbeer.jpg";
+import userimg14 from "../../../public/assests/user_disha.jpg";
+import userimg15 from "../../../public/assests/karanbeer.jpg";
+import userimg16 from "../../../public/assests/karanbeer.jpg";
+
+
+
+interface TextReview {
+  avatar: string;
+  name: string;
+  profession: string;
+  comment: string;
+  rating: number;
+}
+
+interface VideoReview {
+  isVideo: true;
+  videoSrc: string;
+  name: string;
+  rating: number;
+}
+
+type Review = TextReview | VideoReview;
 
 // === ALL REVIEWS (text + video) ===
-export const reviews = [
-
+export const reviews: Review[] = [
   {
-    avatar: userimg1,
+    avatar: userimg1.src,
     name: "Shalini K.",
     profession: "IELTS General Training (Band 8.0)",
     comment: "The training was practical, focused, and very supportive. I loved how every session included real test strategies and mock tests.\n I scored 8.0 and got my Australian PR process started! The guidance not only boosted my confidence but also helped me understand the exam pattern deeply. The constant motivation from the trainers made the journey smooth, and I now feel fully prepared for the next big step in my career abroad.",
     rating: 4.5,
   },
-   {
-    isVideo: true,
-    videoSrc: "",
-    name: "Student 1",
-    rating: 5,
-  },
+  // {
+  //   isVideo: true,
+  //   videoSrc: "",
+  //   name: "Student 1",
+  //   rating: 5,
+  // },
   {
-    avatar: userimg2,
+    avatar: userimg2.src,
     name: "Neha J.",
     profession: "IELTS Academic (Band 8.0)",
     comment: "Amazing experience! The classes were detailed and focused, and the study material was very close to the actual exam. The writing corrections and speaking mock tests made a big difference in my preparation.",
     rating: 5,
   },
   {
-    avatar: userimg2,
+    avatar: userimg4.src,
     name: "Anjali S.",
     profession: "IELTS Academic (Band 7.5)",
     comment: "I had taken the IELTS test twice before without reaching my target score. This course gave me the structure and feedback I needed. The writing and speaking sessions were especially helpful. I finally got a 7.5 overall, and now I’m applying to universities in Canada!",
     rating: 5,
   },
   {
-    avatar: userimg3,
+    avatar: userimg5 .src,
     name: "Karanbir S.",
     profession: "IELTS (Band 7.0)",
     comment: "The personalized approach and regular mock tests kept me on track. I had taken coaching elsewhere before, but this course gave me the push I needed to finally achieve my target band.",
     rating: 4,
   },
   {
-    avatar: userimg3,
+    avatar: userimg6.src,
     name: "Rajiv M.",
     profession: "Accent Training (Corporate Professional)",
     comment: "As a team lead working with international clients, I often felt self-conscious about my pronunciation. After just a few weeks of accent coaching, I noticed a huge improvement. My confidence has grown, and my communication is much clearer now.",
     rating: 4,
   },
+  // {
+  //   avatar: userimg7.src,
+  //   name: "Rajiv M.",
+  //   profession: "Accent Training (Corporate Professional)",
+  //   comment: "As a team lead working with international clients, I often felt self-conscious about my pronunciation. After just a few weeks of accent coaching, I noticed a huge improvement. My confidence has grown, and my communication is much clearer now.",
+  //   rating: 5,
+  // },
   {
-    avatar: userimg1,
-    name: "Rajiv M.",
-    profession: "Accent Training (Corporate Professional)",
-    comment: "As a team lead working with international clients, I often felt self-conscious about my pronunciation. After just a few weeks of accent coaching, I noticed a huge improvement. My confidence has grown, and my communication is much clearer now.",
-    rating: 5,
-  },
-  {
-    avatar: userimg2,
+    avatar: userimg8.src,
     name: "Vivek D.",
     profession: "Accent & Communication Skills",
     comment: "The accent training helped me not just sound better, but also think and speak more naturally in English. My colleagues even noticed the difference! Highly recommended for anyone in the corporate world.",
     rating: 5,
   },
   {
-    avatar: userimg3,
+    avatar: userimg9.src,
     name: "Meenakshi R.",
     profession: "IELTS Academic (Band 7)",
     comment: "Before this course, I struggled especially with the writing section. The teacher explained everything clearly, gave individual feedback, and corrected my mistakes in a way I could actually learn from. I’m so happy I joined!",
     rating: 4,
   },
   {
-    avatar: userimg1,
+    avatar: userimg10.src,
     name: "Priya M.",
     profession: "IELTS General Training (Band 7.5)",
     comment: "I was really nervous about the IELTS speaking test, but the practice sessions and personal feedback gave me so much confidence. I ended up scoring higher than I expected. This course was exactly what I needed!",
     rating: 5,
   },
   {
-    avatar: userimg2,
+    avatar: userimg11.src,
     name: "Harshil P.",
     profession: "Accent Training",
     comment: "The course helped me identify subtle pronunciation errors I didn’t even know I was making. The trainer was very supportive, and the audio materials helped me practice every day. I now feel more fluent and professional when I speak.",
     rating: 5,
   },
   {
-    avatar: userimg2,
+    avatar: userimg12.src,
     name: "Rakesh K.",
     profession: "Communication Skills & Accent Coaching",
     comment: "This course improved not just my accent but also my overall communication style. I learned how to pause, emphasize key points, and sound more confident in meetings and presentations.",
     rating: 5,
   },
   {
-    avatar: userimg2,
+    avatar: userimg13.src,
     name: "Nikita A.",
     profession: "Spoken English Course",
     comment: "Before joining, I was hesitant to speak in English during office meetings. Now, I can speak fluently and handle conversations with clients easily. The sessions were fun, practical, and extremely helpful.",
     rating: 5,
   },
   {
-    avatar: userimg3,
+    avatar: userimg14.src,
     name: "Aishwarya V.",
     profession: "Accent Training",
     comment: "As someone working in customer support, sounding clear and neutral was very important. This course helped me reduce my regional accent and speak more clearly with international customers.",
     rating: 5,
   },
   {
-    avatar: userimg1,
+    avatar: userimg15.src,
     name: "Nikhil G.",
     profession: "Online IELTS",
     comment: "I joined the fast-track program just one month before my exam, and I was amazed at how much I improved. The strategies taught were spot-on, and the trainer was always available for doubts and practice.",
     rating: 5,
   },
   {
-    avatar: userimg2,
+    avatar: userimg16.src,
     name: "Kavita R.",
     profession: "Accent Training",
     comment: "I had already done a basic pronunciation course elsewhere, but this advanced training took it to the next level. The trainer focused on fine details like stress, intonation, and connected speech – it made a huge impact!",
     rating: 5,
   },
   {
-    avatar: userimg3,
+    avatar: userimg3.src,
     name: "Nancy A.",
     profession: "IELTS Academic (Band 7.5)",
     comment: "Clear teaching, personalized attention, and honest feedback – that’s what I got from this course. I highly recommend it to anyone who’s serious about their IELTS score.",
     rating: 5,
   },
-
   // VIDEO entries (using exactly the path format you requested)
- 
   {
     isVideo: true,
-    videoSrc: "",
+    videoSrc: "/assests/video_review1.mp4",
     name: "Student 2",
-    
     rating: 4,
   },
   {
     isVideo: true,
-    videoSrc: "",
+    videoSrc: "/assests/video_review3.mp4",
     name: "Student 3",
     rating: 5,
   },
@@ -361,7 +271,7 @@ const Reviews: React.FC = () => {
               style={{ transformStyle: "preserve-3d" }}
             >
               <div className="w-full h-full rounded-2xl shadow-2xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                {currentReview?.isVideo ? (
+                {'isVideo' in currentReview ? (
                   <VideoReviewCard
                     videoSrc={currentReview.videoSrc}
                     name={currentReview.name}
@@ -397,5 +307,3 @@ const Reviews: React.FC = () => {
 };
 
 export default Reviews;
-
-             

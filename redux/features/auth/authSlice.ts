@@ -1,29 +1,76 @@
+// import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+// const initialState ={
+//     token: "",
+//     user: "",
+// };
+
+//  const authSlice = createSlice ({
+//     name:"auth",
+//     initialState,
+//     reducers:{
+//         userRegistration: (state, action: PayloadAction<{token: string}>) => {
+//             state.token = action.payload.token;
+//         },
+//         userLoggedIn: (state, action:PayloadAction<{accessToken:string,user:string}>) => {
+//             state.token = action.payload.accessToken;
+//             state.user = action.payload.user;
+//         },
+//         userLoggedOut: (state) => {
+//             state.token = "";
+//             state.user = "";
+//         }
+//     }
+//  })
+
+//  export const {userRegistration, userLoggedIn, userLoggedOut} = authSlice.actions;
+
+// export default authSlice.reducer;
+
+// ============================================================================================================
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState ={
-    token: "",
-    user: "",
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: "user" | "admin";
+}
+
+interface AuthState {
+  token: string;
+  user: User | null;
+}
+
+const initialState: AuthState = {
+  token: "",
+  user: null,
 };
 
- const authSlice = createSlice ({
-    name:"auth",
-    initialState, 
-    reducers:{
-        userRegistration: (state, action: PayloadAction<{token: string}>) => {
-            state.token = action.payload.token;
-        },
-        userLoggedIn: (state, action:PayloadAction<{accessToken:string,user:string}>) => {
-            state.token = action.payload.accessToken;
-            state.user = action.payload.user;
-        },
-        userLoggedOut: (state) => {
-            state.token = "";
-            state.user = "";
-        }
-    }   
- })
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    userRegistration: (state, action: PayloadAction<{ token: string }>) => {
+      state.token = action.payload.token;
+    },
+    userLoggedIn: (
+      state,
+      action: PayloadAction<{ accessToken: string; user: User }>
+    ) => {
+      state.token = action.payload.accessToken;
+      state.user = action.payload.user;
+    },
+    userLoggedOut: (state) => {
+      state.token = "";
+      state.user = null;
+    },
+  },
+});
 
- export const {userRegistration, userLoggedIn, userLoggedOut} = authSlice.actions;
-
-
+export const { userRegistration, userLoggedIn, userLoggedOut } =
+  authSlice.actions;
 export default authSlice.reducer;
+
+

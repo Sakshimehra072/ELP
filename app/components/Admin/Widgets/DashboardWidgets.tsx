@@ -1,6 +1,7 @@
 import { useGetOrdersAnalyticsQuery, useGetUserAnalyticsQuery } from '@/redux/features/analytics/analyticsApi';
 import { Box, CircularProgress } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+// import UserAnalytics from "../Analytics/UsersAnalytics";
+import React, { useEffect, useState, FC } from 'react'
 import { BiBorderLeft } from 'react-icons/bi';
 import { PiUsersFourLight } from "react-icons/pi";
 
@@ -36,10 +37,21 @@ const CircularProgressWithLabel: FC<Props> = ({ open, value }) => {
   );
 };
 
-const DashboardWidgets: FC<props> = ({open}) => {
 
-      const [orderComparePrecentenge, setOrderComparePercentenge] = useState<any>();
-  const [userComparePrecentenge, setUserComparePercentenge] = useState<any>();
+type ComparePercentage = {
+  currentMonth: number;
+  previousMonth: number;
+  percentChange: number;
+};
+
+const DashboardWidgets: FC<Props> = ({open}) => {
+
+const [orderComparePrecentenge, setOrderComparePercentenge] = useState<ComparePercentage | null>(null);
+const [userComparePrecentenge, setUserComparePercentenge] = useState<ComparePercentage | null>(null);
+ 
+
+  // const [orderComparePrecentenge, setOrderComparePercentenge] = useState<any>();
+  // const [userComparePrecentenge, setUserComparePercentenge] = useState<any>();
 
   const { data, isLoading } = useGetUserAnalyticsQuery({});
   const { data: ordersData, isLoading: ordersLoading } =
@@ -90,9 +102,9 @@ const DashboardWidgets: FC<props> = ({open}) => {
   return (
     <div className="mt-[50px] min-h-screen">
       <div className="grid grid-cols-[75%,25%]">
-        {/* <div className="p-8">
-          <UserAnalytics isDashboard={true} />
-        </div> */}
+        <div className="p-8">
+          {/* <UserAnalytics is={true} /> */}
+        </div>
 
         <div className="pt-[80px] pr-8">
           <div className="w-full dark:bg-[#111c43] rounded-sm shadow">
@@ -108,13 +120,13 @@ const DashboardWidgets: FC<props> = ({open}) => {
               </div>
               <div>
                 <CircularProgressWithLabel
-                  value={orderComparePrecentenge?.percentChange > 0 ? 100 : 0}
+                  value={orderComparePrecentenge?.percentChange && orderComparePrecentenge.percentChange > 0 ? 100 : 0}
                   open={open}
                 />
                 <h5 className="text-center pt-4">
-                  {orderComparePrecentenge?.percentChange > 0
-                    ? "+" + orderComparePrecentenge?.percentChange.toFixed(2)
-                    : "-" + orderComparePrecentenge?.percentChange.toFixed(2)}
+                  {orderComparePrecentenge?.percentChange && orderComparePrecentenge.percentChange > 0
+                    ? "+" + orderComparePrecentenge.percentChange.toFixed(2)
+                    : "-" + (orderComparePrecentenge?.percentChange ?? 0).toFixed(2)}
                   %
                 </h5>
               </div>
@@ -133,13 +145,13 @@ const DashboardWidgets: FC<props> = ({open}) => {
               </div>
               <div>
                 <CircularProgressWithLabel
-                  value={userComparePrecentenge?.percentChange > 0 ? 100 : 0}
+                  value={userComparePrecentenge?.percentChange && userComparePrecentenge.percentChange > 0 ? 100 : 0}
                   open={open}
                 />
                 <h5 className="text-center pt-4">
-                  {userComparePrecentenge?.percentChange > 0
-                    ? "+" + userComparePrecentenge?.percentChange.toFixed(2)
-                    : "-" + userComparePrecentenge?.percentChange.toFixed(2)}
+                  {userComparePrecentenge?.percentChange && userComparePrecentenge.percentChange > 0
+                    ? "+" + userComparePrecentenge.percentChange.toFixed(2)
+                    : "-" + (userComparePrecentenge?.percentChange ?? 0).toFixed(2)}
                   %
                 </h5>
               </div>
@@ -149,7 +161,7 @@ const DashboardWidgets: FC<props> = ({open}) => {
       </div>
       {/* <div className="grid grid-cols-[65%,35%] mt-[-20px]">
         <div className="dark:bg-[#111c43] w-[94%] mt-[30px] h-[40vh] shadow-sm m-auto">
-          <OrdersAnalytics isDashboard={true} />
+          <OrdersAnalytics is={true} />
         </div>
         <div className="p-5">
           <h5 className="dark:text-[#fff] text-black text-[20px] font-[400] font-Poppins pb-3">
