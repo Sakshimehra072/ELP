@@ -5,7 +5,11 @@ type RegistrationResponse = {
     message: string;
     activationToken: string;     
 }
-type RegistrationData = {}
+type RegistrationData = {
+    name: string;
+    email: string;
+    password: string;
+};
 
 export const authApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -50,7 +54,7 @@ export const authApi = apiSlice.injectEndpoints({
                     email,
                     password
                 },
-                Credentials: "include" as const,
+                credentials: "include" as const,
             }),
             async onQueryStarted(arg, {queryFulfilled, dispatch}){
                 try{
@@ -78,7 +82,7 @@ export const authApi = apiSlice.injectEndpoints({
                    name,
                    avatar,
                 },
-                Credentials: "include" as const,
+                credentials: "include" as const,
             }),
             async onQueryStarted(arg, {queryFulfilled, dispatch}){
                 try{
@@ -101,10 +105,11 @@ export const authApi = apiSlice.injectEndpoints({
             query:() => ({
                 url:"logout",
                 method:"GET",
-                Credentials: "include" as const,
+                credentials: "include" as const,
             }),
             async onQueryStarted(arg, {queryFulfilled, dispatch}){
                 try{
+                    await queryFulfilled; // ✅ wait for backend response
                     dispatch(
                         userLoggedOut()
                     ); 

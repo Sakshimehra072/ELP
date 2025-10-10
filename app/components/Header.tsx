@@ -6,10 +6,10 @@ import { ThemeSwitcher } from "../utils/ThemeSwitcher";
 import { HiOutlineMenuAlt3, HiOutlineUserCircle } from "react-icons/hi";
 import CustomModal from "../utils/CustomModal";
 // import Login from "../components/auth/Login";
-import Login from "./auth/Login"
 // import SignUp from "../components/auth/SignUp";
-import SignUp from "./auth/SignUp"
 // import Verification from "../components/auth/Verification";
+import Login from "./auth/Login"
+import SignUp from "./auth/SignUp"
 import Verification from "./auth/Verification";
 import { useSelector } from "react-redux";
 import Image from "next/image";
