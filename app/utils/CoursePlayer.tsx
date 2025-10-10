@@ -14,8 +14,8 @@ const CoursePlayer: FC<Props> = ({ videoUrl }) => {
 
   useEffect(() => {
     axios
-      // .post("https://localhost:8000/api/v1/getVdoCipherOTP", {
-      .post("https://liveenglishwithsushil-xy9u.onrender.com/api/v1/getVdoCipherOTP", {
+      .post("https://liveenglishwithsushil.onrender.com/api/v1/getVdoCipherOTP", {
+      // .post("https://liveenglishwithsushil-xy9u.onrender.com/api/v1/getVdoCipherOTP", {
         videoId: videoUrl,
       })
       .then((res) => {
