@@ -51,7 +51,6 @@ const Signup: FC<Props> = ({ setRoute }) => {
 // }
 //     }, [isSuccess, error]);
 
-
 useEffect(() => {
     type ErrorResponse = { data: { message: string } };
 
@@ -71,18 +70,32 @@ useEffect(() => {
     const formik = useFormik({
         initialValues: { name: "", email: "", password: "" },
         validationSchema: schema,
+        // onSubmit: async ({ name, email, password }) => {
+        //     // setRoute("Verification")
+        //     // console.log("Submitting:", { name, email, password }); // DEBUG LINE
+
+        //     const data = {
+        //         name, email, password
+        //     };
+        //     await register(data);
+
+        // },
         onSubmit: async ({ name, email, password }) => {
-            // setRoute("Verification")
-            // console.log("Submitting:", { name, email, password }); // DEBUG LINE
+    try {
+        const result = await register({ name, email, password }).unwrap();
+        toast.success(result.message || "Registration Successful");
+        setRoute("Verification");
+    } catch (err) {
+        // RTK Query type-safe error handling
+        const errorData = (err as { data?: { message?: string } })?.data;
+        toast.error(errorData?.message || "Registration failed");
+    }
+},
 
-            const data = {
-                name, email, password
-            };
-            await register(data);
 
-        },
+
     });
-
+    
     const { errors, touched, values, handleChange, handleSubmit } = formik;
 
     return (
@@ -195,6 +208,3 @@ useEffect(() => {
     );
 };
 export default Signup; 
-
-
-

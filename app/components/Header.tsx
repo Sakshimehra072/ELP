@@ -163,8 +163,9 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                         />
                         <br />
                         <p className="text-[14px] px-2 pl-5 dark:text-white text-black ">
-                            © 2025 E-Learning Platform - Sakshimehra072, Bhaktiagrawal
+                             Copyright © 2025 Live English With Sushil | All Rights Reserved
                         </p>
+                         <p className="text-center text-zinc-800 text-xs dark:text-zinc-300">Sakshi Mehra, Bhakti Agrawal</p>
                     </div>
                 </div>
             )}

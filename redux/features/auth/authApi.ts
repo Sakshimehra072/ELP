@@ -20,6 +20,7 @@ export const authApi = apiSlice.injectEndpoints({
                 body: data,
                 credentials: "include" as const,
             }),
+
             async onQueryStarted(arg, {queryFulfilled, dispatch}){
                 try{
                     const result = await queryFulfilled;
@@ -32,6 +33,7 @@ export const authApi = apiSlice.injectEndpoints({
                     console.log(error);
                 }
             }
+
         }),
         activation: builder.mutation({
             query: ({activation_token, activation_code}) => ({
