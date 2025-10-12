@@ -33,7 +33,7 @@
 //         <h1 className="font-Poppins text-[16px] text-black dark:text-[#fff]">
 //           {item.name}
 //         </h1>
-  
+
 //         <div className="w-full flex items-center justify-between pt-3">
 //           <div className="flex">
 //             <h3 className="text-black dark:text-[#fff]">
@@ -91,8 +91,8 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
     <Link
       href={!isProfile ? `/course/${item._id}` : `course-access/${item._id}`}
     >
-           
-        <div className="w-full dark:bg-slate-500 bg-blue-100 dark:bg-opacity-20 backdrop-blur border dark:border-blue-100 border-blue-300
+
+      <div className="w-full dark:bg-slate-500 bg-blue-100 dark:bg-opacity-20 backdrop-blur border dark:border-blue-100 border-blue-300
 dark:shadow-[bg-slate-700] rounded-lg p-3 shadow-sm dark:shadow-inner flex flex-col gap-3">
 
         {/* Thumbnail */}
@@ -100,8 +100,11 @@ dark:shadow-[bg-slate-700] rounded-lg p-3 shadow-sm dark:shadow-inner flex flex-
           <Image
             src={item.thumbnail.url}
             alt={item.name || "Course Thumbnail"}
-            layout="fill"
-            objectFit="cover"
+            // layout="fill"
+            fill
+            style={{
+              objectFit: "cover"
+            }}
             className="rounded"
           />
         </div>
@@ -123,7 +126,7 @@ dark:shadow-[bg-slate-700] rounded-lg p-3 shadow-sm dark:shadow-inner flex flex-
               </span>
             )}
           </div>
-          
+
 
 
           <div className="flex items-center gap-1 text-black dark:text-[#fff]">
