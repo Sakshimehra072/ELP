@@ -41,13 +41,17 @@ type Review = TextReview | VideoReview;
 
 // === ALL REVIEWS (text + video) ===
 export const reviews: Review[] = [
+ 
   {
-    avatar: userimg1.src,
-    name: "Shalini K.",
-    profession: "IELTS General Training (Band 8.0)",
-    comment: "The training was practical, focused, and very supportive. I loved how every session included real test strategies and mock tests.\n I scored 8.0 and got my Australian PR process started! The guidance not only boosted my confidence but also helped me understand the exam pattern deeply. The constant motivation from the trainers made the journey smooth, and I now feel fully prepared for the next big step in my career abroad.",
-    rating: 4.5,
-  },
+  avatar: userimg1.src,
+  name: "Shalini K.",
+  profession: "IELTS General Training (Band 8.0)",
+  comment:
+    "The training was practical, focused, and very supportive. I loved how every session included real test strategies and mock tests. I scored 8.0 and got my Australian PR process started! The guidance not only boosted my confidence but also helped me understand the exam pattern deeply. The constant motivation from the trainers made the journey smooth, and I now feel fully prepared for the next big step in my career abroad. The personalized feedback after each mock test really helped me identify my weak areas and improve faster.",
+  rating: 4.5,
+},
+
+
   // {
   //   isVideo: true,
   //   videoSrc: "",

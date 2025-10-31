@@ -1,147 +1,65 @@
-// "use client";
-// import React from "react";
-// import { BiSearch } from "react-icons/bi";
-// import Image from "next/image";
-// import Link from "next/link";
-// import HeroImage from "../../../public/assests/AdminImage-removebg.png";
-
-
-// const Hero: React.FC = () => {
-//   return (
-//     <div className="w-full flex flex-col items-center">
-//       {/* Hero Section */}
-//       <div className="w-full flex flex-col lg:flex-row items-center pt-20 px-4 lg:px-20 overflow-hidden">
-//         <div className="relative flex items-center justify-center mx-4 sm:mx-6 md:mx-7 my-4 sm:my-5 mt-6 pt-8 sm:pt-10 px-4 sm:px-6 py-6 sm:py-8 z-0">
-//           <div className="relative flex items-center justify-center rounded-full hero_animation 
-//     bg-gradient-to-r dark:from-blue-500 dark:to-purple-100 from-blue-300 to-purple-400 
-//     opacity-60 h-[25vw] w-[25vw] sm:h-[30vh] sm:w-[30vh] md:h-[40vh] md:w-[40vh] lg:h-[500px] lg:w-[500px] 
-//     xl:h-[500px] xl:w-[500px] shadow-lg overflow-hidden">
-//             <Image 
-//               src={HeroImage}
-//               // src={data?.layout?.banner?.image?.url}
-//               alt="Hero Image"
-//               // width={500}
-//               // height={500}
-//               className="absolute inset-0 w-full h-full max-w-full max-h-full object-cover rounded-full"
-//               priority
-//               width={500}
-//               height={500}
-//             />
-//           </div>
-//         </div>
-//         <div className="lg:w-[60%] flex flex-col items-center lg:items-start text-center lg:text-left mt-12 lg:mt-0 ">
-//           <p className="px-4 lg:px-0 font-semibold text-2xl lg:text-4xl xl:text-5xl dark:text-white text-black ">
-//             Improve Your Online Learning Experience Instantly
-//           </p>
-//           <p className="mt-4 px-4 lg:px-0 dark:text-gray-300 text-gray-700 text-sm lg:text-base xl:text-lg">
-//             We have 40k+ online courses & 500K+ registered students. Find your
-//             desired courses today.
-//           </p>  
-//           <br />
-//           <br />
-//           <div className="mt-6 w-full lg:w-[80%] relative z-10">
-//             <input
-//               type="text"
-//               placeholder="Search Courses..."
-//               className="border dark:border-gray-700 border-gray-500 dark:bg-gray-800 bg-gray-200 dark:placeholder-gray-400 placeholder-gray-800 
-//               rounded-md p-3 w-full h-12 outline-none text-black dark:text-white z-10"
-//               aria-label="Search Courses"
-//             />
-//             <div className="absolute flex items-center justify-center w-12 h-12 top-0 right-0 bg-blue-500 rounded-r-md cursor-pointer">
-//               <BiSearch className="text-white" size={24} />
-//             </div>
-//           </div>
-//           <p className="mt-6 dark:text-gray-200 text-gray-800 text-sm lg:text-base font-semibold text-center lg:text-left">
-//             Trusted by many students. {" "}
-//             <Link
-//               href="/courses"
-//               className="text-blue-500 dark:text-green-400 underline"
-//             >
-//               View Courses
-//             </Link>
-//           </p>
-//         </div>
-//       </div>   
-
-
-//        </div>
-//   );
-// }; 
-
-// export default Hero;
-
-
-
-
 "use client";
 import React from "react";
-import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
 import HeroImage from "../../../public/assests/AdminImage-removebg.png";
 
 const Hero: React.FC = () => {
   return (
-    <div className="w-full flex flex-col items-center">
-      {/* Hero Section */}
-      <div className="w-full flex flex-col lg:flex-row items-center pt-20 px-4 lg:px-20 overflow-hidden">
-        <div className="relative flex items-center justify-center mx-4 sm:mx-6 md:mx-7 my-4 sm:my-5 mt-6 pt-8 sm:pt-10 px-4 sm:px-6 py-6 sm:py-8 z-0">
-          <div className="relative flex items-center justify-center rounded-full hero_animation 
-    bg-gradient-to-r dark:from-blue-500 dark:to-purple-100 from-blue-300 to-purple-400 
-    opacity-60 h-[25vw] w-[25vw] sm:h-[30vh] sm:w-[30vh] md:h-[40vh] md:w-[40vh] lg:h-[500px] lg:w-[500px] 
-    xl:h-[500px] xl:w-[500px] shadow-lg overflow-hidden">
-            <Image 
+    <div className="w-full flex items-center justify-center min-h-screen bg-transparent pt-28 sm:pt-0">
+      {/* HERO CONTAINER */}
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 lg:px-20 py-12 lg:py-20 gap-10 lg:gap-16 xl:gap-20">
+        
+        {/* IMAGE SECTION (Always Left) */}
+          <div className="relative flex items-center justify-center w-full sm:w-1/2 mt-[0.5px] sm:mt-12"> 
+          <div
+            className="relative flex items-center justify-center rounded-full
+            bg-gradient-to-r from-blue-100 to-purple-200 dark:from-gray-800 dark:to-gray-800
+            h-[200px] xxs:h-[240px] xs:h-[280px] sm:h-[340px] md:h-[400px] lg:h-[450px] xl:h-[520px]
+            w-[200px] xxs:w-[240px] xs:w-[280px] sm:w-[340px] md:w-[400px] lg:w-[450px] xl:w-[520px]
+            shadow-xl overflow-hidden"
+          >
+            <Image
               src={HeroImage}
               alt="Hero Image"
-              className="absolute inset-0 w-full h-full max-w-full max-h-full object-cover rounded-full"
+              className="absolute inset-0 w-full h-full object-cover rounded-full"
               priority
-              width={500}
-              height={500}
             />
           </div>
         </div>
 
-        <div className="lg:w-[60%] flex flex-col items-center lg:items-start text-center lg:text-left mt-12 lg:mt-0 ">
-          <p className="px-4 lg:px-0 font-semibold text-2xl lg:text-4xl xl:text-5xl dark:text-white text-black ">
-            Improve Your Online Learning Experience Instantly
+        {/* TEXT SECTION (Always Right) */}
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:w-1/2 space-y-6">
+          <h1 className="font-bold text-2xl xs:text-3xl sm:text-4xl lg:text-5xl text-zinc-600 dark:text-white leading-tight">
+            Empower Your English Learning Journey With
+            <span className="bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent block mt-2">
+              Sushil Sir
+            </span>
+          </h1>
+
+          <p className="text-gray-600 dark:text-gray-400 text-sm xs:text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
+            Unlock your true communication potential. Learn to speak English fluently with confidence, express yourself naturally, and connect with people worldwide.
           </p>
-          <p className="mt-4 px-4 lg:px-0 dark:text-gray-300 text-gray-700 text-sm lg:text-base xl:text-lg">
-            We have 40k+ online courses & 500K+ registered students. Find your
-            desired courses today.
-          </p>  
-          <br />
-          <br />
 
-          {/* Search Input */}
-          <div className="mt-6 w-full lg:w-[80%] relative z-10">
-            <input
-              type="text"
-              id="search"                  // ✅ Added id
-              name="search"                // ✅ Added name
-              placeholder="Search Courses..."
-              autoComplete="off"           // ✅ Added autocomplete
-              className="border dark:border-gray-700 border-gray-500 dark:bg-gray-800 bg-gray-200 dark:placeholder-gray-400 placeholder-gray-800 
-              rounded-md p-3 w-full h-12 outline-none text-black dark:text-white z-10"
-              aria-label="Search Courses"
-            />
-            <div className="absolute flex items-center justify-center w-12 h-12 top-0 right-0 bg-blue-500 rounded-r-md cursor-pointer">
-              <BiSearch className="text-white" size={24} />
-            </div>
-          </div>
-
-          <p className="mt-6 dark:text-gray-200 text-gray-800 text-sm lg:text-base font-semibold text-center lg:text-left">
-            Trusted by many students. {" "}
+          {/* BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto justify-center sm:justify-start">
             <Link
-              href="/courses"
-              className="text-blue-500 dark:text-green-400 underline"
+              href="/allCourses"
+              className="px-6 py-3 border border-blue-400 text-blue-500 dark:text-white font-semibold rounded-full text-center hover:bg-blue-50 dark:hover:bg-gray-800 transition duration-300"
             >
-              View Courses
+              Explore Courses
             </Link>
-          </p>
+            <Link
+              href="/about"
+              className="px-6 py-3 border border-blue-400 text-blue-500 dark:text-white font-semibold rounded-full text-center hover:bg-blue-50 dark:hover:bg-gray-800 transition duration-300"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
-}; 
+};
 
 export default Hero;

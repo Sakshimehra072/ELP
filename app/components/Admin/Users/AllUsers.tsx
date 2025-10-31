@@ -658,7 +658,8 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
     headerName: "Purchased Courses",
     flex: 0.7,
     valueGetter: (params: GridRenderCellParams<User>) =>
-      params.row.courses?.length || 0, // ✅ strongly typed
+      Array.isArray(params?.row?.courses) ? params.row.courses.length : 0,
+      // params.row.courses?.length || 0, // ✅ strongly typed
   },
   { field: "createdAt", headerName: "Joined At", flex: 0.6 },
   {
@@ -704,7 +705,8 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
     name: item.name,
     email: item.email,
     role: item.role,
-    courses: item.courses || [],
+    courses: Array.isArray(item.courses) ? item.courses : [], // ✅ safe check
+    // courses: item.courses || [],
     createdAt: item.createdAt,
   }));
 

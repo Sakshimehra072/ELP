@@ -50,11 +50,11 @@ const Courses = () => {
   const visibleCourses = courses.slice(currentIndex, currentIndex + cardsPerRow);
 
   return (
-    <div className="w-full min-h-screen flex items-center py-12">
+    <div className="w-full min-h-screen flex items-center py-12 mt-[1px]">
       <div className="w-[95%] md:w-[90%] lg:w-[80%] mx-auto px-4">
-        <h1 className="text-center font-Poppins text-[25px] sm:text-5xl font-bold leading-[35px] lg:leading-[60px] text-gray-900 dark:text-white tracking-wide drop-shadow-md">
+        <h1 className="text-center font-Poppins text-[25px] sm:text-5xl font-bold leading-[35px] lg:leading-[60px] text-zinc-600 dark:text-white tracking-wide drop-shadow-md">
           Our Latest{" "}
-          <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
             Courses
           </span>
         </h1>
