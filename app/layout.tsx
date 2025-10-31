@@ -72,9 +72,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${josefin.variable} antialiased !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-slate-900 duration-300`}
+      
+
+//       className={`${poppins.variable} ${josefin.variable} antialiased !bg-white bg-no-repeat 
+//   dark:bg-gradient-to-b dark:from-gray-900 dark:to-slate-900 duration-300 
+//   min-h-screen w-full 
+//   px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
+//   py-4 sm:py-6 md:py-8 lg:py-10
+//   transition-all`}
+// suppressHydrationWarning
+// >
+
+  className={`${poppins.variable} ${josefin.variable} antialiased !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-slate-900 duration-300`}
         suppressHydrationWarning
       >
+
         {/* Pre-hydration script to set theme */}
         <script
           dangerouslySetInnerHTML={{
