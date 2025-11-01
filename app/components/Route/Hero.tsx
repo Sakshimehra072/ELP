@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* TEXT SECTION (Always Right) */}
-        <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:w-1/2 space-y-6">
+        {/* <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:w-1/2 space-y-6">
           <h1 className="font-bold text-2xl xs:text-3xl sm:text-4xl lg:text-5xl text-zinc-600 dark:text-white leading-tight">
             Empower Your English Learning Journey With
             <span className="bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent block mt-2">
@@ -41,7 +41,6 @@ const Hero: React.FC = () => {
             Unlock your true communication potential. Learn to speak English fluently with confidence, express yourself naturally, and connect with people worldwide.
           </p>
 
-          {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto justify-center sm:justify-start">
             <Link
               href="/allCourses"
@@ -55,7 +54,41 @@ const Hero: React.FC = () => {
             >
               Learn More
             </Link>
-          </div>
+          </div> */}
+
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:w-1/2 space-y-6">
+  {/* HEADING */}
+  <h1 className="font-bold text-2xl xs:text-3xl sm:text-4xl lg:text-5xl text-zinc-600 dark:text-white leading-tight opacity-0 animate-fadeInUp">
+    Empower Your English Learning Journey With
+    <span className="bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent block mt-2">
+      Sushil Sir
+    </span>
+  </h1>
+
+  {/* PARAGRAPH */}
+  <p className="text-gray-600 dark:text-gray-400 text-sm xs:text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed opacity-0 animate-fadeInUp delay-300">
+    Unlock your true communication potential. Learn to speak English fluently
+    with confidence, express yourself naturally, and connect with people
+    worldwide.
+  </p>
+
+  {/* BUTTONS */}
+  <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto justify-center sm:justify-start">
+    <Link
+      href="/allCourses"
+      className="px-6 py-3 border border-blue-400 text-blue-500 dark:text-white font-semibold rounded-full text-center hover:bg-blue-50 dark:hover:bg-gray-800 transition duration-300 opacity-0 animate-slideInLeft delay-500"
+    >
+      Explore Courses
+    </Link>
+    <Link
+      href="/about"
+      className="px-6 py-3 border border-blue-400 text-blue-500 dark:text-white font-semibold rounded-full text-center hover:bg-blue-50 dark:hover:bg-gray-800 transition duration-300 opacity-0 animate-slideInRight delay-700"
+    >
+      Learn More
+    </Link>
+  </div>
+
+
         </div>
       </div>
     </div>
