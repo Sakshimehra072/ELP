@@ -124,31 +124,73 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
 
                         {/* User Profile Section */}
                         {user ? (
-                            <Link href={"/profile"}>
-                                <Image
-                                    src={user.avatar?.url ?? avatar}
-                                    width={30}
-                                    height={30}
-                                    alt="user profile photo"
-                                    // className="w-[30px] h-[30px] object-cover rounded-full cursor-pointer border"
-                                    // className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-cover rounded-full cursor-pointer border border-transparent"
-                                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 object-cover rounded-full cursor-pointer border transition-all duration-200 ease-in-out"
-                                    style={{ border: activeItem === 5 ? "2px solid #37a39a" : "none" }}
-                                />
-                            </Link>
-                        ) : (
-                            <HiOutlineUserCircle
-                                size={25}
-                                className="hidden md:block cursor-pointer dark:text-white text-black"
-                                onClick={() => setOpen(true)}
-                            />
-                        )}
+  <Link href={"/profile"}>
+    <Image
+      src={user.avatar?.url ?? avatar}
+      width={30}
+      height={30}
+      alt="user profile photo"
+      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 object-cover rounded-full cursor-pointer border transition-all duration-200 ease-in-out"
+      style={{ border: activeItem === 5 ? "2px solid #37a39a" : "none" }}
+    />
+  </Link>
+) : (
+  <div className="flex flex-col items-center">
+    <HiOutlineUserCircle
+      size={25}
+      className="hidden md:block cursor-pointer dark:text-white text-black"
+      onClick={() => setOpen(true)}
+    />
+    <span
+      className="hidden md:block text-xs text-gray-600 dark:text-gray-300 mt-1 cursor-pointer hover:text-[#37a39a] transition-colors"
+      onClick={() => setOpen(true)}
+    >
+      Sign In
+    </span>
+  </div>
+)}
                     </div>
                 </div>
             </div>
 
             {/* Mobile Sidebar */}
+
             {openSidebar && (
+  <div
+    className="fixed w-full h-screen top-0 left-0 z-[9999] bg-[#00000050] backdrop-blur-md"
+    onClick={handleClose}
+    id="screen"
+  >
+    <div className="w-[70%] max-w-sm fixed h-screen bg-white dark:bg-gray-900 top-0 right-0 p-5 shadow-lg">
+      <NavItems activeItem={activeItem} isMobile={true} />
+
+      {/* User icon with Sign In text beside it */}
+      <div className="flex items-center gap-2 ml-5 my-2 cursor-pointer" onClick={() => setOpen(true)}>
+        <HiOutlineUserCircle
+          size={25}
+          className="text-black dark:text-white"
+        />
+        <span className="text-sm text-black dark:text-white hover:text-[#37a39a] transition-colors">
+          Sign In
+        </span>
+      </div>
+
+      <br />
+      <p className="text-[14px] px-2 pl-5 dark:text-white text-black">
+        Copyright © 2025 Live English With Sushil | All Rights Reserved
+      </p>
+      <p className="text-center text-zinc-800 text-xs dark:text-zinc-300">
+        Sakshi Mehra, Bhakti Agrawal
+      </p>
+    </div>
+  </div>
+)}
+
+
+
+
+
+            {/* {openSidebar && (
                 <div
                     className="fixed w-full h-screen top-0 left-0 z-[9999] bg-[#00000050] backdrop-blur-md"
                     onClick={handleClose}
@@ -161,6 +203,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                             className="cursor-pointer ml-5 my-2 text-black dark:text-white"
                             onClick={() => setOpen(true)}
                         />
+                         
                         <br />
                         <p className="text-[14px] px-2 pl-5 dark:text-white text-black ">
                              Copyright © 2025 Live English With Sushil | All Rights Reserved
@@ -168,7 +211,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                          <p className="text-center text-zinc-800 text-xs dark:text-zinc-300">Sakshi Mehra, Bhakti Agrawal</p>
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Authentication Modals */}
             {

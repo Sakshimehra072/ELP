@@ -202,19 +202,60 @@ const Reviews: React.FC = () => {
 
   const currentReview = reviews[currentIndex];
 
+  // To swipe cards in mobile
+
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) { // threshold for swipe
+      if (diff > 0) {
+        handleNext(); // swipe left → next
+      } else {
+        handlePrev(); // swipe right → previous
+      }
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
+
   return (
     <div className="relative w-full py-12 lg:py-16 bg-gradient-to-r from-blue-100 via-blue-100 to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start justify-between gap-10">
+      {/* <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start justify-between gap-10"> */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-10">
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 text-center">
-          <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight tracking-wide">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+        {/* <div className="w-full lg:w-1/2 text-center"> */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          {/* <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight tracking-wide">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 max-w-md text-center mx-auto">
               Reviews
             </span>
           </h2>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-700 dark:text-gray-300 mb-4">
             from our Students
-          </h3>
+          </h3> */}
+          <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight tracking-wide text-center">
+  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 max-w-md">
+    Reviews
+  </span>
+</h2>
+<h3 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-700 dark:text-gray-300 mb-4 text-center">
+  from our Students
+</h3>
+
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 max-w-md font-medium text-center mx-auto">
             Discover what our students say about their transformative journey.
           </p>
@@ -266,8 +307,17 @@ const Reviews: React.FC = () => {
         </div>
 
         {/* Right Section - Card */}
-        <div className="w-full lg:w-1/2 flex flex-col items-start">
-          <div className="relative w-full max-w-md">
+        {/* <div className="w-full lg:w-1/2 flex flex-col items-start"> */}
+        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start mt-8 lg:mt-0">
+          {/* <div className="relative w-full max-w-md"> */}
+          {/* <div className="relative w-full max-w-sm sm:max-w-md"> */}
+          <div
+  className="relative w-full max-w-sm sm:max-w-md"
+  onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}
+>
+
             <div
               className={`relative z-10 w-full h-[480px] transform-gpu transition-transform duration-700 ease-in-out ${
                 isFlipping ? "animate-[flip_0.7s_ease-in-out]" : ""
@@ -311,3 +361,7 @@ const Reviews: React.FC = () => {
 };
 
 export default Reviews;
+
+
+
+
