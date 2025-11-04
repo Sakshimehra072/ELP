@@ -4,13 +4,6 @@ import Image from "next/image";
 import Header from "../components/Header";
 import AchievementImg from "../../public/assests/Achivements.jpg";
 
-// type Props = {
-//     open: boolean;
-//     setOpen: (open: boolean) => void;
-//     activeItem: number;
-//     route: string;
-//     setRoute: (route: string) => void;
-// };
 
 const Page: React.FC = () => {
     const [open, setOpen] = useState(false);

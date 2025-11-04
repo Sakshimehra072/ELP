@@ -270,3 +270,8 @@ html, body {
     gap: 4rem !important; /* reduce the default gap between text and cards */
   }
 }
+
+
+/* @media (min-width: 1024px){
+
+} */

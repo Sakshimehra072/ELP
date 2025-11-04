@@ -23,7 +23,8 @@ const ReviewsCard: React.FC<Props> = ({ item }) => {
     : words.slice(0, 100).join(" ") + (isLong ? "..." : "");
 
   return (
-    <div className="w-full h-full flex flex-col justify-between bg-white dark:bg-slate-500 dark:bg-opacity-20 backdrop-blur border border-[#00000015] dark:border-[#ffffff1d] rounded-xl p-5 shadow-lg">
+    // <div className="w-full h-full flex flex-col justify-between bg-white dark:bg-slate-500 dark:bg-opacity-20 backdrop-blur border border-[#00000015] dark:border-[#ffffff1d] rounded-xl p-5 shadow-lg">
+    <div className="w-full h-full flex flex-col justify-between bg-white dark:bg-slate-500 dark:bg-opacity-20 backdrop-blur border border-[#00000015] dark:border-[#ffffff1d] rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
       {/* Top Section */}
       <div className="flex items-center w-full">
         <Image
@@ -60,7 +61,8 @@ const ReviewsCard: React.FC<Props> = ({ item }) => {
       </div>
 
       {/* Comment */}
-      <p className="pt-4 font-Poppins text-[15px] leading-relaxed text-black dark:text-white flex-1">
+      <p className="pt-6 font-Poppins text-[15px] leading-relaxed text-black text-justify dark:text-white flex-1">
+      {/* <p className="text-gray-600 dark:text-gray-300 text-justify leading-relaxed whitespace-pre-line"> */}
         {visibleText}
       </p>
 
