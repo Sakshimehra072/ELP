@@ -76,8 +76,6 @@
 
 
 
-
-import { styles } from "@/app/styles/style";
 import React, { useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi";
 
@@ -188,9 +186,13 @@ const FAQ = () => {
 
     <div className="pt-[80px] bg-white dark:bg-gray-900 transition-colors duration-300">
   <div className="w-[90%] 800px:w-[80%] m-auto">
-    <h1 className={`${styles.title} 800px:text-[40px] text-center`}>
+    <h1 className="text-[40px] font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+  Frequently Asked Questions
+</h1>
+
+    {/* <h1 className="text-[40px] from-blue-400 to-pink-400 text-center" >
       Frequently Asked Questions
-    </h1>
+    </h1> */}
 
     <div className="mt-12">
       <dl className="space-y-8">

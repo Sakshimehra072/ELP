@@ -9,16 +9,17 @@ const Footer = () => {
       <div className="border border-[#0000000e] dark:border-[#ffffff1e]" />
       <br />
       <div className="w-[95%] 800px:w-full 800px:max-w-[85%] mx-auto px-2 sm:px-2 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        {/* ✅ Updated grid layout for responsiveness */}
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4">
 
           <div className="space-y-4">
-            <h3 className="text-[20px] font-[600px] text-black dark:text-white">
+            <h3 className="text-[20px] font-[600px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400">
               About
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/about#mentor"   // ⬅️ links to "Know your Mentor"
+                  href="/about#mentor"
                   className="text-base text-black dark:text-gray-300 dark:hover-white"
                 >
                   About Mentor
@@ -26,7 +27,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/about#mission"  // ⬅️ links to Mission & Vision
+                  href="/about#mission"
                   className="text-base text-black dark:text-gray-300 dark:hover-white"
                 >
                   Mission & Vision
@@ -34,7 +35,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/about#courses"  // ⬅️ links to Popular Courses
+                  href="/about#courses"
                   className="text-base text-black dark:text-gray-300 dark:hover-white"
                 >
                   Popular Courses
@@ -43,43 +44,8 @@ const Footer = () => {
             </ul>
           </div>
 
-
-
-          {/* <div className="space-y-3">
-            <h3 className="text-[20px] font-[600px] text-black dark:text-white">
-              Quick Links
-            </h3>
-            <ul className="y-space-1">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-base text-black dark:text-gray-300 dark:hover-white"
-                >
-                  Courses                            
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-base text-black dark:text-gray-300 dark:hover-white"
-                >
-                  My Account
-        
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-base text-black dark:text-gray-300 dark:hover-white"
-                >
-                  Course Dashboard
-                </Link>
-              </li>
-            </ul>
-          </div> */}
-
           <div className="space-y-3">
-            <h3 className="text-[20px] font-[600px] text-black dark:text-white">
+            <h3 className="text-[20px] font-[600px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400">
               Quick Links
             </h3>
             <ul className="space-y-4">
@@ -110,16 +76,14 @@ const Footer = () => {
             </ul>
           </div>
 
-
-
           <div className="space-y-3">
-            <h3 className="text-[20px] font-[600px] text-black dark:text-white">
+            <h3 className="text-[20px] font-[600px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400">
               Social Links
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="https://youtube.com/@mrenglishsushil?si=5CsNKpLSkCpb5p1G  "
+                  href="https://youtube.com/@mrenglishsushil?si=5CsNKpLSkCpb5p1G"
                   className="text-base text-black dark:text-gray-300 dark:hover-white"
                 >
                   Youtube
@@ -143,8 +107,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
           <div>
-            <h3 className="text-[20px] font-[600px] text-black dark:text-white">
+            <h3 className="text-[20px] font-[600px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400">
               Contact Info
             </h3>
             <br />
@@ -161,9 +126,11 @@ const Footer = () => {
         </div>
         <br />
         <p className="text-center text-black dark:text-white">
-          Copyright © 2025 Live English With Sushil | All Rights Reserved
+          Copyright © {new Date().getFullYear()}  Live English With Sushil | All Rights Reserved
         </p>
-        <p className="text-center text-zinc-800 text-sm dark:text-zinc-300">👩🏼‍💻Developers: Sakshi Mehra, Bhakti Agrawal</p>
+        <p className="text-center text-zinc-800 text-sm dark:text-zinc-300">
+          👩🏼‍💻Developers: Sakshi Mehra, Bhakti Agrawal
+        </p>
       </div>
       <br />
     </footer>

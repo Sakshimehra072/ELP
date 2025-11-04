@@ -178,7 +178,7 @@ const Courses = () => {
         {/* Title */}
         <h1 className="text-center font-Poppins text-[25px] sm:text-5xl font-bold leading-[35px] lg:leading-[60px] text-zinc-600 dark:text-white tracking-wide drop-shadow-md">
           Our Latest{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
             Courses
           </span>
         </h1>
