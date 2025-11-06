@@ -54,8 +54,8 @@ const CourseDetailsPage = ({ id }: Props) => {
         // <></>
         <div>
           <Heading
-            title={data.course.name + " - ELearning"}
-            description="LMS is a platform for students to learn and get help from teachers"
+            title={data.course.name + " - Live English With Sushil"}
+            description="Live English With Sushil is a platform for students to learn and get help from teacher"
             keywords={data.course.tags}
           />
           <Header

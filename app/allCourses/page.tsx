@@ -121,7 +121,7 @@
 //       <Header route={route} setRoute={setRoute} open={open} setOpen={setOpen} activeItem={1} />
 //       <div className="w-[96%] 800px:w-[85%] m-auto min-h-[70vh]">
 //         <Heading
-//           title="All course - ELearning"
+//           title="All course - "
 //           description="Elearning is a programming community"
 //           keywords="Programming community, coding skills, expert insights, collaboration, growth"
 //         />
@@ -299,8 +299,8 @@ const AllCoursesContent: React.FC = () => {
       <Header route={route} setRoute={setRoute} open={open} setOpen={setOpen} activeItem={1} />
       <div className="w-[96%] 800px:w-[85%] m-auto min-h-[70vh]">
         <Heading
-          title="All course - ELearning"
-          description="Elearning is a programming community"
+          title="All course - Live English With Sushil"
+          description="Live English With Sushil is a Learning Platform."
           keywords="Programming community, coding skills, expert insights, collaboration, growth"
         />
         <br />

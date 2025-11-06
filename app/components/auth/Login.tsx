@@ -3,12 +3,12 @@ import React, { FC, useEffect, useState } from 'react';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
+// import { FcGoogle } from "react-icons/fc";
+// import { FaFacebook } from "react-icons/fa";
 import { styles } from '../../styles/style';
 import { useLoginMutation } from '@/redux/features/auth/authApi';
 import toast from 'react-hot-toast';
-import { signIn } from 'next-auth/react';
+// import { signIn } from 'next-auth/react';
 // import {useNavigation} from "react-router-dom";
 
 
@@ -72,8 +72,9 @@ useEffect(() => {
     const { errors, touched, values, handleChange, handleSubmit } = formik;
 
     return (
-        <div className="w-full">
-            <h1 className={`${styles.title}`}>
+        // <div className="w-full">
+        <div className="w-full max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 className={`${styles.title}`}>
                 Login to Live English With Sushil
             </h1>
             <form onSubmit={handleSubmit} >
@@ -136,7 +137,7 @@ useEffect(() => {
                     />
                 </div>
                 <br />
-                <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
+                {/* <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
                     or join with
                 </h5>
                 <div className="flex items-center justify-center my-3">
@@ -146,7 +147,7 @@ useEffect(() => {
                     <FaFacebook size={30} className="cursor-pointer ml-2"
                     onClick={() => signIn("facebook")}
                     />
-                </div>
+                </div> */}
                 <h5 className="text-center dark:text-white text-black pt-4 font-Poppins text-[14px]">
                     Not have any account?{" "}
 

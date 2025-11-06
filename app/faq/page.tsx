@@ -15,9 +15,9 @@ const Page = () => {
   return (
     <div className="min-h-screen">
       <Heading
-        title="Policy - ELearning"
-        description="ELearning is a learning management system for helping programmesr."
-        keywords="programming, mern"
+        title="FAQ - Live English With Sushil"
+        description="Live English With Sushil is a learning management system for helping programmesr."
+        keywords="English, Spoken English, IELTS, Vocabulary, Accent Classes, English Courses"
       />
       <Header
         open={open}
