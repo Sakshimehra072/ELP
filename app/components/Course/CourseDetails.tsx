@@ -559,6 +559,20 @@ const CourseDetails = ({
     {data.description}
   </p>
 </div>
+<br />
+
+<div>
+  <a
+    href="https://drive.google.com/file/d/1FYHdb9nyBAOLSMi9q9gX34_necuDmJ03/view?usp=drive_link"
+    className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold hover:opacity-80"
+  >
+    Privacy Policy
+  </a>
+</div>
+
+
+
+
 
 
              {/* <div className="w-full">

@@ -58,8 +58,8 @@ const Page: FC = () => {
   return (
     <div>
       <Heading
-        title="Elearning"
-        description="Elearning is a platform for students to learn and get help from teachers"
+        title="Live English With Sushil"
+        description="Live English With Sushil is a platform for students to learn and get help from teachers"
         keywords="Programming, MERN, Redux, Machine Learning"
       />
       <Header

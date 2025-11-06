@@ -151,8 +151,8 @@ const Page: FC = () => {
       <Protected>
         <Heading
           title={`${user|| "User"} profile - LMS`}
-          description="Elearning is a platform for student to learn and get help from teachers"
-          keywords="Programming, MERN, Redux, Machine Learning"
+          description="Live English With Sushil is a platform for student to learn online"
+          keywords="English, Spoken English, IELTS, Vocabulary, Accent Classes"
         />
         <Header
           open={open}
