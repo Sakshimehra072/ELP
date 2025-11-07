@@ -29,15 +29,11 @@ export const navItemsData = [
     //     url: "/termsofuse",
     // },
 ];
+
 type Props = {
     activeItem: number;
     isMobile: boolean;
 }
-
-// type Props = {
-//     activeItem: number;
-//     isMobile: boolean;
-// }
 
 const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
     return (
