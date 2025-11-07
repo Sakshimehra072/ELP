@@ -136,5 +136,4 @@ Our team will acknowledge your request within 3 working days and credited eligib
     </div>
   );
 };
-
-export default Page;
+export default page;
