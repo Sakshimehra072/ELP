@@ -116,12 +116,19 @@ const Footer = () => {
             <p className="pb-2 text-base text-black dark:text-gray-300 dark:hover-white">
               9888050007
             </p>
-            <p className="pb-2 text-base text-black dark:text-gray-300 dark:hover-white">
+            {/* <p className="pb-2 text-base text-black dark:text-gray-300 dark:hover-white">
               9876543210
-            </p>
+            </p> */}
+            
             <p className="pb-2 text-base text-black dark:text-gray-300 dark:hover-white">
               sushildnn78@gmail.com
             </p>
+            <Link
+                  href="/termsofuse"
+                  className="text-base text-black dark:text-gray-300 dark:hover-white"
+                >
+                  Terms of use
+                </Link>
           </div>
         </div>
         <br />
