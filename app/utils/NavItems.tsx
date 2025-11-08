@@ -20,14 +20,14 @@ export const navItemsData = [
         name: "Achivements",
         url: "/achivements",
     },
+     // {
+    //     name: "Terms",
+    //     url: "/termsofuse",
+    // },
     {
         name: "FAQ",
         url: "/faq",
     },
-    // {
-    //     name: "Terms",
-    //     url: "/termsofuse",
-    // },
 ];
 
 type Props = {
