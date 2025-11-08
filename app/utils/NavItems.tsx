@@ -20,13 +20,13 @@ export const navItemsData = [
         name: "Achivements",
         url: "/achivements",
     },
+     // {
+    //     name: "Terms",
+    //     url: "/termsofuse",
+    // },
     {
         name: "FAQ",
         url: "/faq",
-    },
-    {
-        name: "Terms",
-        url: "/termsofuse",
     },
 ];
 
@@ -57,9 +57,6 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
             {
                 isMobile && (
                     <div className="800px:hidden mt-5">
-
-
-
                         <div className="w-full text-center py-6">
                             <Link href={"/"} passHref>
                                 <span
@@ -70,9 +67,6 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
                             </Link>
 
                         </div>
-
-
-
 
                         {navItemsData &&
                             navItemsData.map((i, index) => (
@@ -85,7 +79,6 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
                                     >
                                         {i.name}
                                     </span>
-
                                 </Link>
                             ))
                         }

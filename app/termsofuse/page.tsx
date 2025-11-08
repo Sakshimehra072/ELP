@@ -1,11 +1,11 @@
 "use client";
-// import React, { useState } from "react";
-// import Header from "../components/Header";
+import React, { useState } from "react";
+import Header from "../components/Header";
 
 const Page: React.FC = () => {
-//   const [open, setOpen] = useState(false);
-//   const [route, setRoute] = useState("Home");
-//   const activeItem = 3;
+  const [open, setOpen] = useState(false);
+  const [route, setRoute] = useState("Home");
+  const activeItem = 5;
 
   return (
     <div className="max-w-5xl mx-auto mt-28 p-6 bg-white dark:bg-gray-800 rounded-lg shadow text-justify justify-center leading-relaxed">
@@ -124,7 +124,7 @@ Our team will acknowledge your request within 3 working days and credited eligib
       </p>
 
       {/* ✅ Fixed Header */}
-      {/* <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="fixed top-0 left-0 right-0 z-50">
         <Header
           open={open}
           setOpen={setOpen}
@@ -132,9 +132,9 @@ Our team will acknowledge your request within 3 working days and credited eligib
           setRoute={setRoute}
           route={route}
         />
-      </div> */}
+      </div>
     </div>
   );
 };
-
 export default Page;
+// export default page;
