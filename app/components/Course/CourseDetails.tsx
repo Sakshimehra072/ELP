@@ -562,18 +562,8 @@ const CourseDetails = ({
 <br />
 
 <div>
-  <a
-    href="https://drive.google.com/file/d/1FYHdb9nyBAOLSMi9q9gX34_necuDmJ03/view?usp=drive_link"
-    className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold hover:opacity-80"
-  >
-   Terms of use 
-  </a>
+ 
 </div>
-
-
-
-
-
 
              {/* <div className="w-full">
               <h1 className="text-[22px] sm:text-[25px] font-Poppins font-[600] text-black dark:text-white mt-6">
