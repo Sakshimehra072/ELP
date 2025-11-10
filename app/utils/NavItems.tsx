@@ -20,7 +20,7 @@ export const navItemsData = [
         name: "Achivements",
         url: "/achivements",
     },
-     // {
+    // {
     //     name: "Terms",
     //     url: "/termsofuse",
     // },
