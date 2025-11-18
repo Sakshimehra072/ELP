@@ -79,3 +79,8 @@ const ReviewsCard: React.FC<Props> = ({ item }) => {
 };
 
 export default ReviewsCard;
+
+
+
+
+
