@@ -121,7 +121,7 @@ const Footer = () => {
             </p> */}
             
             <p className="pb-2 text-base text-black dark:text-gray-300 dark:hover-white">
-              sushildnn78@gmail.com
+             Liveenglishwithsushil@gmail.com
             </p>
             <Link
                   href="/termsofuse"

@@ -507,7 +507,7 @@ const Page: React.FC = () => {
               },
               {
                 Icon: Mail,
-                href: "mailto:sushildnn78@gmail.com",
+                href: "mailto:Liveenglishwithsushil@gmail.com",
                 color: "from-blue-400 to-blue-600",
               },
               {
