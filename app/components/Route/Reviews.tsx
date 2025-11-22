@@ -166,19 +166,19 @@ export const reviews: Review[] = [
   rating: 5,
 },
 
-// {
-//   isVideo: true,
-//   videoSrc: "https://drive.google.com/file/d/1BT3uPYfwVPZjKFjVth2xhvdlZyjuNH46/preview",
-//   name: "Harleen Kaur",
-//   rating: 5,
-// },
+{
+  isVideo: true,
+  videoSrc: "https://drive.google.com/file/d/1J5hyI3UcW42EiR1TuLIFS2ItO7kZG9T5/preview",
+  name: "Mehakdeep kaur",
+  rating: 4.5,
+},
 
-// {
-//   isVideo: true,
-//   videoSrc: "https://drive.google.com/file/d/1BT3uPYfwVPZjKFjVth2xhvdlZyjuNH46/preview",
-//   name: "Harleen Kaur",
-//   rating: 5,
-// },
+{
+  isVideo: true,
+  videoSrc: "https://drive.google.com/file/d/1zwZSQZ7pa6EB2d3WFCeB-fD3bRppJLdX/preview",
+  name: "Archana Singh",
+  rating: 5,
+},
 
 ];
 
