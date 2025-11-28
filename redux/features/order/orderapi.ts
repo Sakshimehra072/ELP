@@ -1,4 +1,3 @@
-// import axios from "../utils/axios"; // your axios instance
 import axios from "axios"
 
 // initiate payment
