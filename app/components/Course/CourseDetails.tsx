@@ -434,7 +434,7 @@ type PaymentPayload = {
 // PHONEPE PAYMENT API FUNCTION
 // =============================
 const initiatePhonePePayment = async ({amount, courseId} : PaymentPayload) => {
-  const response = await fetch(`https://liveenglishwithsushil.com/api/v1/payment/initiate`, {
+  const response = await fetch(`https://www.liveenglishwithsushil.com/api/v1/payment/initiate`, {
     method: "POST",
     credentials : "include",
     headers: { "Content-Type": "application/json" },
